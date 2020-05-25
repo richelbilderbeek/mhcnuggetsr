@@ -20,7 +20,7 @@ library(mhcnuggetsr)
 
 ```
 if (is_mhcnuggets_installed()) {
-  predict(
+  epitope_predict(
     class_='I',
     peptides_path='data/test/test_peptides.peps', 
     mhc='HLA-A02:01'
@@ -31,7 +31,7 @@ if (is_mhcnuggets_installed()) {
 
 ```
 if (is_mhcnuggets_installed()) {
-  predict(
+  epitope_predict(
     class_='I',
     peptides_path='data/test/test_peptides.peps', 
     mhc='HLA-A02:01', 
@@ -42,7 +42,7 @@ if (is_mhcnuggets_installed()) {
 
 ```
 if (is_mhcnuggets_installed()) {
-  predict(
+  epitope_predict(
     class_='II',
     peptides_path='data/test/test_peptides.peps', 
     mhc='HLA-DRB101:01'
@@ -52,7 +52,7 @@ if (is_mhcnuggets_installed()) {
 
 ```
 if (is_mhcnuggets_installed()) {
-  predict(
+  epitope_predict(
     class_='I',
     peptides_path='data/test/test_peptides.peps', 
     mhc='HLA-A02:60'

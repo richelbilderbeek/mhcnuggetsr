@@ -1,7 +1,7 @@
 test_that("vignette examples", {
   if (!is_mhcnuggets_installed()) return()
   expect_silent(
-    predict(
+    epitope_predict(
       class = "I",
       peptides_path = "data/test/test_peptides.peps",
       mhc = "HLA-A02:01"
@@ -9,7 +9,7 @@ test_that("vignette examples", {
   )
 
   expect_silent(
-    predict(
+    epitope_predict(
       class = 'I',
       peptides_path = 'data/test/test_peptides.peps',
       mhc = 'HLA-A02:01',
@@ -18,7 +18,7 @@ test_that("vignette examples", {
   )
 
   expect_silent(
-    predict(
+    epitope_predict(
       class = 'II',
       peptides_path = 'data/test/test_peptides.peps',
       mhc = 'HLA-DRB101:01'
@@ -26,7 +26,7 @@ test_that("vignette examples", {
   )
 
   expect_silent(
-    predict(
+    epitope_predict(
       class = 'I',
       peptides_path = 'data/test/test_peptides.peps',
       mhc = 'HLA-A02:60'
