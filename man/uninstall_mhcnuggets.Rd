@@ -4,7 +4,10 @@
 \alias{uninstall_mhcnuggets}
 \title{Uninstall the MHCnuggets Python package.}
 \usage{
-uninstall_mhcnuggets()
+uninstall_mhcnuggets(
+  folder_name = get_default_mhcnuggets_folder(),
+  mhcnuggets_url = get_mhcnuggets_url()
+)
 }
 \description{
 Uninstall the MHCnuggets Python package.
