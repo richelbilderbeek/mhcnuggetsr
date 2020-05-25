@@ -2,12 +2,12 @@
 % Please edit documentation in R/install_mhcnuggets.R
 \name{install_mhcnuggets}
 \alias{install_mhcnuggets}
-\title{Install MHCnuggets}
+\title{Install the MHCnuggets Python package.}
 \usage{
 install_mhcnuggets()
 }
 \description{
-Install MHCnuggets
+Install the MHCnuggets Python package.
 }
 \author{
 Richèl J.C. Bilderbeek

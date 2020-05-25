@@ -4,5 +4,12 @@ test_that("use", {
   if (!is_mhcnuggets_installed()) {
     install_mhcnuggets()
     expect_true(is_mhcnuggets_installed())
+    uninstall_mhcnuggets()
+    expect_false(is_mhcnuggets_installed())
+  } else {
+    uninstall_mhcnuggets()
+    expect_false(is_mhcnuggets_installed())
+    install_mhcnuggets()
+    expect_true(is_mhcnuggets_installed())
   }
 })

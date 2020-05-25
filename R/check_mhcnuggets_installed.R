@@ -2,5 +2,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_mhcnuggets_installed <- function() {
-  reticulate::import("mhcnuggets")
+  if (!reticulate::py_module_available("mhcnuggets")) {
+    stop("The Python module 'mhcnuggets' is absent")
+  }
 }

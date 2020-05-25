@@ -11,6 +11,7 @@ mhcnuggetsr_report <- function() {
   kat("* mhcnuggetsr *")
   kat("***************")
   kat(paste0("OS: ", rappdirs::app_dir()$os))
+  kat(paste0("Python available: ", reticulate::py_available()))
   kat("**************")
   kat("* MHCnuggets *")
   kat("**************")
