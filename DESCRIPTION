@@ -9,6 +9,8 @@ Description:
     tool to predict MHC class I and MHC class II epitopes.
     This package allows one to call MHCnuggets from R.
 License: GPL-3
+Imports:
+    reticulate
 Suggests: 
     testthat,
     knitr,

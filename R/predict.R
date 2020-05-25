@@ -7,5 +7,12 @@ predict <- function(
   mhc,
   ba_models = FALSE
 ) {
-  c(class, peptides_path, mhc, ba_models)
+  mhcnuggetsr::check_mhcnuggets_installed()
+  mhcnuggets <- reticulate::import("mhcnuggets")
+  mhcnuggets$predict(
+    class_ = class,
+    peptides_path = peptides_path,
+    mhc = mhc,
+    ba_models = ba_models
+  )
 }

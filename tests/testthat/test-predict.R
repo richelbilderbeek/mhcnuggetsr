@@ -1,4 +1,5 @@
 test_that("vignette examples", {
+  if (!is_mhcnuggets_installed()) return()
   expect_silent(
     predict(
       class = "I",
