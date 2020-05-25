@@ -9,8 +9,14 @@ epitope_predict <- function(
   ba_models = FALSE
 ) {
   mhcnuggetsr::check_mhcnuggets_installed()
-  mhcnuggets <- reticulate::import("mhcnuggets")
-  mhcnuggets$predict(
+  predict <- reticulate::import(module = "mhcnuggets.src.predict")
+  reticulate::py_help(predict)
+  mhcnuggets$predict()
+  reticulate::py_help(mhcnuggets$src$predict)
+  mhcnuggets$src$aa_embeddings()
+  reticulate::py_help(mhcnuggets$src)
+  mhcnuggets$src$find_closest_mhcI()
+  predict(
     class_ = class,
     peptides_path = peptides_path,
     mhc = mhc,

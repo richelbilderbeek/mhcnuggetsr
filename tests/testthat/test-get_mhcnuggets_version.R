@@ -4,4 +4,5 @@ test_that("use", {
   expect_equal(1, length(version))
   expect_equal("character", class(version))
   expect_true(nchar(version) > 2)
+
 })
