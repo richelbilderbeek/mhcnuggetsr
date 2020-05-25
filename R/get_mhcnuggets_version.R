@@ -10,7 +10,7 @@ get_mhcnuggets_version <- function() {
     stdout = TRUE
   )
   as.character(
-    utils::na.omit(
+    stats::na.omit(
       stringr::str_match(
         string = output,
         pattern = "Version: (.*)"
