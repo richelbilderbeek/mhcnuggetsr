@@ -5,14 +5,28 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(ba_models, class, mhc, peptides_path)
+default_params_doc(
+  ba_models,
+  class,
+  folder_name,
+  mhc,
+  mhcnuggets_url,
+  peptides_path
+)
 }
 \arguments{
 \item{ba_models}{Set to TRUE to use a pure BA model}
 
 \item{class}{MHC class. Must be \code{I} or \code{II}}
 
+\item{folder_name}{superfolder of MHCnuggets.
+The superfolder's name is \code{/home/[user_name]/.local/share}
+by default, as can be obtained by
+\link{get_default_mhcnuggets_folder}}
+
 \item{mhc}{the MHC haplotype}
+
+\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 
 \item{peptides_path}{the path to the peptides}
 }

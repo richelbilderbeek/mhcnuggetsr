@@ -8,7 +8,7 @@ epitope_predict <- function(
   mhc,
   ba_models = FALSE
 ) {
-  mhcnuggetsr::check_mhcnuggets_installed()
+  mhcnuggetsr::check_mhcnuggets_installation()
   mhcnuggets <- reticulate::import(module = "mhcnuggets")
 
   predict <- reticulate::import(module = "mhcnuggets.src.predict")

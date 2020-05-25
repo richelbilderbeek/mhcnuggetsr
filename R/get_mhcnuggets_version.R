@@ -2,7 +2,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_mhcnuggets_version <- function() {
-  mhcnuggetsr::check_mhcnuggets_installed()
+  mhcnuggetsr::check_mhcnuggets_installation()
 
   output <- system2(
     command = "pip",

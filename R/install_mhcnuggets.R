@@ -1,22 +1,46 @@
 #' Install the MHCnuggets Python package.
+#' @inheritParams default_params_doc
+#' @examples
+#' library(testthat)
+#'
+#' if (is_on_ci() && !is_mhcnuggets_installed()) {
+#'   install_mhcnuggets()
+#'   expect_true(is_mhcnuggets_installed())
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-install_mhcnuggets <- function() {
-  python <- reticulate:::.globals$py_config$python
-  reticulate:::pip_install(python = python, package = "mhcnuggets")
+install_mhcnuggets <- function(
+  folder_name = get_default_mhcnuggets_folder(),
+  mhcnuggets_url = get_mhcnuggets_url()
+) {
+  if (mhcnuggetsr::is_mhcnuggets_installed(folder_name = folder_name)) {
+    stop("MHCnuggets is already installed")
+  }
 
-  # Works cleanly, fails uninstall
-  # reticulate::py_install("mhcnuggets", pip = TRUE)
+  # Create the folder if needed, do not warn if it is already present
+  dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
 
-  # envname <- "r-mhcnuggets"
-  # reticulate::conda_create(envname = envname)
-  # reticulate::conda_install(envname = envname, "MHCnuggets", pip = TRUE)
-#
-#   reticulate::conda_create(conda = "bioconda")
-#   reticulate::py_install(
-#     "mhcnuggets",
-#     conda = "r-miniconda"
-#     #conda = "https://repo.anaconda.com/pkgs/main/linux-64"
-#     #conda = "https://bioconda.anaconda.org/bioconda-forge/linux-64"
-#   )
+  # Check if already cloned
+  mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
+  if (!dir.exists(mhcnuggets_folder)) {
+    curwd <- getwd()
+    on.exit(setwd(curwd))
+    setwd(folder_name)
+    system2(
+      command = "git",
+      args = c(
+        "clone",
+        paste0(mhcnuggets_url, ".git")
+      ),
+      stdout = NULL,
+      stderr = NULL
+    )
+    setwd(curwd)
+  }
+  testthat::expect_true(dir.exists(mhcnuggets_folder))
+
+  if (1 == 2) {
+    python <- reticulate:::.globals$py_config$python
+    reticulate:::pip_install(python = python, package = "mhcnuggets")
+  }
 }
