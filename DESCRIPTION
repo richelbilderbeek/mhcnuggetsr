@@ -10,7 +10,9 @@ Description:
     This package allows one to call MHCnuggets from R.
 License: GPL-3
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -19,4 +21,3 @@ URL: https://github.com/richelbilderbeek/mhcnuggetsr
 BugReports: https://github.com/richelbilderbeek/mhcnuggetsr
 Language: en-US
 VignetteBuilder: knitr
-

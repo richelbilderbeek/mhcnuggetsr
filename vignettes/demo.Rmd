@@ -1,0 +1,53 @@
+---
+title: "demo"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mhcnuggetsr)
+```
+
+```
+# predicting new line separated peptides present in the peptides_path file 
+# for MHC class_I allele HLA-A02:01. Since a MS_BA blend model is available,
+# this prediction will use the blended model (HLA-A02:01_BA_to_HLAp.h5)
+predict(class_='I',
+        peptides_path='data/test/test_peptides.peps', 
+        mhc='HLA-A02:01')
+
+```
+
+
+```
+# This prediction will use a pure BA model (HLA-A02:01_BA.h5)
+predict(class_='I',
+        peptides_path='data/test/test_peptides.peps', 
+        mhc='HLA-A02:01', ba_models=True)
+
+# similarly doing the same prediction for MHC class_II allele HLA-DRB101:01
+# No MS_BA blend models are available for class II alleles, so this prediction will use a pure BA model
+predict(class_='II',
+        peptides_path='data/test/test_peptides.peps', 
+        mhc='HLA-DRB101:01')
+```
+
+```
+# as an example of prediction of rare alleles asking MHCnuggets to make predictions for HLA-A02:60
+# will make it search for the closest allele (HLA-A*02:01 in this case), and use the corresponding 
+# network for prediction
+predict(class_='I',
+        peptides_path='data/test/test_peptides.peps', 
+        mhc='HLA-A02:60')
+
+```
