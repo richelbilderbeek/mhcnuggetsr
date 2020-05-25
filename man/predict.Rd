@@ -18,3 +18,6 @@ predict(class, peptides_path, mhc, ba_models = FALSE)
 \description{
 Predict
 }
+\author{
+Richèl J.C. Bilderbeek
+}

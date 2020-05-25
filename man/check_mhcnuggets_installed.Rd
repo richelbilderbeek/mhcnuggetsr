@@ -9,3 +9,6 @@ check_mhcnuggets_installed()
 \description{
 Check if MHCnuggets is installed. Will \link{stop} if not.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -10,6 +10,7 @@ Description:
     This package allows one to call MHCnuggets from R.
 License: GPL-3
 Imports:
+    rappdirs,
     reticulate
 Suggests: 
     testthat,

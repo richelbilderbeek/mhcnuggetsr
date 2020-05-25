@@ -1,5 +1,6 @@
 #' Predict
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 predict <- function(
   class,

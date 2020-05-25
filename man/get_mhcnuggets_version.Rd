@@ -9,3 +9,6 @@ get_mhcnuggets_version()
 \description{
 Get the MHCnuggets version
 }
+\author{
+Richèl J.C. Bilderbeek
+}

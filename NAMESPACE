@@ -2,4 +2,10 @@
 
 export(check_mhcnuggets_installed)
 export(get_mhcnuggets_version)
+export(install_mhcnuggets)
+export(is_mhcnuggets_installed)
+export(is_on_appveyor)
+export(is_on_ci)
+export(is_on_travis)
+export(mhcnuggetsr_report)
 export(predict)

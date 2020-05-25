@@ -1,4 +1,6 @@
 #' Check if MHCnuggets is installed
+#' @author Richèl J.C. Bilderbeek
+#' @export
 is_mhcnuggets_installed <- function() {
   is_installed <- FALSE
   tryCatch(

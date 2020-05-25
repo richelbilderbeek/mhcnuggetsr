@@ -9,3 +9,6 @@ is_mhcnuggets_installed()
 \description{
 Check if MHCnuggets is installed
 }
+\author{
+Richèl J.C. Bilderbeek
+}
