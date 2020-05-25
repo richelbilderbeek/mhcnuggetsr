@@ -7,10 +7,6 @@ r_github_packages:
   - jimhester/lintr
   - MangoTheCat/goodpractice
 
-install:
-  - sudo apt install python3-pip
-  - pip install mhcnuggets
-
 after_success:
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
