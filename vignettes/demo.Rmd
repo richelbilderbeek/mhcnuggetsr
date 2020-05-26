@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(mhcnuggetsr)
+library(testthat)
 ```
 
 For this vignette, we use the same example as the MHCnuggets
@@ -27,25 +28,40 @@ if (is_mhcnuggets_installed()) {
 }
 ```
 
+```{r}
+if (is_mhcnuggets_installed()) {
+  mhc_1_haplotype <- "HLA-A02:01"
+  expect_true(mhc_1_haplotype %in% get_mhc_1_haplotypes())
+}
+```
+
 ```
 if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='I',
     peptides_path = peptides_path, 
-    mhc='HLA-A02:01'
+    mhc = mhc_1_haplotype
   )
 }
 ```
 
 
+
 ```
 if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='I',
     peptides_path = peptides_path, 
-    mhc='HLA-A02:01', 
-    ba_models=True
+    mhc = mhc_1_haplotype, 
+    ba_models = TRUE
   )
+}
+```
+
+```{r}
+if (is_mhcnuggets_installed()) {
+  mhc_2_haplotype <- "HLA-DRB101:01"
+  expect_true(mhc_2_haplotype %in% get_mhc_2_haplotypes())
 }
 ```
 
@@ -54,8 +70,16 @@ if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='II',
     peptides_path = peptides_path, 
-    mhc='HLA-DRB101:01'
+    mhc = mhc_2_haplotype
   )
+}
+```
+
+```{r}
+if (is_mhcnuggets_installed()) {
+  mhc_1_haplotype <- "HLA-A02:60"
+  # This is not true, no idea why
+  # expect_true(mhc_1_haplotype %in% get_mhc_1_haplotypes())
 }
 ```
 
@@ -64,7 +88,7 @@ if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='I',
     peptides_path = peptides_path, 
-    mhc='HLA-A02:60'
+    mhc = mhc_1_haplotype
   )
 }
 ```
