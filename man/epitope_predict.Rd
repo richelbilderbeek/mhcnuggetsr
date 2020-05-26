@@ -4,7 +4,14 @@
 \alias{epitope_predict}
 \title{Predict}
 \usage{
-epitope_predict(class, peptides_path, mhc, ba_models = FALSE)
+epitope_predict(
+  class,
+  peptides_path,
+  mhc,
+  ba_models = FALSE,
+  folder_name = get_default_mhcnuggets_folder(),
+  mhcnuggets_url = get_mhcnuggets_url()
+)
 }
 \arguments{
 \item{class}{MHC class. Must be \code{I} or \code{II}}
@@ -14,6 +21,13 @@ epitope_predict(class, peptides_path, mhc, ba_models = FALSE)
 \item{mhc}{the MHC haplotype}
 
 \item{ba_models}{Set to TRUE to use a pure BA model}
+
+\item{folder_name}{superfolder of MHCnuggets.
+The superfolder's name is \code{/home/[user_name]/.local/share}
+by default, as can be obtained by
+\link{get_default_mhcnuggets_folder}}
+
+\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
 \description{
 Predict

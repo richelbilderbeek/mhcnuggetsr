@@ -5,7 +5,7 @@ get_mhcnuggets_version <- function() {
   mhcnuggetsr::check_mhcnuggets_installation()
 
   output <- system2(
-    command = "pip",
+    command = "pip3",
     args = c("show", "mhcnuggets"),
     stdout = TRUE
   )

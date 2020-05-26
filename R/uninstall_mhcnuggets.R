@@ -1,4 +1,5 @@
 #' Uninstall the MHCnuggets Python package.
+#' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
 uninstall_mhcnuggets <- function(

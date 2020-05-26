@@ -9,6 +9,14 @@ uninstall_mhcnuggets(
   mhcnuggets_url = get_mhcnuggets_url()
 )
 }
+\arguments{
+\item{folder_name}{superfolder of MHCnuggets.
+The superfolder's name is \code{/home/[user_name]/.local/share}
+by default, as can be obtained by
+\link{get_default_mhcnuggets_folder}}
+
+\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+}
 \description{
 Uninstall the MHCnuggets Python package.
 }
