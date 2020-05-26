@@ -39,6 +39,16 @@ install_mhcnuggets <- function(
   }
   testthat::expect_true(dir.exists(mhcnuggets_folder))
 
+  # Update pip
+  system2(
+    reticulate::py_config()$python,
+    args = c(
+      "-m", "pip", "install", "--upgrade", "pip"
+    ),
+    stdout = NULL
+  )
+
+  # Install MHCnugget
   system2(
     reticulate::py_config()$python,
     args = c(
