@@ -3,8 +3,10 @@
 #' @examples
 #' library(testthat)
 #'
-#' haplotypes <- get_trained_mhc_2_haplotypes()
-#' expect_true(length(haplotypes) > 1)
+#' if (is_mhcnuggets_installed()) {
+#'   haplotypes <- get_trained_mhc_2_haplotypes()
+#'   expect_true(length(haplotypes) > 1)
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_trained_mhc_2_haplotypes <- function(
