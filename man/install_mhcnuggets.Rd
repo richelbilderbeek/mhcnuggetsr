@@ -23,7 +23,7 @@ Install the MHCnuggets Python package.
 \examples{
 library(testthat)
 
-if (is_on_ci() && !is_mhcnuggets_installed()) {
+if (1 == 2 && is_on_ci() && !is_mhcnuggets_installed()) {
   install_mhcnuggets()
   expect_true(is_mhcnuggets_installed())
 }
