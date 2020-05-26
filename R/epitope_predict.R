@@ -1,5 +1,26 @@
 #' Predict
 #' @inheritParams default_params_doc
+#' @examples
+#' library(testthat)
+#'
+#' if (is_mhcnuggets_installed()) {
+#'
+#'   peptides_path <- get_example_filename("test_peptides.peps")
+#'   expect_true(file.exists(peptides_path))
+#'
+#'   mhc_1_haplotype <- "HLA-A02:01"
+#'   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
+#'
+#'   df <- epitope_predict(
+#'     mhc_class = "I",
+#'     peptides_path = peptides_path,
+#'     mhc = mhc_1_haplotype
+#'   )
+#'   expect_true("peptide" %in% names(df))
+#'   expect_true("ic50" %in% names(df))
+#'   expect_equal("character", class(df$peptide))
+#'   expect_equal("numeric", class(df$ic50))
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 epitope_predict <- function(
@@ -12,7 +33,7 @@ epitope_predict <- function(
 ) {
   if (!mhc_class %in% c("I", "II")) {
     stop(
-      "'class' must be either 'I' or 'II'. \n",
+      "'mhc_class' must be either 'I' or 'II'. \n",
       "Actual value: ", mhc_class
     )
   }
@@ -35,29 +56,20 @@ epitope_predict <- function(
     module = "mhcnuggets.src.predict",
     path = file.path(mhcnuggets_folder, "mhcnuggets")
   )
-  module$predict(
-    class_ = mhc_class,
-    peptides_path = peptides_path,
-    mhc = mhc,
-    ba_models = ba_models
+  filename <- tempfile()
+  result <- NA
+
+  suppressMessages(
+    result <- module$predict(
+      class_ = mhc_class,
+      peptides_path = peptides_path,
+      mhc = mhc,
+      ba_models = ba_models,
+      output = filename
+    )
   )
-#
-#
-#   if (1 == 2) {
-#     mhcnuggets <- reticulate::import(module = "mhcnuggets")
-#
-#     predict <- reticulate::import(module = "mhcnuggets.src.predict")
-#     reticulate::py_help(predict)
-#      mhcnuggets$predict()
-#     reticulate::py_help(mhcnuggets$src$predict)
-#     mhcnuggets$src$aa_embeddings()
-#     reticulate::py_help(mhcnuggets$src)
-#     mhcnuggets$src$find_closest_mhcI()
-#     predict(
-#       class_ = class,
-#       peptides_path = peptides_path,
-#       mhc = mhc,
-#       ba_models = ba_models
-#     )
-#   }
+
+  df <- tibble::as_tibble(utils::read.csv(filename))
+  df$peptide <- as.character(df$peptide)
+  df
 }

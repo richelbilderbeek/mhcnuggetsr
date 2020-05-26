@@ -1,20 +1,21 @@
 test_that("vignette example 1", {
   if (!is_mhcnuggets_installed()) return()
 
-  skip("Not now")
   peptides_path <- get_example_filename("test_peptides.peps")
   expect_true(file.exists(peptides_path))
 
   mhc_1_haplotype <- "HLA-A02:01"
   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 
-  expect_silent(
-    epitope_predict(
-      mhc_class = "I",
-      peptides_path = peptides_path,
-      mhc = mhc_1_haplotype
-    )
+  df <- epitope_predict(
+    mhc_class = "I",
+    peptides_path = peptides_path,
+    mhc = mhc_1_haplotype
   )
+  expect_true("peptide" %in% names(df))
+  expect_true("ic50" %in% names(df))
+  expect_equal("character", class(df$peptide))
+  expect_equal("numeric", class(df$ic50))
 })
 
 test_that("vignette example 2", {
@@ -87,7 +88,7 @@ test_that("abuse, no MHCnuggets install needed", {
       peptides_path = irrelevant,
       mhc = irrelevant
     ),
-    "'class' must be either 'I' or 'II'"
+    "'mhc_class' must be either 'I' or 'II'"
   )
   expect_error(
     epitope_predict(
@@ -115,7 +116,7 @@ test_that("abuse, MHCnuggets install needed", {
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype
     ),
-    "Must use the same 'class' as the 'mhc' is from"
+    "Must use the same 'mhc_class' as the 'mhc' is from"
   )
   expect_error(
     epitope_predict(
@@ -123,6 +124,6 @@ test_that("abuse, MHCnuggets install needed", {
       peptides_path = peptides_path,
       mhc = mhc_2_haplotype
     ),
-    "Must use the same 'class' as the 'mhc' is from"
+    "Must use the same 'mhc_class' as the 'mhc' is from"
   )
 })

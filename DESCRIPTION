@@ -12,7 +12,8 @@ License: GPL-3
 Imports:
     rappdirs,
     reticulate,
-    stringr
+    stringr,
+    tibble
 Suggests: 
     knitr,
     testthat,
