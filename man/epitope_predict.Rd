@@ -5,7 +5,7 @@
 \title{Predict}
 \usage{
 epitope_predict(
-  class,
+  mhc_class,
   peptides_path,
   mhc,
   ba_models = FALSE,
@@ -14,7 +14,7 @@ epitope_predict(
 )
 }
 \arguments{
-\item{class}{MHC class. Must be \code{I} or \code{II}}
+\item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
 
 \item{peptides_path}{the path to the peptides}
 

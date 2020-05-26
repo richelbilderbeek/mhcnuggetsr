@@ -10,7 +10,7 @@ test_that("vignette example 1", {
 
   expect_silent(
     epitope_predict(
-      class = "I",
+      mhc_class = "I",
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype
     )
@@ -29,7 +29,7 @@ test_that("vignette example 2", {
 
   expect_silent(
     epitope_predict(
-      class = "I",
+      mhc_class = "I",
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype,
       ba_models = TRUE
@@ -49,7 +49,7 @@ test_that("vignette example 3", {
 
   expect_silent(
     epitope_predict(
-      class = "II",
+      mhc_class = "II",
       peptides_path = peptides_path,
       mhc = mhc_2_haplotype
     )
@@ -70,7 +70,7 @@ test_that("vignette example 4", {
 
   expect_silent(
     epitope_predict(
-      class = "I",
+      mhc_class = "I",
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype
     )
@@ -83,7 +83,7 @@ test_that("abuse, no MHCnuggets install needed", {
 
   expect_error(
     epitope_predict(
-      class = "nonsense",
+      mhc_class = "nonsense",
       peptides_path = irrelevant,
       mhc = irrelevant
     ),
@@ -91,7 +91,7 @@ test_that("abuse, no MHCnuggets install needed", {
   )
   expect_error(
     epitope_predict(
-      class = "I",
+      mhc_class = "I",
       peptides_path = "abs.ent",
       mhc = irrelevant
     ),
@@ -111,7 +111,7 @@ test_that("abuse, MHCnuggets install needed", {
 
   expect_error(
     epitope_predict(
-      class = "II",
+      mhc_class = "II",
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype
     ),
@@ -119,7 +119,7 @@ test_that("abuse, MHCnuggets install needed", {
   )
   expect_error(
     epitope_predict(
-      class = "I",
+      mhc_class = "I",
       peptides_path = peptides_path,
       mhc = mhc_2_haplotype
     ),

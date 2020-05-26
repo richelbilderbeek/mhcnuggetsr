@@ -7,9 +7,9 @@ documentation.}
 \usage{
 default_params_doc(
   ba_models,
-  class,
   folder_name,
   mhc,
+  mhc_class,
   mhcnuggets_url,
   peptides_path
 )
@@ -17,14 +17,14 @@ default_params_doc(
 \arguments{
 \item{ba_models}{Set to TRUE to use a pure BA model}
 
-\item{class}{MHC class. Must be \code{I} or \code{II}}
-
 \item{folder_name}{superfolder of MHCnuggets.
 The superfolder's name is \code{/home/[user_name]/.local/share}
 by default, as can be obtained by
 \link{get_default_mhcnuggets_folder}}
 
 \item{mhc}{the MHC haplotype}
+
+\item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 
