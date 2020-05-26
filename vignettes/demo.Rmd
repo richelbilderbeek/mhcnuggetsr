@@ -18,11 +18,20 @@ knitr::opts_chunk$set(
 library(mhcnuggetsr)
 ```
 
+For this vignette, we use the same example as the MHCnuggets
+Python notebooks.
+
+```{r}
+if (is_mhcnuggets_installed()) {
+  peptides_path <- get_example_filename("test_peptides.peps")
+}
+```
+
 ```
 if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='I',
-    peptides_path='data/test/test_peptides.peps', 
+    peptides_path = peptides_path, 
     mhc='HLA-A02:01'
   )
 }
@@ -33,7 +42,7 @@ if (is_mhcnuggets_installed()) {
 if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='I',
-    peptides_path='data/test/test_peptides.peps', 
+    peptides_path = peptides_path, 
     mhc='HLA-A02:01', 
     ba_models=True
   )
@@ -44,7 +53,7 @@ if (is_mhcnuggets_installed()) {
 if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='II',
-    peptides_path='data/test/test_peptides.peps', 
+    peptides_path = peptides_path, 
     mhc='HLA-DRB101:01'
   )
 }
@@ -54,8 +63,14 @@ if (is_mhcnuggets_installed()) {
 if (is_mhcnuggets_installed()) {
   epitope_predict(
     class_='I',
-    peptides_path='data/test/test_peptides.peps', 
+    peptides_path = peptides_path, 
     mhc='HLA-A02:60'
   )
 }
+```
+
+## Appendix
+
+```{r}
+mhcnuggetsr_report()
 ```
