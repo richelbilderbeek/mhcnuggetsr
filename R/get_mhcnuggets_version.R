@@ -5,7 +5,7 @@ get_mhcnuggets_version <- function() {
   mhcnuggetsr::check_mhcnuggets_installation()
 
   output <- system2(
-    "python",
+    reticulate::py_config()$python,
     args = c("-m", "pip", "show", "mhcnuggets"),
     stdout = TRUE
   )
