@@ -89,6 +89,15 @@ if (is_mhcnuggets_installed()) {
 }
 ```
 
+### All MHC-II haplotypes
+
+These are the MHC-II haplotypes that have a trained model.
+
+```{r}
+if (is_mhcnuggets_installed()) {
+  get_mhc_2_haplotypes()
+}
+```
 
 ### Session info
 ```{r}
