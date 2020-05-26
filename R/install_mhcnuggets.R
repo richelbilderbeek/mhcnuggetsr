@@ -38,16 +38,4 @@ install_mhcnuggets <- function(
     setwd(curwd)
   }
   testthat::expect_true(dir.exists(mhcnuggets_folder))
-
-  if (1 == 2) {
-    module <- reticulate::import_from_path(
-      module = "mhcnuggets",
-      path = mhcnuggets_folder
-    )
-  }
-
-  if (1 == 2) {
-    python <- reticulate:::.globals$py_config$python
-    reticulate:::pip_install(python = python, package = "mhcnuggets")
-  }
 }

@@ -16,11 +16,6 @@ uninstall_mhcnuggets <- function(
   unlink(mhcnuggets_folder, recursive = TRUE, force = TRUE)
   testthat::expect_true(!dir.exists(mhcnuggets_folder))
 
-  if (1 == 2) {
-    python <- reticulate:::.globals$py_config$python
-    reticulate:::pip_uninstall(python = python, package = "mhcnuggets")
-  }
-
   if (mhcnuggetsr::is_mhcnuggets_installed()) {
     warning("The Python module 'mhcnuggets' is not uninstalled")
   }
