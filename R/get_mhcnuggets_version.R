@@ -18,10 +18,4 @@ get_mhcnuggets_version <- function() {
       )[, 2]
     )
   )
-  # Does not work
-  #predict <- reticulate::import(module = "mhcnuggets.src.predict")
-  #reticulate::py_run_string("import mhcnuggets; print(mhcnuggets.__version__)")
-
-  # Indeed prints it, but cannot capture it
-  # reticulate::py_run_string("import pkg_resources; print(pkg_resources.get_distribution('mhcnuggets').version)")
 }

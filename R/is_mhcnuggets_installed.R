@@ -7,8 +7,7 @@ is_mhcnuggets_installed <- function(
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
   is_installed <- FALSE
-  tryCatch(
-    {
+  tryCatch({
       mhcnuggetsr::check_mhcnuggets_installation(
         folder_name = folder_name,
         mhcnuggets_url = mhcnuggets_url

@@ -57,10 +57,9 @@ epitope_predict <- function(
     path = file.path(mhcnuggets_folder, "mhcnuggets")
   )
   filename <- tempfile()
-  result <- NA
 
   suppressMessages(
-    result <- module$predict(
+    module$predict(
       class_ = mhc_class,
       peptides_path = peptides_path,
       mhc = mhc,
