@@ -10,12 +10,7 @@ r_github_packages:
 before_script:
   - sudo apt install python3-pip
   - sudo pip install --upgrade pip
-  - which pip3 || true
-  - which pip || true
-  - which python-pip3 || true
-  - which python-pip || true
-  - which python3-pip3 || true
-  - which python3-pip || true
+  - python3 -m pip install --upgrade pip
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
