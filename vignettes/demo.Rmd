@@ -127,7 +127,5 @@ if (is_mhcnuggets_installed()) {
 ### Session info
 
 ```{r}
-if (1 == 2) {
-  mhcnuggetsr_report()
-}
+mhcnuggetsr_report()
 ```

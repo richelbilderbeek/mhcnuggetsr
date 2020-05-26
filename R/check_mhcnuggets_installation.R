@@ -10,8 +10,4 @@ check_mhcnuggets_installation <- function(
   if (!dir.exists(mhcnuggets_folder)) {
     stop("MHCnuggets GitHub repo not found at '", mhcnuggets_folder, "'")
   }
-
-  if (1 == 2 && !reticulate::py_module_available("mhcnuggets")) {
-    stop("The Python module 'mhcnuggets' is absent")
-  }
 }
