@@ -11,6 +11,9 @@ before_script:
   - sudo apt install python3-pip
   - sudo pip install --upgrade pip
   - python3 -m pip install --upgrade pip
+  - python3 -m pip install --upgrade
+  - python3 -m pip install setuptools
+
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
