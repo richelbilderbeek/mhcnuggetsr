@@ -11,6 +11,13 @@ uninstall_mhcnuggets <- function(
     mhcnuggets_url = mhcnuggets_url
   )
 
+  # Uninstall the pip package
+  system2(
+    reticulate::py_config()$python,
+    args = c("-m", "pip", "uninstall", "mhcnuggets", "--yes"),
+    stdout = TRUE
+  )
+
   # Delete folder
   mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
   unlink(mhcnuggets_folder, recursive = TRUE, force = TRUE)

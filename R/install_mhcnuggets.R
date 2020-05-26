@@ -38,4 +38,12 @@ install_mhcnuggets <- function(
     setwd(curwd)
   }
   testthat::expect_true(dir.exists(mhcnuggets_folder))
+
+  system2(
+    reticulate::py_config()$python,
+    args = c(
+      "-m", "pip", "install", file.path(mhcnuggets_folder)
+    ),
+    stdout = NULL
+  )
 }
