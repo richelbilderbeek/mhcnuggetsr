@@ -10,7 +10,25 @@ epitope_predict <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
+  if (!class %in% c("I", "II")) {
+    stop(
+      "'class' must be either 'I' or 'II'. \n",
+      "Actual value: ", class
+    )
+  }
+  if (!file.exists(peptides_path)) {
+    stop(
+      "Cannot find 'peptides_path'. \n",
+      "Actual value: ", peptides_path
+    )
+  }
   mhcnuggetsr::check_mhcnuggets_installation()
+  if (class == "I" && mhc %in% get_trained_mhc_2_haplotypes()) {
+    stop("Must use the same 'class' as the 'mhc' is from")
+  }
+  if (class == "II" && mhc %in% get_trained_mhc_1_haplotypes()) {
+    stop("Must use the same 'class' as the 'mhc' is from")
+  }
   mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   module <- reticulate::import_from_path(

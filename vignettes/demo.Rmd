@@ -25,13 +25,14 @@ Python notebooks.
 ```{r}
 if (is_mhcnuggets_installed()) {
   peptides_path <- get_example_filename("test_peptides.peps")
+  expect_true(file.exists(peptides_path))
 }
 ```
 
 ```{r}
 if (is_mhcnuggets_installed()) {
   mhc_1_haplotype <- "HLA-A02:01"
-  expect_true(mhc_1_haplotype %in% get_mhc_1_haplotypes())
+  expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 }
 ```
 
@@ -61,7 +62,7 @@ if (is_mhcnuggets_installed()) {
 ```{r}
 if (is_mhcnuggets_installed()) {
   mhc_2_haplotype <- "HLA-DRB101:01"
-  expect_true(mhc_2_haplotype %in% get_mhc_2_haplotypes())
+  expect_true(mhc_2_haplotype %in% get_trained_mhc_2_haplotypes())
 }
 ```
 
@@ -79,7 +80,7 @@ if (is_mhcnuggets_installed()) {
 if (is_mhcnuggets_installed()) {
   mhc_1_haplotype <- "HLA-A02:60"
   # This is not true, no idea why
-  # expect_true(mhc_1_haplotype %in% get_mhc_1_haplotypes())
+  # expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 }
 ```
 
@@ -109,7 +110,7 @@ These are the MHC-I haplotypes that have a trained model.
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  get_mhc_1_haplotypes()
+  get_trained_mhc_1_haplotypes()
 }
 ```
 
@@ -119,7 +120,7 @@ These are the MHC-II haplotypes that have a trained model.
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  get_mhc_2_haplotypes()
+  get_trained_mhc_2_haplotypes()
 }
 ```
 
