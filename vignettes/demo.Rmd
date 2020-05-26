@@ -71,6 +71,26 @@ if (is_mhcnuggets_installed()) {
 
 ## Appendix
 
+### All example files
+
+```{r}
+if (is_mhcnuggets_installed()) {
+  get_example_filenames()
+}
+```
+
+### All MHC-I haplotypes
+
+These are the MHC-I haplotypes that have a trained model.
+
+```{r}
+if (is_mhcnuggets_installed()) {
+  get_mhc_1_haplotypes()
+}
+```
+
+
+### Session info
 ```{r}
 mhcnuggetsr_report()
 ```
