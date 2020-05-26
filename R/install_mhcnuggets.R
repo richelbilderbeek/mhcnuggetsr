@@ -48,6 +48,15 @@ install_mhcnuggets <- function(
     stdout = NULL
   )
 
+  # Install setuptools
+  system2(
+    reticulate::py_config()$python,
+    args = c(
+      "-m", "pip", "install", "setuptools"
+    ),
+    stdout = NULL
+  )
+
   # Install MHCnugget
   system2(
     reticulate::py_config()$python,
