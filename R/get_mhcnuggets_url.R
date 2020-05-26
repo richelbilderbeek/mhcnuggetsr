@@ -7,5 +7,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_mhcnuggets_url <- function() {
-  "https://github.com/richelbilderbeek/mhcnuggets"
+  "https://github.com/KarchinLab/mhcnuggets"
 }
