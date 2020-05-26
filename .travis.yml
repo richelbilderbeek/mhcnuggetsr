@@ -7,7 +7,7 @@ r_github_packages:
   - jimhester/lintr
   - MangoTheCat/goodpractice
 
-install:
+before_script:
   - sudo apt install python3-pip
 
 after_success:
