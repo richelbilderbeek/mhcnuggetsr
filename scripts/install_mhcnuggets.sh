@@ -10,7 +10,7 @@
 #  ./scripts/install_mhcnuggets.sh
 #
 #
-cat R/install_mhcnuggets.R > tmp_install_mhcnuggets.R
+cat R/installl_mhcnuggets.R > tmp_install_mhcnuggets.R
 cat R/get_default_mhcnuggets_folder.R >> tmp_install_mhcnuggets.R
 cat R/get_mhcnuggets_url.R >> tmp_install_mhcnuggets.R
 cat R/is_mhcnuggets_installed.R >> tmp_install_mhcnuggets.R
