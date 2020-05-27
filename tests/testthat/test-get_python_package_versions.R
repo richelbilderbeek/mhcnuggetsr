@@ -1,3 +1,9 @@
 test_that("use", {
-  expect_silent(get_python_package_versions())
+  df <- get_python_package_versions()
+  expect_true(tibble::is_tibble(df))
+  expect_true("package" %in% names(df))
+  expect_true("version" %in% names(df))
+  expect_true(nrow(df) > 0)
+  expect_true(!is.factor(df$package))
+  expect_true(!is.factor(df$version))
 })

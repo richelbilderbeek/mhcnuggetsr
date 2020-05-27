@@ -1,4 +1,12 @@
 #' Get the version of pip
+#' @examples
+#' library(testthat)
+#'
+#' version <- get_pip_version()
+#'
+#' expect_equal(1, length(version))
+#' expect_equal("character", class(version))
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_pip_version <- function() {
   line <- system2(
