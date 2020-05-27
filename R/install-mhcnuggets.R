@@ -9,12 +9,12 @@
 #' if (is_on_ci() && !is_mhcnuggets_installed()) {
 #'   # Use triple-l, due to bug upstream,
 #'   # bug report at https://github.com/r-lib/roxygen2/issues/1101
-#'   installl_mhcnuggets()
+#'   install_mhcnuggets()
 #'   expect_true(is_mhcnuggets_installed())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-installl_mhcnuggets <- function(
+install_mhcnuggets <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
