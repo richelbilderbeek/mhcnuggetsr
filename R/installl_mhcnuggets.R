@@ -1,4 +1,5 @@
 #' Install the \code{MHCnuggets} \code{Python} package.
+#' @note Use triple-l, due to bug upstream
 #' @inheritParams default_params_doc
 #' @return Nothing
 #' @examples
@@ -10,7 +11,7 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-install_mhcnuggets <- function(
+installl_mhcnuggets <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
