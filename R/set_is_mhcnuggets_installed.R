@@ -15,8 +15,8 @@ set_is_mhcnuggets_installed <- function(
   )
   if (is_installed == is_cur_installed) return()
   if (is_installed) {
-    mhcnuggetsr:::install_mhcnuggets() # nolint unknown why this function is not exported, see https://github.com/richelbilderbeek/mhcnuggetsr/issues/2
+    install_mhcnuggets() # nolint unknown why this function is not exported, see https://github.com/richelbilderbeek/mhcnuggetsr/issues/2
   } else {
-    mhcnuggetsr:::uninstall_mhcnuggets() # nolint unknown why this function is not exported, see https://github.com/richelbilderbeek/mhcnuggetsr/issues/2
+    uninstall_mhcnuggets() # nolint unknown why this function is not exported, see https://github.com/richelbilderbeek/mhcnuggetsr/issues/2
   }
 }
