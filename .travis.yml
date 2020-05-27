@@ -10,10 +10,7 @@ r_github_packages:
 before_script:
   - sudo apt install python3-pip
   - sudo pip install --upgrade pip
-  - python3 -m pip install --upgrade pip
-  - python3 -m pip install --upgrade pip
-  - python3 -m pip install setuptools
-
+  - ./scripts/install_mhcnuggets.sh
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
