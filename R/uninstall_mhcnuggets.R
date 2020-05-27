@@ -23,7 +23,12 @@ uninstall_mhcnuggets <- function(
   unlink(mhcnuggets_folder, recursive = TRUE, force = TRUE)
   testthat::expect_true(!dir.exists(mhcnuggets_folder))
 
-  if (mhcnuggetsr::is_mhcnuggets_installed()) {
+  if (
+    mhcnuggetsr::is_mhcnuggets_installed(
+      folder_name = folder_name,
+      mhcnuggets_url = mhcnuggets_url
+    )
+  ) {
     warning("The Python module 'mhcnuggets' is not uninstalled")
   }
 }
