@@ -8,3 +8,5 @@
 LICENSE
 .github
 scripts/
+install_mhcnuggets.R
+install_mhcnuggets.R.original
