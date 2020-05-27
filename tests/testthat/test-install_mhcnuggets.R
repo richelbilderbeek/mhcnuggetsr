@@ -18,6 +18,12 @@ test_that("use", {
 test_that("install in different folder", {
   if (!is_on_ci()) return()
 
+  # Be able to restore situation before
+  was_installed <- is_mhcnuggets_installed()
+  if (was_installed) uninstall_mhcnuggets()
+
+
+
   folder_name <- tempfile()
   expect_true(!is_mhcnuggets_installed(folder_name = folder_name))
   install_mhcnuggets(folder_name = folder_name)
@@ -36,5 +42,9 @@ test_that("install in different folder", {
 
   uninstall_mhcnuggets(folder_name = folder_name)
   expect_false(is_mhcnuggets_installed(folder_name = folder_name))
+
+
+  # Restore situation before
+  if (was_installed) install_mhcnuggets()
 
 })
