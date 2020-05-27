@@ -35,7 +35,7 @@ Install MHCnuggets:
 library(mhcnuggetsr)
 
 if (!is_mhcnuggets_installed()) {
-  install_mhcnuggets()
+  installl_mhcnuggets()
 }
 ```
 
