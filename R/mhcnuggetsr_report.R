@@ -13,6 +13,7 @@ mhcnuggetsr_report <- function() {
   kat(paste0("OS: ", rappdirs::app_dir()$os))
   kat(paste0("Python available: ", reticulate::py_available()))
   kat(paste0("Python location: ", reticulate::py_config()$python))
+  print(reticulate::py_config())
   kat(paste0("pip version: ", mhcnuggetsr::get_pip_version()))
   kat("**************")
   kat("* MHCnuggets *")
