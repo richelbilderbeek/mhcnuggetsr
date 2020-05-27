@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+library(knitr)
 library(mhcnuggetsr)
 library(testthat)
 ```
@@ -22,12 +23,17 @@ library(testthat)
 For this vignette, we use the same example as the MHCnuggets
 Python notebooks.
 
+Get the path to the testing peptides, and show them:
+
 ```{r}
 if (is_mhcnuggets_installed()) {
   peptides_path <- get_example_filename("test_peptides.peps")
   expect_true(file.exists(peptides_path))
+  readLines(peptides_path, warn = FALSE)
 }
 ```
+
+Pick an MHC-I haplotype:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
@@ -36,28 +42,35 @@ if (is_mhcnuggets_installed()) {
 }
 ```
 
-```
+Predict:
+
+```{r}
 if (is_mhcnuggets_installed()) {
-  epitope_predict(
-    class_='I',
+  df <- epitope_predict(
+    mhc_class = "I",
     peptides_path = peptides_path, 
     mhc = mhc_1_haplotype
   )
+  kable(df)
 }
 ```
 
+Predict:
 
 
-```
+```{r}
 if (is_mhcnuggets_installed()) {
-  epitope_predict(
-    class_='I',
+  df <- epitope_predict(
+    mhc_class = "I",
     peptides_path = peptides_path, 
     mhc = mhc_1_haplotype, 
     ba_models = TRUE
   )
+  kable(df)
 }
 ```
+
+Use MCH-II haplotype:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
@@ -66,31 +79,40 @@ if (is_mhcnuggets_installed()) {
 }
 ```
 
-```
+Predict:
+
+
+```{r}
 if (is_mhcnuggets_installed()) {
-  epitope_predict(
-    class_='II',
+  df <- epitope_predict(
+    mhc_class = "II",
     peptides_path = peptides_path, 
     mhc = mhc_2_haplotype
   )
+  kable(df)
 }
 ```
+
+Use another MHC-I haplotype. In this case, MHCnuggets has not been
+trained upon it, but it is a valid supertype:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
   mhc_1_haplotype <- "HLA-A02:60"
-  # This is not true, no idea why
-  # expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
+  expect_false(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 }
 ```
 
-```
+Predict:
+
+```{r}
 if (is_mhcnuggets_installed()) {
-  epitope_predict(
-    class_='I',
+  df <- epitope_predict(
+    mhc_class = "I",
     peptides_path = peptides_path, 
     mhc = mhc_1_haplotype
   )
+  kable(df)
 }
 ```
 
@@ -100,7 +122,7 @@ if (is_mhcnuggets_installed()) {
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  get_example_filenames()
+  basename(get_example_filenames())
 }
 ```
 
@@ -110,7 +132,7 @@ These are the MHC-I haplotypes that have a trained model.
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  get_trained_mhc_1_haplotypes()
+  cat(get_trained_mhc_1_haplotypes())
 }
 ```
 
@@ -120,7 +142,7 @@ These are the MHC-II haplotypes that have a trained model.
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  get_trained_mhc_2_haplotypes()
+  cat(get_trained_mhc_2_haplotypes())
 }
 ```
 
