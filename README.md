@@ -35,6 +35,8 @@ Install MHCnuggets:
 library(mhcnuggetsr)
 
 if (!is_mhcnuggets_installed()) {
+  #' @note Use triple-l, due to bug upstream,
+  #' bug report at \url{https://github.com/r-lib/roxygen2/issues/1101}
   installl_mhcnuggets()
 }
 ```

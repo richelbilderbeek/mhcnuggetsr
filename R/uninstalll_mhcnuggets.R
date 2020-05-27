@@ -1,5 +1,6 @@
 #' Uninstall the MHCnuggets Python package.
-#' @note Use triple-l, due to bug upstream
+#' @note Use triple-l, due to bug upstream,
+#' bug report at \url{https://github.com/r-lib/roxygen2/issues/1101}
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
