@@ -17,37 +17,52 @@ status](https://www.r-pkg.org/badges/version/mhcnuggetsr)](https://CRAN.R-projec
 
 <!-- badges: end -->
 
-R package to work with `MHCnuggets`.
+R package to work with
+[MHCnuggets](https://github.com/KarchinLab/mhcnuggets).
 
-The goal of mhcnuggetsr is to …
+The goal of `mhcnuggetsr` is to …
 
 ## Installation
 
 You can install the released version of mhcnuggetsr from
 [GitHub](https://github.com/) with:
 
-``` r
-devtools::install_github("richelbilderbeek/mhcnuggetsr")
-#> Skipping install of 'mhcnuggetsr' from a github remote, the SHA1 (189c59f4) has not changed since last install.
-#>   Use `force = TRUE` to force installation
-```
+    devtools::install_github("richelbilderbeek/mhcnuggetsr")
 
 Install MHCnuggets:
 
 ``` r
-if (!mhcnuggetsr::is_mhcnuggets_installed()) {
- mhcnuggetsr::install_mhcnuggets()
+library(mhcnuggetsr)
+
+if (!is_mhcnuggets_installed()) {
+  install_mhcnuggets()
 }
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here is how to get the IC50 values (in nM) for the peptides in an
+example file:
 
 ``` r
+library(knitr)
 library(mhcnuggetsr)
-## basic example code
+
+if (is_mhcnuggets_installed()) {
+  df <- epitope_predict(
+    mhc_class = "I",
+    peptides_path = get_example_filename("test_peptides.peps"), 
+    mhc = "HLA-A02:01"
+  )
+  kable(df)
+}
 ```
+
+| peptide    |    ic50 |
+| :--------- | ------: |
+| AIAACAMLLV | 5578.77 |
+| ALVCYIVMPV | 5634.66 |
+| ALEPRKEIDV | 5554.22 |
 
 ## There is a feature I miss
 

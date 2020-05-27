@@ -25,33 +25,45 @@ Branch   |[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)  
 `develop`|[![Build Status](https://travis-ci.org/richelbilderbeek/mhcnuggetsr.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/mhcnuggetsr)|[![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/develop)
 <!-- badges: end -->
 
-R package to work with `MHCnuggets`.
+R package to work with [MHCnuggets](https://github.com/KarchinLab/mhcnuggets).
 
-The goal of mhcnuggetsr is to ...
+The goal of `mhcnuggetsr` is to ...
 
 ## Installation
 
 You can install the released version of mhcnuggetsr from [GitHub](https://github.com/) with:
 
-```{r}
+```
 devtools::install_github("richelbilderbeek/mhcnuggetsr")
 ```
 
 Install MHCnuggets:
 
-```{r}
-if (!mhcnuggetsr::is_mhcnuggets_installed()) {
- mhcnuggetsr::install_mhcnuggets()
+```{r install}
+library(mhcnuggetsr)
+
+if (!is_mhcnuggets_installed()) {
+  install_mhcnuggets()
 }
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here is how to get the IC50 values (in nM) for the peptides in
+an example file:
 
 ```{r example}
+library(knitr)
 library(mhcnuggetsr)
-## basic example code
+
+if (is_mhcnuggets_installed()) {
+  df <- epitope_predict(
+    mhc_class = "I",
+    peptides_path = get_example_filename("test_peptides.peps"), 
+    mhc = "HLA-A02:01"
+  )
+  kable(df)
+}
 ```
 
 ## There is a feature I miss
