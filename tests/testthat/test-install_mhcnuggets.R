@@ -32,7 +32,7 @@ test_that("install in different folder", {
     "test_peptides.peps",
     folder_name = folder_name
   )
-  epitope_predict(
+  predict_ic50_from_file(
     mhc_class = "I",
     peptides_path = peptides_path,
     mhc = "HLA-A02:01",

@@ -11,7 +11,7 @@
 #'   mhc_1_haplotype <- "HLA-A02:01"
 #'   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 #'
-#'   df <- epitope_predict(
+#'   df <- predict_ic50_from_file(
 #'     mhc_class = "I",
 #'     peptides_path = peptides_path,
 #'     mhc = mhc_1_haplotype
@@ -23,7 +23,7 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-epitope_predict <- function(
+predict_ic50_from_file <- function(
   mhc_class,
   peptides_path,
   mhc,

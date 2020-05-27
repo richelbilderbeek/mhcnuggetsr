@@ -13,7 +13,7 @@ test_that("vignette example 1", {
   mhc_1_haplotype <- "HLA-A02:01"
   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 
-  df <- epitope_predict(
+  df <- predict_ic50_from_file(
     mhc_class = "I",
     peptides_path = peptides_path,
     mhc = mhc_1_haplotype
@@ -34,7 +34,7 @@ test_that("vignette example 2", {
   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 
   expect_silent(
-    epitope_predict(
+    predict_ic50_from_file(
       mhc_class = "I",
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype,
@@ -53,7 +53,7 @@ test_that("vignette example 3", {
   expect_true(mhc_2_haplotype %in% get_trained_mhc_2_haplotypes())
 
   expect_silent(
-    epitope_predict(
+    predict_ic50_from_file(
       mhc_class = "II",
       peptides_path = peptides_path,
       mhc = mhc_2_haplotype
@@ -73,7 +73,7 @@ test_that("vignette example 4", {
   expect_false(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 
   expect_silent(
-    epitope_predict(
+    predict_ic50_from_file(
       mhc_class = "I",
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype
@@ -86,7 +86,7 @@ test_that("abuse, no MHCnuggets install needed", {
   irrelevant <- "irrelevant"
 
   expect_error(
-    epitope_predict(
+    predict_ic50_from_file(
       mhc_class = "nonsense",
       peptides_path = irrelevant,
       mhc = irrelevant
@@ -94,7 +94,7 @@ test_that("abuse, no MHCnuggets install needed", {
     "'mhc_class' must be either 'I' or 'II'"
   )
   expect_error(
-    epitope_predict(
+    predict_ic50_from_file(
       mhc_class = "I",
       peptides_path = "abs.ent",
       mhc = irrelevant
@@ -114,7 +114,7 @@ test_that("abuse, MHCnuggets install needed", {
   mhc_2_haplotype <- get_trained_mhc_2_haplotypes()[1]
 
   expect_error(
-    epitope_predict(
+    predict_ic50_from_file(
       mhc_class = "II",
       peptides_path = peptides_path,
       mhc = mhc_1_haplotype
@@ -122,7 +122,7 @@ test_that("abuse, MHCnuggets install needed", {
     "Must use the same 'mhc_class' as the 'mhc' is from"
   )
   expect_error(
-    epitope_predict(
+    predict_ic50_from_file(
       mhc_class = "I",
       peptides_path = peptides_path,
       mhc = mhc_2_haplotype

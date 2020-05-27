@@ -46,7 +46,7 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- epitope_predict(
+  df <- predict_ic50_from_file(
     mhc_class = "I",
     peptides_path = peptides_path, 
     mhc = mhc_1_haplotype
@@ -60,7 +60,7 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- epitope_predict(
+  df <- predict_ic50_from_file(
     mhc_class = "I",
     peptides_path = peptides_path, 
     mhc = mhc_1_haplotype, 
@@ -84,7 +84,7 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- epitope_predict(
+  df <- predict_ic50_from_file(
     mhc_class = "II",
     peptides_path = peptides_path, 
     mhc = mhc_2_haplotype
@@ -107,7 +107,7 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- epitope_predict(
+  df <- predict_ic50_from_file(
     mhc_class = "I",
     peptides_path = peptides_path, 
     mhc = mhc_1_haplotype
