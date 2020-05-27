@@ -1,10 +1,10 @@
-#' Install the MHCnuggets Python package.
+#' Install the \code{MHCnuggets} \code{Python} package.
 #' @inheritParams default_params_doc
 #' @return Nothing
 #' @examples
 #' library(testthat)
 #'
-#' if (1 == 2 && is_on_ci() && !is_mhcnuggets_installed()) {
+#' if (is_on_ci() && !is_mhcnuggets_installed()) {
 #'   install_mhcnuggets()
 #'   expect_true(is_mhcnuggets_installed())
 #' }
