@@ -21,4 +21,3 @@ get_python_package_versions <- function() {
   names(df) <- c("package", "version")
   df
 }
-
