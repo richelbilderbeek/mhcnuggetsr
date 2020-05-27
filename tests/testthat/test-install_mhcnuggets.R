@@ -19,8 +19,7 @@ test_that("install in different folder", {
   if (!is_on_ci()) return()
 
   # Be able to restore situation before
-  was_installed <- is_mhcnuggets_installed()
-  if (was_installed) uninstall_mhcnuggets()
+  set_is_mhcnuggets_installed(FALSE)
 
 
 
@@ -45,6 +44,5 @@ test_that("install in different folder", {
 
 
   # Restore situation before
-  if (was_installed) install_mhcnuggets()
-
+  set_is_mhcnuggets_installed(TRUE)
 })

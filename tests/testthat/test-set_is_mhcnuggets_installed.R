@@ -1,0 +1,16 @@
+test_that("use", {
+  if (!is_on_ci()) return()
+
+  expect_silent(set_is_mhcnuggets_installed(TRUE))
+  expect_true(is_mhcnuggets_installed())
+  expect_silent(set_is_mhcnuggets_installed(TRUE))
+  expect_true(is_mhcnuggets_installed())
+  expect_silent(set_is_mhcnuggets_installed(FALSE))
+  expect_true(!is_mhcnuggets_installed())
+  expect_silent(set_is_mhcnuggets_installed(FALSE))
+  expect_true(!is_mhcnuggets_installed())
+  expect_silent(set_is_mhcnuggets_installed(TRUE))
+  expect_true(is_mhcnuggets_installed())
+  expect_silent(set_is_mhcnuggets_installed(TRUE))
+  expect_true(is_mhcnuggets_installed())
+})
