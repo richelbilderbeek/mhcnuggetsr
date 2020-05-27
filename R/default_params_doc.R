@@ -1,10 +1,9 @@
-#' This function does nothing. It is intended to inherit is parameters'
-#' documentation.
+#' This function does nothing. It is intended to inherit the documentation
+#' of the parameters from.
 #' @param ba_models Set to TRUE to use a pure BA model
 #' @param folder_name superfolder of MHCnuggets.
-#'   The superfolder's name is \code{/home/[user_name]/.local/share}
-#'   by default, as can be obtained by
-#'   \link{get_default_mhcnuggets_folder}
+#'   The name of the superfolder is \code{/home/[user_name]/.local/share}
+#'   by default, as can be obtained by\link{get_default_mhcnuggets_folder}
 #' @param mhc the MHC haplotype
 #' @param mhc_class MHC class. Must be \code{I} or \code{II}
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository

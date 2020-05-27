@@ -1,5 +1,6 @@
 #' Install the MHCnuggets Python package.
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @examples
 #' library(testthat)
 #'

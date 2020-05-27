@@ -15,9 +15,8 @@ set_is_mhcnuggets_installed(
 be \link{TRUE} or \link{FALSE}}
 
 \item{folder_name}{superfolder of MHCnuggets.
-The superfolder's name is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by
-\link{get_default_mhcnuggets_folder}}
+The name of the superfolder is \code{/home/[user_name]/.local/share}
+by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }

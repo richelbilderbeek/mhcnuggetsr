@@ -2,8 +2,8 @@
 % Please edit documentation in R/default_params_doc.R
 \name{default_params_doc}
 \alias{default_params_doc}
-\title{This function does nothing. It is intended to inherit is parameters'
-documentation.}
+\title{This function does nothing. It is intended to inherit the documentation
+of the parameters from.}
 \usage{
 default_params_doc(
   ba_models,
@@ -19,9 +19,8 @@ default_params_doc(
 \item{ba_models}{Set to TRUE to use a pure BA model}
 
 \item{folder_name}{superfolder of MHCnuggets.
-The superfolder's name is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by
-\link{get_default_mhcnuggets_folder}}
+The name of the superfolder is \code{/home/[user_name]/.local/share}
+by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhc}{the MHC haplotype}
 
@@ -34,8 +33,8 @@ by default, as can be obtained by
 \item{peptides_path}{the path to the peptides}
 }
 \description{
-This function does nothing. It is intended to inherit is parameters'
-documentation.
+This function does nothing. It is intended to inherit the documentation
+of the parameters from.
 }
 \note{
 This is an internal function, so it should be marked with
