@@ -7,7 +7,9 @@
 #' library(testthat)
 #'
 #' if (is_on_ci() && !is_mhcnuggets_installed()) {
-#'   install_mhcnuggets()
+#'   # Use triple-l, due to bug upstream,
+#'   # bug report at https://github.com/r-lib/roxygen2/issues/1101
+#'   installl_mhcnuggets()
 #'   expect_true(is_mhcnuggets_installed())
 #' }
 #' @author Richèl J.C. Bilderbeek
