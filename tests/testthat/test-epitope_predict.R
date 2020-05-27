@@ -39,7 +39,6 @@ test_that("vignette example 2", {
 
 test_that("vignette example 3", {
   if (!is_mhcnuggets_installed()) return()
-  skip("Not now")
 
   peptides_path <- get_example_filename("test_peptides.peps")
   expect_true(file.exists(peptides_path))
