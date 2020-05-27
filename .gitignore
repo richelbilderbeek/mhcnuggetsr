@@ -39,5 +39,4 @@ vignettes/*.pdf
 .Renviron
 .Rproj.user
 inst/doc
-install_mhcnuggets.R
-install_mhcnuggets.R.original
+
