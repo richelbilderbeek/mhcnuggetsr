@@ -43,7 +43,10 @@ epitope_predict <- function(
       "Actual value: ", peptides_path
     )
   }
-  mhcnuggetsr::check_mhcnuggets_installation()
+  mhcnuggetsr::check_mhcnuggets_installation(
+    folder_name = folder_name,
+    mhcnuggets_url = mhcnuggets_url
+  )
   if (mhc_class == "I" && mhc %in% get_trained_mhc_2_haplotypes()) {
     stop("Must use the same 'mhc_class' as the 'mhc' is from")
   }
