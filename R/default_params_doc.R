@@ -8,6 +8,7 @@
 #' @param mhc the MHC haplotype
 #' @param mhc_class MHC class. Must be \code{I} or \code{II}
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository
+#' @param peptides one of more peptide sequences
 #' @param peptides_path the path to the peptides
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
@@ -19,6 +20,7 @@ default_params_doc <- function(
   mhc,
   mhc_class,
   mhcnuggets_url,
+  peptides,
   peptides_path
 ) {
   # Nothing

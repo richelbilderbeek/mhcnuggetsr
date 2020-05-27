@@ -17,6 +17,8 @@ predict_ic50(
 \arguments{
 \item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
 
+\item{peptides}{one of more peptide sequences}
+
 \item{mhc}{the MHC haplotype}
 
 \item{ba_models}{Set to TRUE to use a pure BA model}
@@ -38,15 +40,12 @@ library(testthat)
 
 if (is_mhcnuggets_installed()) {
 
-  peptides_path <- get_example_filename("test_peptides.peps")
-  expect_true(file.exists(peptides_path))
-
+  peptides <- c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV")
   mhc_1_haplotype <- "HLA-A02:01"
-  expect_true(mhc_1_haplotype \%in\% get_trained_mhc_1_haplotypes())
 
   df <- predict_ic50(
     mhc_class = "I",
-    peptides = peptides_path,
+    peptides = peptides,
     mhc = mhc_1_haplotype
   )
   expect_true("peptide" \%in\% names(df))
