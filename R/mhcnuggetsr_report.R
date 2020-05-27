@@ -15,6 +15,7 @@ mhcnuggetsr_report <- function() {
   kat(paste0("Python location: ", reticulate::py_config()$python))
   print(reticulate::py_config())
   kat(paste0("pip version: ", mhcnuggetsr::get_pip_version()))
+  knitr::kable(get_python_package_versions())
   kat("**************")
   kat("* MHCnuggets *")
   kat("**************")

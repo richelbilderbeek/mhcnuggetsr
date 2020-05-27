@@ -21,4 +21,8 @@ after_success:
 
 after_failure:
   - ls
+  - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
+
+after_success:
+  - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
 
