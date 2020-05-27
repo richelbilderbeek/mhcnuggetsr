@@ -1,4 +1,10 @@
 test_that("vignette example 1", {
+
+  # Needed for codecov
+  if (is_on_ci() && !is_mhcnuggets_installed()) {
+    install_mhcnuggets()
+  }
+
   if (!is_mhcnuggets_installed()) return()
 
   peptides_path <- get_example_filename("test_peptides.peps")
