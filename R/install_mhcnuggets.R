@@ -48,6 +48,16 @@ install_mhcnuggets <- function(
     stdout = NULL
   )
 
+  # Update pyasn1
+  system2(
+    reticulate::py_config()$python,
+    args = c(
+      "-m", "pip", "install", "--upgrade", "pyasn1"
+    ),
+    stdout = NULL
+  )
+
+
   # Install setuptools
   system2(
     reticulate::py_config()$python,
