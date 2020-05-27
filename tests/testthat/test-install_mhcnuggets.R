@@ -5,7 +5,7 @@ test_that("use", {
     install_mhcnuggets()
     expect_true(is_mhcnuggets_installed())
     get_mhcnuggets_version()
-    uninstall_mhcnuggets()
+    mhcnuggetsr:::uninstall_mhcnuggets()
     expect_false(is_mhcnuggets_installed())
   } else {
     uninstall_mhcnuggets()
@@ -39,7 +39,7 @@ test_that("install in different folder", {
     folder_name = folder_name
   )
 
-  uninstall_mhcnuggets(folder_name = folder_name)
+  mhcnuggetsr:::uninstall_mhcnuggets(folder_name = folder_name)
   expect_false(is_mhcnuggets_installed(folder_name = folder_name))
 
 
