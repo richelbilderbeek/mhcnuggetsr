@@ -5,7 +5,7 @@
 #' library(testthat)
 #'
 #' expect_true(!is_mhcnuggets_name("HLA-A*01:01"))
-#' expect_true( is_mhcnuggets_name("HLA-A01:01"))
+#' expect_true(is_mhcnuggets_name("HLA-A01:01"))
 #' @export
 is_mhcnuggets_name <- function(mhc) {
   !is.na(
@@ -18,6 +18,6 @@ is_mhcnuggets_name <- function(mhc) {
         "(-[A-Za-z]{1,3}[[:digit:]]{1,4}:[[:digit:]]{1,4})?",
         "$"
       )
-    )[,1]
+    )[, 1]
   )
 }

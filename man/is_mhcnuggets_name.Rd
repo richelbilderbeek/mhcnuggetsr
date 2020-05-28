@@ -18,5 +18,5 @@ that MHCnuggets uses internally
 library(testthat)
 
 expect_true(!is_mhcnuggets_name("HLA-A*01:01"))
-expect_true( is_mhcnuggets_name("HLA-A01:01"))
+expect_true(is_mhcnuggets_name("HLA-A01:01"))
 }

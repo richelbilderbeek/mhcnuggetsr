@@ -60,4 +60,3 @@ test_that("install in different folder", {
     "MHCnuggets is already installed"
   )
 })
-
