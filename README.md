@@ -35,9 +35,8 @@ Install MHCnuggets:
 library(mhcnuggetsr)
 
 if (!is_mhcnuggets_installed()) {
-  #' Use triple-l, due to bug upstream,
-  #' bug report at https://github.com/r-lib/roxygen2/issues/1101
   install_mhcnuggets()
+  mhcnuggetsr_self_test()
 }
 ```
 
@@ -51,20 +50,14 @@ library(knitr)
 library(mhcnuggetsr)
 
 if (is_mhcnuggets_installed()) {
-  df <- predict_ic50_from_file(
+  df <- predict_ic50(
     mhc_class = "I",
-    peptides_path = get_example_filename("test_peptides.peps"), 
+    peptides = "AIAACAMLLV",
     mhc = "HLA-A02:01"
   )
-  kable(df)
+  testthat::expect_equal(df$ic50, 5578.77)
 }
 ```
-
-| peptide    |    ic50 |
-| :--------- | ------: |
-| AIAACAMLLV | 5578.77 |
-| ALVCYIVMPV | 5634.66 |
-| ALEPRKEIDV | 5554.22 |
 
 ## There is a feature I miss
 
