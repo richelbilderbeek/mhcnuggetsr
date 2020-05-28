@@ -2,7 +2,9 @@
 % Please edit documentation in R/predict_ic50.R
 \name{predict_ic50}
 \alias{predict_ic50}
-\title{Predict}
+\title{Predict the IC50 (in nM) for one or more peptides.
+Each peptide must be 15 amino acids at
+most (use \link{predict_ic50s} to predict the IC50s for longer peptides)}
 \usage{
 predict_ic50(
   mhc_class,
@@ -32,7 +34,9 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \item{peptides_path}{the path to the peptides}
 }
 \description{
-Predict
+Predict the IC50 (in nM) for one or more peptides.
+Each peptide must be 15 amino acids at
+most (use \link{predict_ic50s} to predict the IC50s for longer peptides)
 }
 \examples{
 library(testthat)

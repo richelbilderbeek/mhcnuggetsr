@@ -1,4 +1,6 @@
-#' Predict
+#' Predict the IC50 (in nM) for one or more peptides.
+#' Each peptide must be 15 amino acids at
+#' most (use \link{predict_ic50s} to predict the IC50s for longer peptides)
 #' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)

@@ -12,6 +12,7 @@ default_params_doc(
   mhcs,
   mhc_class,
   mhcnuggets_url,
+  peptide,
   peptides,
   peptides_path
 )
@@ -30,6 +31,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+
+\item{peptide}{one peptide sequence}
 
 \item{peptides}{one of more peptide sequences}
 
