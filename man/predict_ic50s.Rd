@@ -47,7 +47,8 @@ peptide <- "AIAACAMLLVCCCCCC"
 df <- predict_ic50s(
   mhc_class = "I",
   peptide = peptide,
-  mhc = "HLA-A02:01"
+  mhc = "HLA-A02:01",
+  n_aas = 15
 )
 
 expect_true("peptide" \%in\% names(df))
