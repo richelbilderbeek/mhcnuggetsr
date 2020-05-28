@@ -43,6 +43,13 @@ predict_ic50_from_file <- function(
       "Actual value: ", peptides_path
     )
   }
+  if (!is_mhcnuggets_name(mhc)) {
+    stop(
+      "'mhc' must be a valid MHC haplotype name", "\n",
+      "Actual value: ", mhc, "\n",
+      "Tip: see 'get_mhc_1_haplotypes' or 'get_mhc_2_haplotypes'"
+    )
+  }
   mhcnuggetsr::check_mhcnuggets_installation(
     folder_name = folder_name,
     mhcnuggets_url = mhcnuggets_url

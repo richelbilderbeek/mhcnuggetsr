@@ -131,4 +131,13 @@ test_that("abuse, MHCnuggets install needed", {
     ),
     "Must use the same 'mhc_class' as the 'mhc' is from"
   )
+
+  expect_error(
+    predict_ic50_from_file(
+      mhc_class = "I",
+      peptides_path = peptides_path,
+      mhc = "nonsense"
+    ),
+    "'mhc' must be a valid MHC haplotype name"
+  )
 })
