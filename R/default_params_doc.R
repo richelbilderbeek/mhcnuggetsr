@@ -8,6 +8,7 @@
 #' @param mhcs the MHC haplotype names
 #' @param mhc_class MHC class. Must be \code{I} or \code{II}
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository
+#' @param n_aas number of amino acids
 #' @param peptide one peptide sequence
 #' @param peptides one of more peptide sequences
 #' @param peptides_path the path to the peptides
@@ -21,6 +22,7 @@ default_params_doc <- function(
   mhc, mhcs,
   mhc_class,
   mhcnuggets_url,
+  n_aas,
   peptide, peptides,
   peptides_path
 ) {

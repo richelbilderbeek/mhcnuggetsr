@@ -9,6 +9,7 @@ predict_ic50s(
   mhc_class,
   peptide,
   mhc,
+  n_aas,
   ba_models = FALSE,
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url(),
@@ -21,6 +22,8 @@ predict_ic50s(
 \item{peptide}{one peptide sequence}
 
 \item{mhc}{the MHC haplotype name}
+
+\item{n_aas}{number of amino acids}
 
 \item{ba_models}{Set to TRUE to use a pure BA model}
 
