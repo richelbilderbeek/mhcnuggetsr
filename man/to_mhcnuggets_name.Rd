@@ -7,7 +7,7 @@
 to_mhcnuggets_name(mhc)
 }
 \arguments{
-\item{mhc}{the MHC haplotype}
+\item{mhc}{the MHC haplotype name}
 }
 \description{
 Convert a standard haplotype name to the MHCnuggets equivalent

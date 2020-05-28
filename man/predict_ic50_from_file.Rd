@@ -18,7 +18,7 @@ predict_ic50_from_file(
 
 \item{peptides_path}{the path to the peptides}
 
-\item{mhc}{the MHC haplotype}
+\item{mhc}{the MHC haplotype name}
 
 \item{ba_models}{Set to TRUE to use a pure BA model}
 

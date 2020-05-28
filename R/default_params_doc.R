@@ -4,7 +4,8 @@
 #' @param folder_name superfolder of MHCnuggets.
 #'   The name of the superfolder is \code{/home/[user_name]/.local/share}
 #'   by default, as can be obtained by\link{get_default_mhcnuggets_folder}
-#' @param mhc the MHC haplotype
+#' @param mhc the MHC haplotype name
+#' @param mhcs the MHC haplotype names
 #' @param mhc_class MHC class. Must be \code{I} or \code{II}
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository
 #' @param peptides one of more peptide sequences
@@ -16,7 +17,7 @@
 default_params_doc <- function(
   ba_models,
   folder_name,
-  mhc,
+  mhc, mhcs,
   mhc_class,
   mhcnuggets_url,
   peptides,

@@ -19,7 +19,7 @@ predict_ic50(
 
 \item{peptides}{one of more peptide sequences}
 
-\item{mhc}{the MHC haplotype}
+\item{mhc}{the MHC haplotype name}
 
 \item{ba_models}{Set to TRUE to use a pure BA model}
 

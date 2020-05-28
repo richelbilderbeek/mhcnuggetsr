@@ -8,7 +8,7 @@ that MHCnuggets uses internally}
 is_mhcnuggets_name(mhc)
 }
 \arguments{
-\item{mhc}{the MHC haplotype}
+\item{mhc}{the MHC haplotype name}
 }
 \description{
 Determine if an HLA haplotype name follow the name format

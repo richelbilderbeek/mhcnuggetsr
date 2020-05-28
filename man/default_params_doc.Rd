@@ -9,6 +9,7 @@ default_params_doc(
   ba_models,
   folder_name,
   mhc,
+  mhcs,
   mhc_class,
   mhcnuggets_url,
   peptides,
@@ -22,7 +23,9 @@ default_params_doc(
 The name of the superfolder is \code{/home/[user_name]/.local/share}
 by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
-\item{mhc}{the MHC haplotype}
+\item{mhc}{the MHC haplotype name}
+
+\item{mhcs}{the MHC haplotype names}
 
 \item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
 
