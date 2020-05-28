@@ -1,4 +1,5 @@
-#' Predict IC50s (in nM) of 15-mers of a peptide
+#' Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
+#' of all possible 15-mers within a peptide
 #' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)

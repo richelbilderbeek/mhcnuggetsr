@@ -2,7 +2,10 @@
 % Please edit documentation in R/predict_ic50_from_file.R
 \name{predict_ic50_from_file}
 \alias{predict_ic50_from_file}
-\title{Predict}
+\title{Predict the half maximal inhibitory concentration (aka IC50) (in nM)
+for one or more peptides as saved in a file.
+Each peptide must be 15 amino acids at
+most (use \link{predict_ic50s} to predict the IC50s for longer peptides)}
 \usage{
 predict_ic50_from_file(
   mhc_class,
@@ -29,7 +32,10 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
 \description{
-Predict
+Predict the half maximal inhibitory concentration (aka IC50) (in nM)
+for one or more peptides as saved in a file.
+Each peptide must be 15 amino acids at
+most (use \link{predict_ic50s} to predict the IC50s for longer peptides)
 }
 \examples{
 library(testthat)

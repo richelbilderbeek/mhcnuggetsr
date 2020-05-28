@@ -2,7 +2,8 @@
 % Please edit documentation in R/predict_ic50s.R
 \name{predict_ic50s}
 \alias{predict_ic50s}
-\title{Predict IC50s (in nM) of 15-mers of a peptide}
+\title{Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
+of all possible 15-mers within a peptide}
 \usage{
 predict_ic50s(
   mhc_class,
@@ -32,7 +33,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \item{peptides_path}{the path to the peptides}
 }
 \description{
-Predict IC50s (in nM) of 15-mers of a peptide
+Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
+of all possible 15-mers within a peptide
 }
 \examples{
 library(testthat)
