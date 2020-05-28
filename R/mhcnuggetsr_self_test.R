@@ -5,11 +5,11 @@
 #'
 #' if (is_mhcnuggets_installed()) {
 #'
-#'   expect_silent(mhcnuggetstr_self_test())
+#'   expect_silent(mhcnuggetsr_self_test())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-mhcnuggetstr_self_test <- function(
+mhcnuggetsr_self_test <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {

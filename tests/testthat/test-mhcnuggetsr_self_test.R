@@ -1,3 +1,3 @@
 test_that("use", {
-  expect_silent(mhcnuggetstr_self_test())
+  expect_silent(mhcnuggetsr_self_test())
 })
