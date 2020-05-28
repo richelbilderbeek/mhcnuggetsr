@@ -141,3 +141,23 @@ test_that("abuse, MHCnuggets install needed", {
     "'mhc' must be a valid MHC haplotype name"
   )
 })
+
+
+
+
+test_that("abuse, too long peptide", {
+  if (!is_mhcnuggets_installed()) return()
+
+  peptides_path <- tempfile()
+  writeLines(text = "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", con = peptides_path)
+  expect_true(file.exists(peptides_path))
+
+  expect_error(
+    predict_ic50_from_file(
+      mhc_class = "I",
+      peptides_path = peptides_path,
+      mhc = get_trained_mhc_1_haplotypes()[1]
+    ),
+    "'peptides' must have lengths of at most 15"
+  )
+})
