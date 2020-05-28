@@ -21,8 +21,6 @@ test_that("install in different folder", {
   # Be able to restore situation before
   set_is_mhcnuggets_installed(FALSE)
 
-
-
   folder_name <- tempfile()
   expect_true(!is_mhcnuggets_installed(folder_name = folder_name))
   install_mhcnuggets(folder_name = folder_name)
@@ -50,3 +48,16 @@ test_that("install in different folder", {
   # Restore situation before
   set_is_mhcnuggets_installed(TRUE)
 })
+
+test_that("install in different folder", {
+  if (!is_on_ci()) return()
+
+  # Install it
+  set_is_mhcnuggets_installed(TRUE)
+
+  expect_error(
+    install_mhcnuggets(),
+    "MHCnuggets is already installed"
+  )
+})
+
