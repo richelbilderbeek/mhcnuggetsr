@@ -20,7 +20,9 @@ status](https://www.r-pkg.org/badges/version/mhcnuggetsr)](https://CRAN.R-projec
 R package to work with
 [MHCnuggets](https://github.com/KarchinLab/mhcnuggets).
 
-The goal of `mhcnuggetsr` is to …
+The goal of `mhcnuggetsr` is to predict the half maximal inhibitory
+concentration of peptides for an MHC haplotype. It does by calling
+[MHCnuggets](https://github.com/KarchinLab/mhcnuggets).
 
 ## Installation
 
@@ -46,7 +48,7 @@ Here is how to get the IC50 values (in nM) for the peptides in an
 example file:
 
 ``` r
-library(knitr)
+library(testthat)
 library(mhcnuggetsr)
 
 if (is_mhcnuggets_installed()) {
@@ -55,7 +57,7 @@ if (is_mhcnuggets_installed()) {
     peptides = "AIAACAMLLV",
     mhc = "HLA-A02:01"
   )
-  testthat::expect_equal(df$ic50, 5578.77)
+  expect_equal(df$ic50, 5578.77)
 }
 ```
 
