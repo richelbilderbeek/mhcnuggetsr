@@ -1,6 +1,8 @@
 #' Predict IC50s (in nM) of 15-mers of a peptide
 #' @inheritParams default_params_doc
 #' @examples
+#' library(testthat)
+#'
 #' peptide <- "AIAACAMLLVCCCCCC"
 #'
 #' df <- predict_ic50s(

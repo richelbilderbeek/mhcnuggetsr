@@ -35,6 +35,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Predict IC50s (in nM) of 15-mers of a peptide
 }
 \examples{
+library(testthat)
+
 peptide <- "AIAACAMLLVCCCCCC"
 
 df <- predict_ic50s(
