@@ -29,6 +29,9 @@ predict_ic50 <- function(
   mhcnuggets_url = get_mhcnuggets_url(),
   peptides_path = tempfile()
 ) {
+  if (any(nchar(peptides) > 15)) {
+    stop("'peptides' must have lengths of at most 15")
+  }
   writeLines(text = peptides, con = peptides_path)
   mhcnuggetsr::predict_ic50_from_file(
     mhc_class = mhc_class,

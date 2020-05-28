@@ -43,6 +43,9 @@ predict_ic50_from_file <- function(
       "Actual value: ", peptides_path
     )
   }
+  if (any(nchar(readLines(peptides_path, warn = FALSE)) > 15)) {
+    stop("'peptides' must have lengths of at most 15")
+  }
   if (!is_mhcnuggets_name(mhc)) {
     stop(
       "'mhc' must be a valid MHC haplotype name", "\n",
