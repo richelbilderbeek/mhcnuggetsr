@@ -16,6 +16,8 @@ mhcnuggetsr_report <- function() {
   print(reticulate::py_config())
   kat(paste0("pip version: ", mhcnuggetsr::get_pip_version()))
   knitr::kable(mhcnuggetsr::get_python_package_versions())
+  kat(paste0("Python NumPy available: ", reticulate::py_numpy_available()))
+  kat(paste0("Python mhcnuggets available: ", reticulate::py_module_available("mhcnuggets")))
   kat("**************")
   kat("* MHCnuggets *")
   kat("**************")
