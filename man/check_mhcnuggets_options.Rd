@@ -16,8 +16,10 @@ Check the MHCnuggets options. Will \link{stop} if the options are invalid.
 \examples{
 library(testthat)
 
-expect_silent(check_mhcnuggets_options(create_test_mhcnuggets_options()))
-expect_error(check_mhcnuggets_options("nonsense"))
+if (is_mhcnuggets_installed()) {
+  expect_silent(check_mhcnuggets_options(create_test_mhcnuggets_options()))
+  expect_error(check_mhcnuggets_options("nonsense"))
+}
 }
 \author{
 Richèl J.C. Bilderbeek
