@@ -14,16 +14,11 @@ r_github_packages:
 before_script:
   - sudo apt install python3-pip
   - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
-  #- sudo pip install --upgrade pip
-  #- ./scripts/install_mhcnuggets.sh
-  #- apt-cache search libcuda || true
-  #- apt search libcuda || true
-  #- sudo apt install libcuda1-384 || true
 
 after_success:
-  - Rscript -e 'lintr::lint_package()'
-  - Rscript -e 'covr::codecov()'
-  - Rscript -e 'goodpractice::gp()'
+  - if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
+  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'covr::codecov()'; fi
+  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'goodpractice::gp()'; fi
   - # No local files created
   - if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi;
   - install.packages(".", repos = NULL, type = "source")
