@@ -1,3 +1,7 @@
 test_that("use", {
-  expect_silent(mhcnuggetsr_self_test())
+  if (is_mhcnuggets_installed()) {
+    expect_silent(mhcnuggetsr_self_test())
+  } else {
+    expect_error(mhcnuggetsr_self_test())
+  }
 })
