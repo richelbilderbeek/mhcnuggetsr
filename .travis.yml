@@ -2,10 +2,9 @@ language: r
 dist: bionic
 cache: packages
 
-jobs:
-  - env:
-    - INSTALL_MHCNUGGETS=true
-    - INSTALL_MHCNUGGETS=false
+env:
+  - INSTALL_MHCNUGGETS=true
+  - INSTALL_MHCNUGGETS=false
 
 r_github_packages:
   - jimhester/covr
