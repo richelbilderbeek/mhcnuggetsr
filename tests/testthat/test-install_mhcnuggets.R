@@ -1,22 +1,16 @@
 test_that("use", {
   if (!is_on_ci()) return()
+  if (!is_mhcnuggets_installed()) return()
 
-  if (!is_mhcnuggets_installed()) {
-    install_mhcnuggets()
-    expect_true(is_mhcnuggets_installed())
-    get_mhcnuggets_version()
-    uninstall_mhcnuggets()
-    expect_false(is_mhcnuggets_installed())
-  } else {
-    uninstall_mhcnuggets()
-    expect_false(is_mhcnuggets_installed())
-    install_mhcnuggets()
-    expect_true(is_mhcnuggets_installed())
-  }
+  uninstall_mhcnuggets()
+  expect_false(is_mhcnuggets_installed())
+  install_mhcnuggets()
+  expect_true(is_mhcnuggets_installed())
 })
 
 test_that("install in different folder", {
   if (!is_on_ci()) return()
+  if (!is_mhcnuggets_installed()) return()
 
   # Be able to restore situation before
   set_is_mhcnuggets_installed(FALSE)
@@ -30,12 +24,13 @@ test_that("install in different folder", {
     "test_peptides.peps",
     folder_name = folder_name
   )
+
   tryCatch({
       predict_ic50_from_file(
-        mhc_class = "I",
         peptides_path = peptides_path,
-        mhc = "HLA-A02:01",
-        folder_name = folder_name
+        mhcnuggets_options = create_test_mhcnuggets_options(
+          folder_name = folder_name
+        )
       )
     },
     error = function(e) {} # nolint this will fail when covr::codecov, with error 'hat this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA', see https://travis-ci.org/github/richelbilderbeek/mhcnuggetsr/builds/691686575#L1038
@@ -52,11 +47,10 @@ test_that("install in different folder", {
 test_that("install in different folder", {
   if (!is_on_ci()) return()
 
-  # Install it
-  set_is_mhcnuggets_installed(TRUE)
-
-  expect_error(
-    install_mhcnuggets(),
-    "MHCnuggets is already installed"
-  )
+  if (is_mhcnuggets_installed()) {
+    expect_error(
+      install_mhcnuggets(),
+      "MHCnuggets is already installed"
+    )
+  }
 })
