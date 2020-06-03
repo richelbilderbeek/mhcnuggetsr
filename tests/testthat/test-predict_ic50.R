@@ -1,8 +1,4 @@
 test_that("use", {
-  # Needed for codecov
-  if (is_on_ci() && !is_mhcnuggets_installed()) {
-    install_mhcnuggets()
-  }
 
   if (!is_mhcnuggets_installed()) return()
 

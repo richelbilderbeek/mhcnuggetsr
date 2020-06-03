@@ -28,7 +28,7 @@ Install the \code{MHCnuggets} \code{Python} package.
 \examples{
 library(testthat)
 
-if (is_on_ci() && !is_mhcnuggets_installed()) {
+\dontrun{
   install_mhcnuggets()
   expect_true(is_mhcnuggets_installed())
 }
