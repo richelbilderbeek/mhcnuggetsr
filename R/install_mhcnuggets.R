@@ -16,11 +16,16 @@
 #' @export
 install_mhcnuggets <- function(
   folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  mhcnuggets_url = get_mhcnuggets_url(),
+  verbose = FALSE
 ) {
   if (mhcnuggetsr::is_mhcnuggets_installed(folder_name = folder_name)) {
-    stop("MHCnuggets is already installed")
+    stop("MHCnuggets is already installed in folder '", folder_name, "'")
   }
+
+  # stdout: NULL = discard value, "" = put on R console
+  stdout <- NULL
+  if (isTRUE(verbose)) stdout <- ""
 
   # Create the folder if needed, do not warn if it is already present
   dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
@@ -37,8 +42,7 @@ install_mhcnuggets <- function(
         "clone",
         paste0(mhcnuggets_url, ".git")
       ),
-      stdout = NULL,
-      stderr = NULL
+      stdout = stdout
     )
     setwd(curwd)
   }
@@ -50,7 +54,7 @@ install_mhcnuggets <- function(
     args = c(
       "-m", "pip", "install", "--upgrade", "pip"
     ),
-    stdout = NULL
+    stdout = stdout
   )
 
   # Update pyasn1
@@ -59,7 +63,7 @@ install_mhcnuggets <- function(
     args = c(
       "-m", "pip", "install", "--upgrade", "pyasn1"
     ),
-    stdout = NULL
+    stdout = stdout
   )
 
 
@@ -69,7 +73,7 @@ install_mhcnuggets <- function(
     args = c(
       "-m", "pip", "install", "setuptools"
     ),
-    stdout = NULL
+    stdout = stdout
   )
 
   # Install MHCnugget
@@ -78,6 +82,6 @@ install_mhcnuggets <- function(
     args = c(
       "-m", "pip", "install", file.path(mhcnuggets_folder), "--user"
     ),
-    stdout = NULL
+    stdout = stdout
   )
 }
