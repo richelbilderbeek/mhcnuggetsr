@@ -83,7 +83,8 @@ test_that("vignette example 4", {
   )
 })
 
-test_that("abuse, no MHCnuggets install needed", {
+test_that("abuse", {
+  if (!is_mhcnuggets_installed()) return()
 
   expect_error(
     predict_ic50_from_file(
@@ -99,11 +100,6 @@ test_that("abuse, no MHCnuggets install needed", {
     ),
     "Cannot find 'peptides_path'"
   )
-
-})
-
-test_that("abuse, MHCnuggets install needed", {
-  if (!is_mhcnuggets_installed()) return()
 
   peptides_path <- get_example_filename("test_peptides.peps")
   expect_true(file.exists(peptides_path))
