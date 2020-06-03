@@ -52,7 +52,7 @@ install_mhcnuggets <- function(
   system2(
     reticulate::py_config()$python,
     args = c(
-      "-m", "pip", "install", "--upgrade", "pip"
+      "-m", "pip", "install", "--upgrade", "pip", "--quiet"
     ),
     stdout = stdout
   )
@@ -61,7 +61,7 @@ install_mhcnuggets <- function(
   system2(
     reticulate::py_config()$python,
     args = c(
-      "-m", "pip", "install", "--upgrade", "pyasn1"
+      "-m", "pip", "install", "--upgrade", "pyasn1", "--quiet"
     ),
     stdout = stdout
   )
@@ -71,7 +71,7 @@ install_mhcnuggets <- function(
   system2(
     reticulate::py_config()$python,
     args = c(
-      "-m", "pip", "install", "setuptools"
+      "-m", "pip", "install", "setuptools", "--quiet"
     ),
     stdout = stdout
   )
@@ -80,7 +80,7 @@ install_mhcnuggets <- function(
   system2(
     reticulate::py_config()$python,
     args = c(
-      "-m", "pip", "install", file.path(mhcnuggets_folder), "--user"
+      "-m", "pip", "install", file.path(mhcnuggets_folder), "--user", "--quiet"
     ),
     stdout = stdout
   )
