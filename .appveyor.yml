@@ -20,11 +20,15 @@ environment:
   global:
     WARNINGS_ARE_ERRORS: 0
     USE_RTOOLS: true
+  matrix:
+    - INSTALL_MHCNUGGETS: true
+    - INSTALL_MHCNUGGETS: false
 
 build_script:
   - travis-tool.sh install_deps
 
 test_script:
+  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   - travis-tool.sh run_tests
 
 on_failure:
