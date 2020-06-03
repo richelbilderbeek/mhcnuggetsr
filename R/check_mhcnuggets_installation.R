@@ -1,6 +1,14 @@
 #' Check if MHCnuggets is installed. Will \link{stop} if not.
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
+#' @examples
+#' library(testthat)
+#'
+#' if (is_mhcnuggets_installed()) {
+#'   expect_silent(check_mhcnuggets_installation())
+#' } else {
+#'   expect_error(check_mhcnuggets_installation())
+#' }
 #' @export
 check_mhcnuggets_installation <- function(
   folder_name = get_default_mhcnuggets_folder(),
@@ -10,4 +18,7 @@ check_mhcnuggets_installation <- function(
   if (!dir.exists(mhcnuggets_folder)) {
     stop("MHCnuggets GitHub repo not found at '", mhcnuggets_folder, "'")
   }
+
+  # Will call stop if something fails
+  mhcnuggetsr::mhcnuggetsr_self_test()
 }
