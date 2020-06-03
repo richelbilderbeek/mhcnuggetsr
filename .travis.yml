@@ -9,11 +9,11 @@ r_github_packages:
 
 before_script:
   - sudo apt install python3-pip
-  - sudo pip install --upgrade pip
-  - ./scripts/install_mhcnuggets.sh
-  - apt-cache search libcuda || true
-  - apt search libcuda || true
-  - sudo apt install libcuda1-384 || true
+  #- sudo pip install --upgrade pip
+  #- ./scripts/install_mhcnuggets.sh
+  #- apt-cache search libcuda || true
+  #- apt search libcuda || true
+  #- sudo apt install libcuda1-384 || true
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
