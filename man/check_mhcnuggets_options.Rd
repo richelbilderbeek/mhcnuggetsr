@@ -19,6 +19,8 @@ library(testthat)
 if (is_mhcnuggets_installed()) {
   expect_silent(check_mhcnuggets_options(create_test_mhcnuggets_options()))
   expect_error(check_mhcnuggets_options("nonsense"))
+} else {
+  expect_error(check_mhcnuggets_options(create_test_mhcnuggets_options()))
 }
 }
 \author{
