@@ -7,5 +7,5 @@
 ^\.travis\.yml$
 ^LICENSE$
 ^\.github$
-^scripts/$
+^scripts$
 ^\.appveyor.yml$
