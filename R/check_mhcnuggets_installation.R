@@ -18,7 +18,4 @@ check_mhcnuggets_installation <- function(
   if (!dir.exists(mhcnuggets_folder)) {
     stop("MHCnuggets GitHub repo not found at '", mhcnuggets_folder, "'")
   }
-
-  # Will call stop if something fails
-  mhcnuggetsr::mhcnuggetsr_self_test()
 }
