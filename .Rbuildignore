@@ -5,7 +5,7 @@
 ^cran-comments\.md$
 ^\.github$
 ^\.travis\.yml$
-LICENSE
-.github
-scripts/
-
+^LICENSE$
+^\.github$
+^scripts/$
+^\.appveyor.yml$
