@@ -12,13 +12,15 @@ Get the version of all Python packages
 \examples{
 library(testthat)
 
-df <- get_python_package_versions()
-expect_true(tibble::is_tibble(df))
-expect_true("package" \%in\% names(df))
-expect_true("version" \%in\% names(df))
-expect_true(nrow(df) > 0)
-expect_true(!is.factor(df$package))
-expect_true(!is.factor(df$version))
+if (rappdirs::app_dir()$os != "win") {
+  df <- get_python_package_versions()
+  expect_true(tibble::is_tibble(df))
+  expect_true("package" \%in\% names(df))
+  expect_true("version" \%in\% names(df))
+  expect_true(nrow(df) > 0)
+  expect_true(!is.factor(df$package))
+  expect_true(!is.factor(df$version))
+}
 }
 \author{
 Richèl J.C. Bilderbeek
