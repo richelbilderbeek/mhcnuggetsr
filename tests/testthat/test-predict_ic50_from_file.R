@@ -2,8 +2,6 @@ test_that("vignette example 1", {
 
   # Needed for codecov
   if (is_on_ci() && !is_mhcnuggets_installed()) {
-    #' Use triple-l, due to bug upstream,
-    #' bug report at https://github.com/r-lib/roxygen2/issues/1101
     install_mhcnuggets()
   }
 

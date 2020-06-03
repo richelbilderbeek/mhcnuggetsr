@@ -25,16 +25,10 @@ Nothing
 \description{
 Install the \code{MHCnuggets} \code{Python} package.
 }
-\note{
-Use triple-l, due to bug upstream,
-bug report at \url{https://github.com/r-lib/roxygen2/issues/1101}
-}
 \examples{
 library(testthat)
 
 if (is_on_ci() && !is_mhcnuggets_installed()) {
-  # Use triple-l, due to bug upstream,
-  # bug report at https://github.com/r-lib/roxygen2/issues/1101
   install_mhcnuggets()
   expect_true(is_mhcnuggets_installed())
 }

@@ -19,10 +19,6 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \description{
 Uninstall the MHCnuggets Python package.
 }
-\note{
-Use triple-l, due to bug upstream,
-bug report at \url{https://github.com/r-lib/roxygen2/issues/1101}
-}
 \author{
 Richèl J.C. Bilderbeek
 }
