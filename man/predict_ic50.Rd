@@ -8,29 +8,16 @@ Each peptide must be 15 amino acids at
 most (use \link{predict_ic50s} to predict the IC50s for longer peptides)}
 \usage{
 predict_ic50(
-  mhc_class,
+  mhcnuggets_options,
   peptides,
-  mhc,
-  ba_models = FALSE,
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url(),
-  peptides_path = tempfile()
+  peptides_path = create_temp_peptides_path()
 )
 }
 \arguments{
-\item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
+\item{mhcnuggets_options}{options to run MHCnuggets with,
+as can be created by \link{create_mhcnuggets_options}.}
 
 \item{peptides}{one of more peptide sequences}
-
-\item{mhc}{the MHC haplotype name}
-
-\item{ba_models}{Set to TRUE to use a pure BA model}
-
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
-
-\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 
 \item{peptides_path}{the path to the peptides}
 }
@@ -48,10 +35,14 @@ if (is_mhcnuggets_installed()) {
   peptides <- c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV")
   mhc_1_haplotype <- "HLA-A02:01"
 
-  df <- predict_ic50(
+  mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
-    peptides = peptides,
     mhc = mhc_1_haplotype
+  )
+
+  df <- predict_ic50(
+    peptides = peptides,
+    mhcnuggets_options = mhcnuggets_options
   )
   expect_true("peptide" \%in\% names(df))
   expect_true("ic50" \%in\% names(df))

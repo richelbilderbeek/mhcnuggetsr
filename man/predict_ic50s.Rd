@@ -3,52 +3,43 @@
 \name{predict_ic50s}
 \alias{predict_ic50s}
 \title{Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
-of all possible 15-mers within a peptide}
+of all possible n-mers within a peptide}
 \usage{
 predict_ic50s(
-  mhc_class,
   peptide,
-  mhc,
   n_aas,
-  ba_models = FALSE,
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url(),
-  peptides_path = tempfile()
+  mhcnuggets_options,
+  peptides_path = create_temp_peptides_path()
 )
 }
 \arguments{
-\item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
-
 \item{peptide}{one peptide sequence}
-
-\item{mhc}{the MHC haplotype name}
 
 \item{n_aas}{number of amino acids}
 
-\item{ba_models}{Set to TRUE to use a pure BA model}
-
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
-
-\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+\item{mhcnuggets_options}{options to run MHCnuggets with,
+as can be created by \link{create_mhcnuggets_options}.}
 
 \item{peptides_path}{the path to the peptides}
 }
 \description{
 Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
-of all possible 15-mers within a peptide
+of all possible n-mers within a peptide
 }
 \examples{
 library(testthat)
 
 peptide <- "AIAACAMLLVCCCCCC"
 
-df <- predict_ic50s(
+mhcnuggets_options <- create_mhcnuggets_options(
   mhc_class = "I",
+  mhc = "HLA-A02:01"
+)
+
+df <- predict_ic50s(
   peptide = peptide,
-  mhc = "HLA-A02:01",
-  n_aas = 15
+  n_aas = 15,
+  mhcnuggets_options = mhcnuggets_options
 )
 
 expect_true("peptide" \%in\% names(df))

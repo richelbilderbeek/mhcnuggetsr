@@ -7,11 +7,14 @@
 #' @param mhc the MHC haplotype name
 #' @param mhcs the MHC haplotype names
 #' @param mhc_class MHC class. Must be \code{I} or \code{II}
+#' @param mhcnuggets_options options to run MHCnuggets with,
+#'   as can be created by \link{create_mhcnuggets_options}.
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository
 #' @param n_aas number of amino acids
 #' @param peptide one peptide sequence
 #' @param peptides one of more peptide sequences
 #' @param peptides_path the path to the peptides
+#' @param verbose set to \link{TRUE} for more debug information
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
 #'   \code{@noRd}. This is not done, as this will disallow all
@@ -21,10 +24,12 @@ default_params_doc <- function(
   folder_name,
   mhc, mhcs,
   mhc_class,
+  mhcnuggets_options,
   mhcnuggets_url,
   n_aas,
   peptide, peptides,
-  peptides_path
+  peptides_path,
+  verbose
 ) {
   # Nothing
 }

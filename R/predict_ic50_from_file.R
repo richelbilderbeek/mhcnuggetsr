@@ -14,10 +14,14 @@
 #'   mhc_1_haplotype <- "HLA-A02:01"
 #'   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 #'
-#'   df <- predict_ic50_from_file(
+#'   mhcnuggets_options <- create_mhcnuggets_options(
 #'     mhc_class = "I",
-#'     peptides_path = peptides_path,
 #'     mhc = mhc_1_haplotype
+#'   )
+#'
+#'   df <- predict_ic50_from_file(
+#'     peptides_path = peptides_path,
+#'     mhcnuggets_options = mhcnuggets_options
 #'   )
 #'   expect_true("peptide" %in% names(df))
 #'   expect_true("ic50" %in% names(df))
@@ -27,19 +31,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 predict_ic50_from_file <- function(
-  mhc_class,
-  peptides_path,
-  mhc,
-  ba_models = FALSE,
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  mhcnuggets_options,
+  peptides_path
 ) {
-  if (!mhc_class %in% c("I", "II")) {
-    stop(
-      "'mhc_class' must be either 'I' or 'II'. \n",
-      "Actual value: ", mhc_class
-    )
-  }
   if (!file.exists(peptides_path)) {
     stop(
       "Cannot find 'peptides_path'. \n",
@@ -49,42 +43,30 @@ predict_ic50_from_file <- function(
   if (any(nchar(readLines(peptides_path, warn = FALSE)) > 15)) {
     stop("'peptides' must have lengths of at most 15")
   }
-  if (!is_mhcnuggets_name(mhc)) {
-    stop(
-      "'mhc' must be a valid MHC haplotype name", "\n",
-      "Actual value: ", mhc, "\n",
-      "Tip: see 'get_mhc_1_haplotypes' or 'get_mhc_2_haplotypes'"
-    )
-  }
-  mhcnuggetsr::check_mhcnuggets_installation(
-    folder_name = folder_name,
-    mhcnuggets_url = mhcnuggets_url
-  )
-  if (mhc_class == "I" && mhc %in% get_trained_mhc_2_haplotypes()) {
-    stop("Must use the same 'mhc_class' as the 'mhc' is from")
-  }
-  if (mhc_class == "II" && mhc %in% get_trained_mhc_1_haplotypes()) {
-    stop("Must use the same 'mhc_class' as the 'mhc' is from")
-  }
+  mhcnuggetsr::check_mhcnuggets_options(mhcnuggets_options)
 
   # Issue 3
   testthat::expect_true(reticulate::py_available(TRUE))
 
 
-  mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
+
+  mhcnuggets_folder <- file.path(
+    mhcnuggets_options$folder_name,
+    basename(mhcnuggets_options$mhcnuggets_url)
+  )
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   module <- reticulate::import_from_path(
     module = "mhcnuggets.src.predict",
     path = file.path(mhcnuggets_folder, "mhcnuggets")
   )
-  filename <- tempfile()
+  filename <- mhcnuggetsr::create_temp_peptides_path(fileext = ".csv")
 
   suppressMessages(
     module$predict(
-      class_ = mhc_class,
+      class_ = mhcnuggets_options$mhc_class,
       peptides_path = peptides_path,
-      mhc = mhc,
-      ba_models = ba_models,
+      mhc = mhcnuggets_options$mhc,
+      ba_models = mhcnuggets_options$ba_models,
       output = filename
     )
   )

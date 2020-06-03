@@ -46,10 +46,13 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- predict_ic50_from_file(
+  mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
-    peptides_path = peptides_path, 
     mhc = mhc_1_haplotype
+  )
+  df <- predict_ic50_from_file(
+    peptides_path = peptides_path, 
+    mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
 }
@@ -60,11 +63,14 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- predict_ic50_from_file(
+  mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
-    peptides_path = peptides_path, 
-    mhc = mhc_1_haplotype, 
+    mhc = mhc_1_haplotype,
     ba_models = TRUE
+  )
+  df <- predict_ic50_from_file(
+    peptides_path = peptides_path, 
+    mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
 }
@@ -84,10 +90,13 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- predict_ic50_from_file(
+  mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "II",
-    peptides_path = peptides_path, 
     mhc = mhc_2_haplotype
+  )
+  df <- predict_ic50_from_file(
+    peptides_path = peptides_path, 
+    mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
 }
@@ -107,10 +116,13 @@ Predict:
 
 ```{r}
 if (is_mhcnuggets_installed()) {
-  df <- predict_ic50_from_file(
+  mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
-    peptides_path = peptides_path, 
     mhc = mhc_1_haplotype
+  )
+  df <- predict_ic50_from_file(
+    peptides_path = peptides_path, 
+    mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
 }

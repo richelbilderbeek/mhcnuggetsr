@@ -1,16 +1,20 @@
 #' Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
-#' of all possible 15-mers within a peptide
+#' of all possible n-mers within a peptide
 #' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)
 #'
 #' peptide <- "AIAACAMLLVCCCCCC"
 #'
-#' df <- predict_ic50s(
+#' mhcnuggets_options <- create_mhcnuggets_options(
 #'   mhc_class = "I",
+#'   mhc = "HLA-A02:01"
+#' )
+#'
+#' df <- predict_ic50s(
 #'   peptide = peptide,
-#'   mhc = "HLA-A02:01",
-#'   n_aas = 15
+#'   n_aas = 15,
+#'   mhcnuggets_options = mhcnuggets_options
 #' )
 #'
 #' expect_true("peptide" %in% names(df))
@@ -22,14 +26,10 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 predict_ic50s <- function(
-  mhc_class,
   peptide,
-  mhc,
   n_aas,
-  ba_models = FALSE,
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url(),
-  peptides_path = tempfile()
+  mhcnuggets_options,
+  peptides_path = create_temp_peptides_path()
 ) {
   if (n_aas > 15) {
     stop(
@@ -43,13 +43,8 @@ predict_ic50s <- function(
     peptides[i] <- substr(peptide, i, i + n_aas - 1)
   }
   testthat::expect_true(all(nchar(peptides) == n_aas))
-  predict_ic50(
-    mhc_class = mhc_class,
+  mhcnuggetsr::predict_ic50(
     peptides = peptides,
-    mhc = mhc,
-    ba_models = ba_models,
-    folder_name = folder_name,
-    mhcnuggets_url = mhcnuggets_url,
-    peptides_path = peptides_path
+    mhcnuggets_options = mhcnuggets_options
   )
 }

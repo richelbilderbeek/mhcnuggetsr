@@ -18,10 +18,14 @@
 #'   mhc_1_haplotype <- "HLA-A02:01"
 #'   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 #'
-#'   df <- predict_ic50_from_file(
+#'   mhcnuggets_options <- create_mhcnuggets_options(
 #'     mhc_class = "I",
-#'     peptides_path = peptides_path,
 #'     mhc = mhc_1_haplotype
+#'   )
+#'
+#'   df <- predict_ic50_from_file(
+#'     peptides_path = peptides_path,
+#'     mhcnuggets_options = mhcnuggets_options
 #'   )
 #'   expect_true("peptide" %in% names(df))
 #'   expect_true("ic50" %in% names(df))

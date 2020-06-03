@@ -5,11 +5,15 @@ test_that("peptide lengths must be at most 15", {
   first_peptide_expected <- substr(peptide, 1, 15)
   second_peptide_expected <- substr(peptide, 2, 16)
 
-  df <- predict_ic50s(
+  mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
+    mhc = "HLA-A02:01"
+  )
+
+  df <- predict_ic50s(
     peptide = peptide,
-    mhc = "HLA-A02:01",
-    n_aas = 15
+    n_aas = 15,
+    mhcnuggets_options = mhcnuggets_options
   )
 
   expect_true("peptide" %in% names(df))
@@ -22,11 +26,11 @@ test_that("peptide lengths must be at most 15", {
 })
 
 test_that("peptide lengths must be at most 15", {
+
   expect_error(
     predict_ic50s(
-      mhc_class = "I",
+      mhcnuggets_options = create_test_mhcnuggets_options(),
       peptide = "AIAACAMLLVCCCCCC",
-      mhc = "HLA-A02:01",
       n_aas = 16
     ),
     "'n_aas' must be 15 at most"

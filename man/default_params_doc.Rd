@@ -11,11 +11,13 @@ default_params_doc(
   mhc,
   mhcs,
   mhc_class,
+  mhcnuggets_options,
   mhcnuggets_url,
   n_aas,
   peptide,
   peptides,
-  peptides_path
+  peptides_path,
+  verbose
 )
 }
 \arguments{
@@ -31,6 +33,9 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
 
+\item{mhcnuggets_options}{options to run MHCnuggets with,
+as can be created by \link{create_mhcnuggets_options}.}
+
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 
 \item{n_aas}{number of amino acids}
@@ -40,6 +45,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \item{peptides}{one of more peptide sequences}
 
 \item{peptides_path}{the path to the peptides}
+
+\item{verbose}{set to \link{TRUE} for more debug information}
 }
 \description{
 This function does nothing. It is intended to inherit the documentation

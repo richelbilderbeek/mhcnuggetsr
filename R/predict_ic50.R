@@ -11,10 +11,14 @@
 #'   peptides <- c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV")
 #'   mhc_1_haplotype <- "HLA-A02:01"
 #'
-#'   df <- predict_ic50(
+#'   mhcnuggets_options <- create_mhcnuggets_options(
 #'     mhc_class = "I",
-#'     peptides = peptides,
 #'     mhc = mhc_1_haplotype
+#'   )
+#'
+#'   df <- predict_ic50(
+#'     peptides = peptides,
+#'     mhcnuggets_options = mhcnuggets_options
 #'   )
 #'   expect_true("peptide" %in% names(df))
 #'   expect_true("ic50" %in% names(df))
@@ -24,24 +28,16 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 predict_ic50 <- function(
-  mhc_class,
+  mhcnuggets_options,
   peptides,
-  mhc,
-  ba_models = FALSE,
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url(),
-  peptides_path = tempfile()
+  peptides_path = create_temp_peptides_path()
 ) {
   if (any(nchar(peptides) > 15)) {
     stop("'peptides' must have lengths of at most 15")
   }
   writeLines(text = peptides, con = peptides_path)
   mhcnuggetsr::predict_ic50_from_file(
-    mhc_class = mhc_class,
-    peptides_path = peptides_path,
-    mhc = mhc,
-    ba_models = ba_models,
-    folder_name = folder_name,
-    mhcnuggets_url = mhcnuggets_url
+    mhcnuggets_options = mhcnuggets_options,
+    peptides_path = peptides_path
   )
 }

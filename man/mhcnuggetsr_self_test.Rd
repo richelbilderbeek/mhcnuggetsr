@@ -4,17 +4,11 @@
 \alias{mhcnuggetsr_self_test}
 \title{Self-test the package}
 \usage{
-mhcnuggetsr_self_test(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
-)
+mhcnuggetsr_self_test(mhcnuggets_options = create_test_mhcnuggets_options())
 }
 \arguments{
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
-
-\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+\item{mhcnuggets_options}{options to run MHCnuggets with,
+as can be created by \link{create_mhcnuggets_options}.}
 }
 \description{
 Self-test the package
