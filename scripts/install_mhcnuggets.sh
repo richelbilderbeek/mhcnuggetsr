@@ -20,3 +20,4 @@ sed -i'.orginal' "s/mhcnuggetsr:://g" tempscript.R
 cat tempscript.R
 Rscript tempscript.R
 rm tempscript.R
+rm tempscript.R.orginal
