@@ -1,4 +1,7 @@
 test_that("use", {
+
+  if (!is_mhcnuggets_installed()) return()
+
   options <- create_test_mhcnuggets_options()
   expect_true("mhc_class" %in% names(options))
   expect_true("mhc" %in% names(options))

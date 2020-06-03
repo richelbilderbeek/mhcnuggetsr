@@ -1,5 +1,7 @@
 test_that("peptide lengths must be at most 15", {
 
+  if (!is_mhcnuggets_installed()) return()
+
   peptide <- "AIAACAMLLVCCCCCC"
   n_rows_expected <- nchar(peptide) - 15 + 1
   first_peptide_expected <- substr(peptide, 1, 15)
@@ -26,6 +28,8 @@ test_that("peptide lengths must be at most 15", {
 })
 
 test_that("peptide lengths must be at most 15", {
+
+  if (!is_mhcnuggets_installed()) return()
 
   expect_error(
     predict_ic50s(
