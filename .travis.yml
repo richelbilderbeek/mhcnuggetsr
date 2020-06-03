@@ -2,6 +2,10 @@ language: r
 dist: bionic
 cache: packages
 
+env:
+  -INSTALL_MHCNUGGETS=true
+  -INSTALL_MHCNUGGETS=false
+
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
@@ -9,6 +13,7 @@ r_github_packages:
 
 before_script:
   - sudo apt install python3-pip
+  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   #- sudo pip install --upgrade pip
   #- ./scripts/install_mhcnuggets.sh
   #- apt-cache search libcuda || true
