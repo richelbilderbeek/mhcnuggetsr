@@ -10,10 +10,10 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mhcnuggetsr)](https://CRAN.R-project.org/package=mhcnuggetsr)
 
-| Branch    | [![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)                                                                         | [![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)                                                                                                         |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `master`  | [![Build Status](https://travis-ci.org/richelbilderbeek/mhcnuggetsr.svg?branch=master)](https://travis-ci.org/richelbilderbeek/mhcnuggetsr)  | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/master)   |
-| `develop` | [![Build Status](https://travis-ci.org/richelbilderbeek/mhcnuggetsr.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/mhcnuggetsr) | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/develop) |
+| Branch    | [![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)                                                                         | [![AppVeyor logo](man/figures/AppVeyor.png)](https://www.appveyor.com)                                                                                                               | [![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)                                                                                                         |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `master`  | [![Build Status](https://travis-ci.org/richelbilderbeek/mhcnuggetsr.svg?branch=master)](https://travis-ci.org/richelbilderbeek/mhcnuggetsr)  | [![Build status](https://ci.appveyor.com/api/projects/status/r7apdqey2ev9s4q7/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mhcnuggetsr/branch/master)   | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/master)   |
+| `develop` | [![Build Status](https://travis-ci.org/richelbilderbeek/mhcnuggetsr.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/mhcnuggetsr) | [![Build status](https://ci.appveyor.com/api/projects/status/r7apdqey2ev9s4q7/branch/develop?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mhcnuggetsr/branch/develop) | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/develop) |
 
 <!-- badges: end -->
 
@@ -52,10 +52,14 @@ library(testthat)
 library(mhcnuggetsr)
 
 if (is_mhcnuggets_installed()) {
-  df <- predict_ic50(
+  mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
-    peptides = "AIAACAMLLV",
     mhc = "HLA-A02:01"
+  )
+  
+  df <- predict_ic50(
+    peptides = "AIAACAMLLV",
+    mhcnuggets_options = mhcnuggets_options
   )
   expect_equal(df$ic50, 5578.77)
 }
