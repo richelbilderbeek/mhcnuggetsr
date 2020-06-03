@@ -66,6 +66,11 @@ predict_ic50_from_file <- function(
   if (mhc_class == "II" && mhc %in% get_trained_mhc_1_haplotypes()) {
     stop("Must use the same 'mhc_class' as the 'mhc' is from")
   }
+
+  # Issue 3
+  testthat::expect_true(reticulate::py_available(TRUE))
+
+
   mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   module <- reticulate::import_from_path(
