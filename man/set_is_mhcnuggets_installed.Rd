@@ -6,6 +6,7 @@
 \usage{
 set_is_mhcnuggets_installed(
   is_installed,
+  verbose = FALSE,
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 )
@@ -13,6 +14,8 @@ set_is_mhcnuggets_installed(
 \arguments{
 \item{is_installed}{the desired installation state. Must
 be \link{TRUE} or \link{FALSE}}
+
+\item{verbose}{set to \link{TRUE} for more debug information}
 
 \item{folder_name}{superfolder of MHCnuggets.
 The name of the superfolder is \code{/home/[user_name]/.local/share}

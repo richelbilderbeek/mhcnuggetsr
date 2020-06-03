@@ -34,10 +34,12 @@ Create a set of testing options to run MHCnuggets with
 \examples{
 library(testthat)
 
-options <- create_test_mhcnuggets_options()
+if (is_mhcnuggets_installed()) {
+  options <- create_test_mhcnuggets_options()
 
-expect_true(is_mhcnuggets_options(options))
-expect_silent(check_mhcnuggets_options(options))
+  expect_true(is_mhcnuggets_options(options))
+  expect_silent(check_mhcnuggets_options(options))
+}
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -7,6 +7,7 @@
 #' @export
 set_is_mhcnuggets_installed <- function(
   is_installed,
+  verbose = FALSE,
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
@@ -15,7 +16,7 @@ set_is_mhcnuggets_installed <- function(
   )
   if (is_installed == is_cur_installed) return()
   if (is_installed) {
-    mhcnuggetsr::install_mhcnuggets()
+    mhcnuggetsr::install_mhcnuggets(verbose = verbose)
   } else {
     mhcnuggetsr::uninstall_mhcnuggets()
   }

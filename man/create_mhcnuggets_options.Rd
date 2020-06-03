@@ -34,20 +34,22 @@ Create a set of options to run MHCnuggets with
 \examples{
 library(testthat)
 
-options <- create_mhcnuggets_options(
-  mhc_class = "I",
-  mhc = "HLA-A02:01"
-)
+if (is_mhcnuggets_installed()) {
+  options <- create_mhcnuggets_options(
+    mhc_class = "I",
+    mhc = "HLA-A02:01"
+  )
 
-expect_true("mhc_class" \%in\% names(options))
-expect_true("mhc" \%in\% names(options))
-expect_true("ba_models" \%in\% names(options))
-expect_true("verbose" \%in\% names(options))
-expect_true("folder_name" \%in\% names(options))
-expect_true("mhcnuggets_url" \%in\% names(options))
+  expect_true("mhc_class" \%in\% names(options))
+  expect_true("mhc" \%in\% names(options))
+  expect_true("ba_models" \%in\% names(options))
+  expect_true("verbose" \%in\% names(options))
+  expect_true("folder_name" \%in\% names(options))
+  expect_true("mhcnuggets_url" \%in\% names(options))
 
-expect_true(is_mhcnuggets_options(options))
-expect_silent(check_mhcnuggets_options(options))
+  expect_true(is_mhcnuggets_options(options))
+  expect_silent(check_mhcnuggets_options(options))
+}
 }
 \seealso{
 use \link{create_test_mhcnuggets_options} to create an
