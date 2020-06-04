@@ -25,7 +25,7 @@ check_mhcnuggets_options <- function(
   for (name in expected_names) {
     if (!name %in% names(mhcnuggets_options)) {
       stop(
-        "'mhcnuggets_options' must have an element named '", name ,"'"
+        "'mhcnuggets_options' must have an element named '", name, "'"
       )
     }
   }

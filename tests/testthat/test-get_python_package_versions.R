@@ -19,7 +19,7 @@ test_that("use", {
     message(df)
     expect_true(tibble::is_tibble(df))
     expect_true("package" %in% names(df))
-    # expect_true("version" %in% names(df))
+    expect_false("version" %in% names(df)) # Weird!
     expect_true(nrow(df) > 0)
     expect_true(!is.factor(df$package))
     expect_true(!is.factor(df$version))

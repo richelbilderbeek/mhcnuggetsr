@@ -28,5 +28,3 @@ create_test_mhcnuggets_options <- function(
     mhcnuggets_url = mhcnuggets_url
   )
 }
-
-

@@ -10,4 +10,3 @@ test_that("use", {
   expect_true("folder_name" %in% names(options))
   expect_true("mhcnuggets_url" %in% names(options))
 })
-
