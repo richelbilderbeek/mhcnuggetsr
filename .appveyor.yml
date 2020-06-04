@@ -30,7 +30,7 @@ build_script:
 test_script:
   #- if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh; }
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
-  - ps: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - ps: if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh }
   - travis-tool.sh run_tests
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
 
