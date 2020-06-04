@@ -23,10 +23,12 @@ after_success:
   - if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi;
   - Rscript -e 'install.packages(".", repos = NULL, type = "source")'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
+  - Rscript -e 'mhcnuggetsr::mhcnuggetsr_self_test()'
 
 after_failure:
   - ls
   - Rscript -e 'install.packages(".", repos = NULL, type = "source")'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
+  - Rscript -e 'mhcnuggetsr::mhcnuggetsr_self_test()'
 
 
