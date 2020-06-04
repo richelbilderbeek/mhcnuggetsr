@@ -28,8 +28,9 @@ build_script:
   - travis-tool.sh install_deps
 
 test_script:
-  - if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh; }
+  #- if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh; }
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - ps: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   - travis-tool.sh run_tests
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
 
