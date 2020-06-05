@@ -48,28 +48,46 @@ predict_ic50_from_file <- function(
   # Issue 3
   testthat::expect_true(reticulate::py_available(TRUE))
 
+  install_from_pip <- TRUE
+  if (install_from_pip) {
 
-
-  mhcnuggets_folder <- file.path(
-    mhcnuggets_options$folder_name,
-    basename(mhcnuggets_options$mhcnuggets_url)
-  )
-  testthat::expect_true(dir.exists(mhcnuggets_folder))
-  module <- reticulate::import_from_path(
-    module = "mhcnuggets.src.predict",
-    path = file.path(mhcnuggets_folder, "mhcnuggets")
-  )
-  filename <- mhcnuggetsr::create_temp_peptides_path(fileext = ".csv")
-
-  suppressMessages(
-    module$predict(
-      class_ = mhcnuggets_options$mhc_class,
-      peptides_path = peptides_path,
-      mhc = mhcnuggets_options$mhc,
-      ba_models = mhcnuggets_options$ba_models,
-      output = filename
+    module <- reticulate::import_from_path(
+      module = "mhcnuggets"
     )
-  )
+    filename <- mhcnuggetsr::create_temp_peptides_path(fileext = ".csv")
+    suppressMessages(
+      module$src$predict$predict(
+        class_ = mhcnuggets_options$mhc_class,
+        peptides_path = peptides_path,
+        mhc = mhcnuggets_options$mhc,
+        ba_models = mhcnuggets_options$ba_models,
+        output = filename
+      )
+    )
+
+  } else {
+
+    mhcnuggets_folder <- file.path(
+      mhcnuggets_options$folder_name,
+      basename(mhcnuggets_options$mhcnuggets_url)
+    )
+    testthat::expect_true(dir.exists(mhcnuggets_folder))
+    module <- reticulate::import_from_path(
+      module = "mhcnuggets.src.predict",
+      path = file.path(mhcnuggets_folder, "mhcnuggets")
+    )
+    filename <- mhcnuggetsr::create_temp_peptides_path(fileext = ".csv")
+
+    suppressMessages(
+      module$predict(
+        class_ = mhcnuggets_options$mhc_class,
+        peptides_path = peptides_path,
+        mhc = mhcnuggets_options$mhc,
+        ba_models = mhcnuggets_options$ba_models,
+        output = filename
+      )
+    )
+  }
 
   df <- tibble::as_tibble(utils::read.csv(filename))
   df$peptide <- as.character(df$peptide)
