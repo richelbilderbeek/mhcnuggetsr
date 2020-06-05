@@ -39,6 +39,18 @@ mhcnuggetsr_report <- function() {
         mhcnuggetsr::get_mhcnuggets_version()
       )
     )
+  } else {
+    kat(
+      paste0(
+        "Tip: when working on the Groninger Peregrine computer cluster, \n",
+        "type: \n",
+        "\n",
+        "~/.local/share/r-miniconda/envs/r-reticulate/bin/python ",
+        "-m pip  install mhcnuggets"
+      )
+    )
+
+
   }
   kat("***************")
   kat("* sessionInfo *")
