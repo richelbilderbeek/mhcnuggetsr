@@ -20,7 +20,7 @@ after_success:
   - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'covr::codecov()'; fi
   - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'goodpractice::gp()'; fi
   - # No local files created
-  - if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi;
+  - if [[ $(egrep -R "\"~" --include={*.R,*.Rmd} | egrep -v README.Rmd) ]]; then echo "Local file created"; exit 1; fi;
   - Rscript -e 'install.packages(".", repos = NULL, type = "source")'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_self_test()'

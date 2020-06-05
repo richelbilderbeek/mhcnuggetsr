@@ -88,7 +88,8 @@ install_mhcnuggets <- function(
     system2(
       reticulate::py_config()$python,
       args = c(
-        "-m", "pip", "install", file.path(mhcnuggets_folder), "--user", "--quiet"
+        "-m", "pip", "install", file.path(mhcnuggets_folder),
+        "--user", "--quiet"
       ),
       stdout = stdout
     )
