@@ -4,8 +4,7 @@ test_that("simple haplotype", {
 })
 
 test_that("complex haplotype", {
-  haplotype <- "HLA-A*01:01"
-  expect_equal("HLA-A01:01", to_mhcnuggets_name(haplotype))
+  if (!is_mhcnuggets_installed()) return()
 
   # Official notation
   haplotype_name <- "HLA-DQA1*0501/DQB1*0201"
@@ -22,19 +21,4 @@ test_that("complex haplotype", {
   expect_true(expected_name %in% mhcnuggetsr::get_mhc_2_haplotypes())
   mhcnuggets_name <- to_mhcnuggets_name(haplotype_name)
   expect_equal(expected_name, mhcnuggets_name)
-})
-
-test_that("all", {
-
-  if ("bbbq" %in% rownames(installed.packages())) {
-
-    for (haplotype_name in bbbq::get_mhc1_haplotypes()) {
-      mhcnuggets_name <- mhcnuggetsr::to_mhcnuggets_name(haplotype_name)
-      expect_true(mhcnuggets_name %in% mhcnuggetsr::get_mhc_1_haplotypes())
-    }
-    for (haplotype_name in bbbq::get_mhc2_haplotypes()) {
-      mhcnuggets_name <- mhcnuggetsr::to_mhcnuggets_name(haplotype_name)
-      expect_true(mhcnuggets_name %in% mhcnuggetsr::get_mhc_2_haplotypes())
-    }
-  }
 })
