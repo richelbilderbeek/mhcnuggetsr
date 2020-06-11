@@ -8,9 +8,25 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 to_mhcnuggets_name <- function(mhc) {
-  stringr::str_replace(
+  # haplotype_name <- "HLA-DQA1*0501/DQB1*0201"
+  # expected_name  <- "HLA-DQA105:01-DQB102:01"
+
+  # Remove asterisks
+  mhc_no_asterisks <- stringr::str_replace_all(
     string = mhc,
     pattern = "\\*",
     replacement = ""
+  )
+  # Replace slash by dash
+  mhc_no_slash <- stringr::str_replace_all(
+    string = mhc_no_asterisks,
+    pattern = "/",
+    replacement = "-"
+  )
+  # Replace 5 digits by 123:45
+  stringr::str_replace_all(
+    string = mhc_no_slash,
+    pattern = "([[:digit:]]{3})([[:digit:]]{2})",
+    replacement = "\\1:\\2"
   )
 }
