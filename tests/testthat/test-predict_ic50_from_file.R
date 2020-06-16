@@ -78,7 +78,7 @@ test_that("vignette example 3", {
     peptides_path = peptides_path
   )
   expect_equal(ic50s_2$peptide, c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV"))
-  expect_equal(ic50s_2$ic50, c(3887.51, 12304.98, 6509.79))
+  expect_equal(ic50s_2$ic50, c(3887.51, 12304.98, 6509.79), tol = 0.1)
 
   # Use NA
   mhcnuggets_options$mhc_class <- NA
