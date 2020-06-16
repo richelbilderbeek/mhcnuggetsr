@@ -17,7 +17,13 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
 \description{
-Check if MHCnuggets is installed. Will \link{stop} if not.
+An MHCnuggets installation has two parts:
+\enumerate{
+\item The installation of the Python package,
+for running the code
+\item The download of the Python source code,
+which allows the use of example files
+}
 }
 \examples{
 library(testthat)

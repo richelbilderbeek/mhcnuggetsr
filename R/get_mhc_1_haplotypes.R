@@ -13,5 +13,8 @@ get_mhc_1_haplotypes <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
-  mhcnuggetsr::get_trained_mhc_1_haplotypes()
+  mhcnuggetsr::get_trained_mhc_1_haplotypes(
+    folder_name = folder_name,
+    mhcnuggets_url = mhcnuggets_url
+  )
 }
