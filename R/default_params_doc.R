@@ -6,7 +6,8 @@
 #'   by default, as can be obtained by\link{get_default_mhcnuggets_folder}
 #' @param mhc the MHC haplotype name
 #' @param mhcs the MHC haplotype names
-#' @param mhc_class MHC class. Must be \code{I} or \code{II}
+#' @param mhc_class MHC class. Must be \code{I}, \code{II}
+#'   or \link{NA}. Use \link{NA} to let the class be deduced automatically
 #' @param mhcnuggets_options options to run MHCnuggets with,
 #'   as can be created by \link{create_mhcnuggets_options}.
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository

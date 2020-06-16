@@ -3,6 +3,9 @@ test_that("use", {
   if (!is_mhcnuggets_installed()) return()
 
   expect_silent(check_mhcnuggets_options(create_test_mhcnuggets_options()))
+  expect_silent(
+    check_mhcnuggets_options(create_test_mhcnuggets_options(mhc_class = NA))
+  )
 
   # Must be a list
   expect_error(
@@ -34,7 +37,7 @@ test_that("use", {
         mhc_class = "nonsense"
       )
     ),
-    "'mhc_class' must be either 'I' or 'II'"
+    "'mhc_class' must be either 'I', 'II' or NA"
   )
 
   expect_error(

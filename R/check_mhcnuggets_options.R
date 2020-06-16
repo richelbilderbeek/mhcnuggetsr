@@ -30,9 +30,11 @@ check_mhcnuggets_options <- function(
     }
   }
 
-  if (!mhcnuggets_options$mhc_class %in% c("I", "II")) {
+  if (!is.na(mhcnuggets_options$mhc_class) &&
+      !mhcnuggets_options$mhc_class %in% c("I", "II")
+  ) {
     stop(
-      "'mhc_class' must be either 'I' or 'II'. \n",
+      "'mhc_class' must be either 'I', 'II' or NA. \n",
       "Actual value: ", mhcnuggets_options$mhc_class
     )
   }
@@ -47,7 +49,8 @@ check_mhcnuggets_options <- function(
     folder_name = mhcnuggets_options$folder_name,
     mhcnuggets_url = mhcnuggets_options$mhcnuggets_url
   )
-  if (mhcnuggets_options$mhc_class == "I" &&
+  if (!is.na(mhcnuggets_options$mhc_class) &&
+      mhcnuggets_options$mhc_class == "I" &&
       mhcnuggets_options$mhc %in% get_trained_mhc_2_haplotypes()
   ) {
     stop(
@@ -56,7 +59,8 @@ check_mhcnuggets_options <- function(
       "'mhcnuggets_options$mhc': ", mhcnuggets_options$mhc
     )
   }
-  if (mhcnuggets_options$mhc_class == "II" &&
+  if (!is.na(mhcnuggets_options$mhc_class) &&
+      mhcnuggets_options$mhc_class == "II" &&
       mhcnuggets_options$mhc %in% get_trained_mhc_1_haplotypes()
   ) {
     stop(

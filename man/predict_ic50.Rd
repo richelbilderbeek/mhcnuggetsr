@@ -36,7 +36,6 @@ if (is_mhcnuggets_installed()) {
   mhc_1_haplotype <- "HLA-A02:01"
 
   mhcnuggets_options <- create_mhcnuggets_options(
-    mhc_class = "I",
     mhc = mhc_1_haplotype
   )
 

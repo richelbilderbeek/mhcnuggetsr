@@ -5,7 +5,6 @@
 #'
 #' if (is_mhcnuggets_installed()) {
 #'   options <- create_mhcnuggets_options(
-#'     mhc_class = "I",
 #'     mhc = "HLA-A02:01"
 #'   )
 #'
@@ -24,7 +23,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_mhcnuggets_options <- function(
-  mhc_class,
+  mhc_class = NA,
   mhc,
   ba_models = FALSE,
   verbose = FALSE,

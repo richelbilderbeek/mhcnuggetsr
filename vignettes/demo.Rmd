@@ -47,7 +47,6 @@ Predict:
 ```{r}
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
-    mhc_class = "I",
     mhc = mhc_1_haplotype
   )
   df <- predict_ic50_from_file(
@@ -64,7 +63,6 @@ Predict:
 ```{r}
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
-    mhc_class = "I",
     mhc = mhc_1_haplotype,
     ba_models = TRUE
   )
@@ -91,7 +89,6 @@ Predict:
 ```{r}
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
-    mhc_class = "II",
     mhc = mhc_2_haplotype
   )
   df <- predict_ic50_from_file(

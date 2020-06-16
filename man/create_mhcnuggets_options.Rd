@@ -5,7 +5,7 @@
 \title{Create a set of options to run MHCnuggets with}
 \usage{
 create_mhcnuggets_options(
-  mhc_class,
+  mhc_class = NA,
   mhc,
   ba_models = FALSE,
   verbose = FALSE,
@@ -14,7 +14,8 @@ create_mhcnuggets_options(
 )
 }
 \arguments{
-\item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
+\item{mhc_class}{MHC class. Must be \code{I}, \code{II}
+or \link{NA}. Use \link{NA} to let the class be deduced automatically}
 
 \item{mhc}{the MHC haplotype name}
 
@@ -36,7 +37,6 @@ library(testthat)
 
 if (is_mhcnuggets_installed()) {
   options <- create_mhcnuggets_options(
-    mhc_class = "I",
     mhc = "HLA-A02:01"
   )
 

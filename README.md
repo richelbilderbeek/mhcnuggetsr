@@ -53,7 +53,6 @@ library(mhcnuggetsr)
 
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
-    mhc_class = "I",
     mhc = "HLA-A02:01"
   )
   

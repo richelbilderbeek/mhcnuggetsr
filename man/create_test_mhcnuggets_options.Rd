@@ -14,7 +14,8 @@ create_test_mhcnuggets_options(
 )
 }
 \arguments{
-\item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
+\item{mhc_class}{MHC class. Must be \code{I}, \code{II}
+or \link{NA}. Use \link{NA} to let the class be deduced automatically}
 
 \item{mhc}{the MHC haplotype name}
 

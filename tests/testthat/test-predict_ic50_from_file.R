@@ -11,14 +11,25 @@ test_that("vignette example 1", {
   )
   expect_true(mhcnuggets_options$mhc %in% get_trained_mhc_1_haplotypes())
 
-  df <- predict_ic50_from_file(
+  ic50s_1 <- predict_ic50_from_file(
     peptides_path = peptides_path,
     mhcnuggets_options = mhcnuggets_options
   )
-  expect_true("peptide" %in% names(df))
-  expect_true("ic50" %in% names(df))
-  expect_equal("character", class(df$peptide))
-  expect_equal("numeric", class(df$ic50))
+  expect_true("peptide" %in% names(ic50s_1))
+  expect_true("ic50" %in% names(ic50s_1))
+  expect_equal("character", class(ic50s_1$peptide))
+  expect_equal("numeric", class(ic50s_1$ic50))
+  expect_equal(ic50s_1$peptide, c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV"))
+  expect_equal(ic50s_1$ic50, c(5578.77, 5634.66, 5554.22))
+
+  # Use NA
+  mhcnuggets_options$mhc_class <- NA
+  ic50s_na <- predict_ic50_from_file(
+    mhcnuggets_options = mhcnuggets_options,
+    peptides_path = peptides_path
+  )
+  expect_equal(ic50s_1$peptide, ic50s_na$peptide)
+  expect_equal(ic50s_1$ic50, ic50s_na$ic50)
 })
 
 test_that("vignette example 2", {
@@ -33,12 +44,21 @@ test_that("vignette example 2", {
   )
   expect_true(mhcnuggets_options$mhc %in% get_trained_mhc_1_haplotypes())
 
-  expect_silent(
-    predict_ic50_from_file(
-      peptides_path = peptides_path,
-      mhcnuggets_options = mhcnuggets_options
-    )
+  ic50s_1 <- predict_ic50_from_file(
+    peptides_path = peptides_path,
+    mhcnuggets_options = mhcnuggets_options
   )
+  expect_equal(ic50s_1$peptide, c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV"))
+  expect_equal(ic50s_1$ic50, c(5578.77, 5634.66, 5554.22))
+
+  # Use NA
+  mhcnuggets_options$mhc_class <- NA
+  ic50s_na <- predict_ic50_from_file(
+    mhcnuggets_options = mhcnuggets_options,
+    peptides_path = peptides_path
+  )
+  expect_equal(ic50s_1$peptide, ic50s_na$peptide)
+  expect_equal(ic50s_1$ic50, ic50s_na$ic50)
 })
 
 test_that("vignette example 3", {
@@ -53,12 +73,21 @@ test_that("vignette example 3", {
   )
   expect_true(mhcnuggets_options$mhc %in% get_trained_mhc_2_haplotypes())
 
-  expect_silent(
-    predict_ic50_from_file(
-      mhcnuggets_options = mhcnuggets_options,
-      peptides_path = peptides_path
-    )
+  ic50s_2 <- predict_ic50_from_file(
+    mhcnuggets_options = mhcnuggets_options,
+    peptides_path = peptides_path
   )
+  expect_equal(ic50s_2$peptide, c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV"))
+  expect_equal(ic50s_2$ic50, c(3887.51, 12304.98, 6509.79))
+
+  # Use NA
+  mhcnuggets_options$mhc_class <- NA
+  ic50s_na <- predict_ic50_from_file(
+    mhcnuggets_options = mhcnuggets_options,
+    peptides_path = peptides_path
+  )
+  expect_equal(ic50s_2$peptide, ic50s_2$peptide)
+  expect_equal(ic50s_2$ic50, ic50s_na$ic50)
 })
 
 test_that("vignette example 4", {
@@ -67,6 +96,8 @@ test_that("vignette example 4", {
   peptides_path <- get_example_filename("test_peptides.peps")
   expect_true(file.exists(peptides_path))
 
+  # Cannot use 'mhc_class = NA', because the MHC haplotype
+  # is not the in set of known haplotypes
   mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
     mhc = "HLA-A02:60"
@@ -75,12 +106,12 @@ test_that("vignette example 4", {
   # It is not in the trained alleles set
   expect_false(mhcnuggets_options$mhc %in% get_trained_mhc_1_haplotypes())
 
-  expect_silent(
-    predict_ic50_from_file(
-      mhcnuggets_options = mhcnuggets_options,
-      peptides_path = peptides_path
-    )
+  ic50_1 <- predict_ic50_from_file(
+    mhcnuggets_options = mhcnuggets_options,
+    peptides_path = peptides_path
   )
+  expect_equal(ic50_1$peptide, c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV"))
+  expect_equal(ic50_1$ic50, c(5578.77, 5634.66, 5554.22))
 })
 
 test_that("abuse", {

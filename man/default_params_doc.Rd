@@ -31,7 +31,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcs}{the MHC haplotype names}
 
-\item{mhc_class}{MHC class. Must be \code{I} or \code{II}}
+\item{mhc_class}{MHC class. Must be \code{I}, \code{II}
+or \link{NA}. Use \link{NA} to let the class be deduced automatically}
 
 \item{mhcnuggets_options}{options to run MHCnuggets with,
 as can be created by \link{create_mhcnuggets_options}.}

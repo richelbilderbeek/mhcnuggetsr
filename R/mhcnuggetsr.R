@@ -19,7 +19,6 @@
 #'   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
 #'
 #'   mhcnuggets_options <- create_mhcnuggets_options(
-#'     mhc_class = "I",
 #'     mhc = mhc_1_haplotype
 #'   )
 #'
