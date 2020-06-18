@@ -56,9 +56,6 @@ predict_ic50_from_file <- function(
   }
   testthat::expect_true(mhcnuggets_options$mhc_class %in% c("I", "II"))
 
-  # Issue 3
-  testthat::expect_true(reticulate::py_available(TRUE))
-
   module <- reticulate::import_from_path(module = "mhcnuggets")
   filename <- mhcnuggetsr::create_temp_peptides_path(fileext = ".csv")
   suppressMessages(
