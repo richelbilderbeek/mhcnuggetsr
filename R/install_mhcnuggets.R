@@ -12,16 +12,16 @@
 #' @export
 install_mhcnuggets <- function(
   folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url(),
-  verbose = FALSE
+  mhcnuggets_url = get_mhcnuggets_url()
 ) {
-  if (mhcnuggetsr::is_mhcnuggets_installed(folder_name = folder_name)) {
+  if (
+    mhcnuggetsr::is_mhcnuggets_installed(
+      folder_name = folder_name,
+      mhcnuggets_url = mhcnuggets_url
+    )
+  ) {
     stop("MHCnuggets is already installed in folder '", folder_name, "'")
   }
-
-  # stdout: NULL = discard value, "" = put on R console
-  stdout <- NULL
-  if (isTRUE(verbose)) stdout <- ""
 
   # Create the folder if needed, do not warn if it is already present
   dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
@@ -37,8 +37,7 @@ install_mhcnuggets <- function(
       args = c(
         "clone",
         paste0(mhcnuggets_url, ".git")
-      ),
-      stdout = stdout
+      )
     )
     setwd(curwd)
   }
@@ -49,8 +48,7 @@ install_mhcnuggets <- function(
     reticulate::py_config()$python,
     args = c(
       "-m", "pip", "install", "--upgrade", "pip", "--quiet"
-    ),
-    stdout = stdout
+    )
   )
 
   # Update pyasn1
@@ -58,8 +56,7 @@ install_mhcnuggets <- function(
     reticulate::py_config()$python,
     args = c(
       "-m", "pip", "install", "--upgrade", "pyasn1", "--quiet"
-    ),
-    stdout = stdout
+    )
   )
 
 
@@ -68,30 +65,14 @@ install_mhcnuggets <- function(
     reticulate::py_config()$python,
     args = c(
       "-m", "pip", "install", "setuptools", "--quiet"
-    ),
-    stdout = stdout
+    )
   )
 
-  install_from_pip <- TRUE
-
-  if (install_from_pip) {
-    # Install mhcnuggets
-    system2(
-      reticulate::py_config()$python,
-      args = c(
-        "-m", "pip", "install", "mhcnuggets", "--quiet"
-      ),
-      stdout = stdout
+  # Install mhcnuggets
+  system2(
+    reticulate::py_config()$python,
+    args = c(
+      "-m", "pip", "install", "mhcnuggets", "--quiet"
     )
-  } else {
-    # Install MHCnugget from source
-    system2(
-      reticulate::py_config()$python,
-      args = c(
-        "-m", "pip", "install", file.path(mhcnuggets_folder),
-        "--user", "--quiet"
-      ),
-      stdout = stdout
-    )
-  }
+  )
 }

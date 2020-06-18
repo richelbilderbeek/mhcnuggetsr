@@ -1,11 +1,15 @@
 #' Create a \link{mhcnuggetsr} report, to be used when reporting bugs
+#' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)
 #'
 #' expect_output(mhcnuggetsr_report())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-mhcnuggetsr_report <- function() {
+mhcnuggetsr_report <- function(
+  folder_name = get_default_mhcnuggets_folder(),
+  mhcnuggets_url = get_mhcnuggets_url()
+) {
   kat <- function(x) cat(x, sep = "\n")
   kat("***************")
   kat("* mhcnuggetsr *")
@@ -26,13 +30,17 @@ mhcnuggetsr_report <- function() {
   kat("**************")
   kat("* MHCnuggets *")
   kat("**************")
+  is_installed <- mhcnuggetsr::is_mhcnuggets_installed(
+    folder_name = folder_name,
+    mhcnuggets_url = mhcnuggets_url
+  )
   kat(
     paste0(
       "Is MHCnuggets installed: ",
-      mhcnuggetsr::is_mhcnuggets_installed()
+      is_installed
     )
   )
-  if (mhcnuggetsr::is_mhcnuggets_installed()) {
+  if (is_installed) {
     kat(
       paste0(
         "MHCnuggets version: ",
