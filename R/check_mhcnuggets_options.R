@@ -64,17 +64,19 @@ check_mhcnuggets_options <- function(
 #' @examples
 #' library(testthat)
 #'
-#' expect_silent(
-#'   check_mhcnuggets_options_names(
-#'     create_test_mhcnuggets_options()
+#' if (is_mhcnuggets_installed()) {
+#'   expect_silent(
+#'     check_mhcnuggets_options_names(
+#'       create_test_mhcnuggets_options()
+#'     )
 #'   )
-#' )
-#' expect_error(
-#'   check_mhcnuggets_options_names(
-#'     list(something = "nonsense")
-#'   ),
-#'   "'mhcnuggets_options' must have an element named 'mhc_class'"
-#' )
+#'   expect_error(
+#'     check_mhcnuggets_options_names(
+#'       list(something = "nonsense")
+#'     ),
+#'     "'mhcnuggets_options' must have an element named 'mhc_class'"
+#'   )
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_mhcnuggets_options_names <- function(
