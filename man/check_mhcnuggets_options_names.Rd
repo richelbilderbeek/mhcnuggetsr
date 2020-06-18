@@ -25,7 +25,8 @@ expect_silent(
 expect_error(
   check_mhcnuggets_options_names(
     list(something = "nonsense")
-  )
+  ),
+  "'mhcnuggets_options' must have an element named 'mhc_class'"
 )
 }
 \author{

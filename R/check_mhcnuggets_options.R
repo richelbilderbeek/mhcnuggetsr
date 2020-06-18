@@ -22,15 +22,7 @@ check_mhcnuggets_options <- function(
     )
   }
   mhcnuggetsr::check_mhcnuggets_options_names(mhcnuggets_options)
-
-  if (!is.na(mhcnuggets_options$mhc_class) &&
-      !mhcnuggets_options$mhc_class %in% c("I", "II")
-  ) {
-    stop(
-      "'mhc_class' must be either 'I', 'II' or NA. \n",
-      "Actual value: ", mhcnuggets_options$mhc_class
-    )
-  }
+  mhcnuggetsr::check_mhc_class(mhcnuggets_options$mhc_class)
   if (!is_mhcnuggets_name(mhcnuggets_options$mhc)) {
     stop(
       "'mhc' must be a valid MHC haplotype name", "\n",
