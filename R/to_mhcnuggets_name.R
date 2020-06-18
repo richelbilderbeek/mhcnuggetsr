@@ -8,9 +8,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 to_mhcnuggets_name <- function(mhc) {
-  # haplotype_name <- "HLA-DQA1*0501/DQB1*0201"
-  # expected_name  <- "HLA-DQA105:01-DQB102:01"
-
   # Remove asterisks
   mhc_no_asterisks <- stringr::str_replace_all(
     string = mhc,

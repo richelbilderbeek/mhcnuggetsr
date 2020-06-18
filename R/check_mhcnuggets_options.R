@@ -21,14 +21,7 @@ check_mhcnuggets_options <- function(
       "Actual value: ", mhcnuggets_options
     )
   }
-  expected_names <- names(mhcnuggetsr::create_test_mhcnuggets_options())
-  for (name in expected_names) {
-    if (!name %in% names(mhcnuggets_options)) {
-      stop(
-        "'mhcnuggets_options' must have an element named '", name, "'"
-      )
-    }
-  }
+  mhcnuggetsr::check_mhcnuggets_options_names(mhcnuggets_options)
 
   if (!is.na(mhcnuggets_options$mhc_class) &&
       !mhcnuggets_options$mhc_class %in% c("I", "II")
@@ -68,5 +61,47 @@ check_mhcnuggets_options <- function(
       "'mhcnuggets_options$mhc_class': ", mhcnuggets_options$mhc_class, " \n",
       "'mhcnuggets_options$mhc': ", mhcnuggets_options$mhc
     )
+  }
+}
+
+#' Check the names of the elements in an \code{mhcnuggets_options} list.
+#'
+#' Check the names of the elements in an \code{mhcnuggets_options} list.
+#' Will \link{stop} if an element is missing.
+#' @inheritParams default_params_doc
+#' @examples
+#' library(testthat)
+#'
+#' expect_silent(
+#'   check_mhcnuggets_options_names(
+#'     create_test_mhcnuggets_options()
+#'   )
+#' )
+#' expect_error(
+#'   check_mhcnuggets_options_names(
+#'     list(something = "nonsense")
+#'   ),
+#'   "'mhcnuggets_options' must have an element named 'mhc_class'"
+#' )
+#' @author Richèl J.C. Bilderbeek
+#' @export
+check_mhcnuggets_options_names <- function(
+  mhcnuggets_options
+) {
+  testthat::expect_true(is.list(mhcnuggets_options))
+  expected_names <- c(
+    "mhc_class",
+    "mhc",
+    "ba_models",
+    "verbose",
+    "folder_name",
+    "mhcnuggets_url"
+  )
+  for (name in expected_names) {
+    if (!name %in% names(mhcnuggets_options)) {
+      stop(
+        "'mhcnuggets_options' must have an element named '", name, "'"
+      )
+    }
   }
 }

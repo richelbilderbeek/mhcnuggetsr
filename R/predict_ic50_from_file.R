@@ -3,6 +3,9 @@
 #' Each peptide must be 15 amino acids at
 #' most (use \link{predict_ic50s} to predict the IC50s for longer peptides)
 #' @inheritParams default_params_doc
+#' @param mhcnuggets_output_filename path to a temporary file to write
+#' the MHCnuggets results to. This file will be deleted at the end of
+#' the function if it passes successfully.
 #' @examples
 #' library(testthat)
 #'
@@ -31,7 +34,10 @@
 #' @export
 predict_ic50_from_file <- function(
   mhcnuggets_options,
-  peptides_path
+  peptides_path,
+  mhcnuggets_output_filename = mhcnuggetsr::create_temp_peptides_path(
+    fileext = ".csv"
+  )
 ) {
   if (!file.exists(peptides_path)) {
     stop(
@@ -57,18 +63,20 @@ predict_ic50_from_file <- function(
   testthat::expect_true(mhcnuggets_options$mhc_class %in% c("I", "II"))
 
   module <- reticulate::import_from_path(module = "mhcnuggets")
-  filename <- mhcnuggetsr::create_temp_peptides_path(fileext = ".csv")
   suppressMessages(
     module$src$predict$predict(
       class_ = mhcnuggets_options$mhc_class,
       peptides_path = peptides_path,
       mhc = mhcnuggets_options$mhc,
       ba_models = mhcnuggets_options$ba_models,
-      output = filename
+      output = mhcnuggets_output_filename
     )
   )
 
-  df <- tibble::as_tibble(utils::read.csv(filename))
+  df <- tibble::as_tibble(utils::read.csv(mhcnuggets_output_filename))
   df$peptide <- as.character(df$peptide)
+
+  file.remove(mhcnuggets_output_filename)
+
   df
 }

@@ -1,4 +1,7 @@
-#' Create a set of options to run MHCnuggets with
+#' Create a set of options to run MHCnuggets with.
+#'
+#' Create a set of options to run MHCnuggets with. This function
+#' will give an error message if the arguments are invalid.
 #' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)
@@ -15,6 +18,8 @@
 #'   expect_true("folder_name" %in% names(options))
 #'   expect_true("mhcnuggets_url" %in% names(options))
 #'
+#'   # These are guaranteed to pass, as 'create_mhcnuggets_options'
+#'   # checks for this
 #'   expect_true(is_mhcnuggets_options(options))
 #'   expect_silent(check_mhcnuggets_options(options))
 #' }
@@ -30,7 +35,7 @@ create_mhcnuggets_options <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
-  list(
+  mhcnuggets_options <- list(
     mhc_class = mhc_class,
     mhc = mhc,
     ba_models = ba_models,
@@ -38,4 +43,6 @@ create_mhcnuggets_options <- function(
     folder_name = folder_name,
     mhcnuggets_url = mhcnuggets_url
   )
+  mhcnuggetsr::check_mhcnuggets_options(mhcnuggets_options)
+  mhcnuggets_options
 }

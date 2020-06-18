@@ -3,6 +3,7 @@
 export(are_mhcnuggets_names)
 export(check_mhcnuggets_installation)
 export(check_mhcnuggets_options)
+export(check_mhcnuggets_options_names)
 export(create_mhcnuggets_options)
 export(create_temp_peptides_path)
 export(create_test_mhcnuggets_options)

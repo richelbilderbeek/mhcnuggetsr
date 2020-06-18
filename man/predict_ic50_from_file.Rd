@@ -7,13 +7,21 @@ for one or more peptides as saved in a file.
 Each peptide must be 15 amino acids at
 most (use \link{predict_ic50s} to predict the IC50s for longer peptides)}
 \usage{
-predict_ic50_from_file(mhcnuggets_options, peptides_path)
+predict_ic50_from_file(
+  mhcnuggets_options,
+  peptides_path,
+  mhcnuggets_output_filename = mhcnuggetsr::create_temp_peptides_path(fileext = ".csv")
+)
 }
 \arguments{
 \item{mhcnuggets_options}{options to run MHCnuggets with,
 as can be created by \link{create_mhcnuggets_options}.}
 
 \item{peptides_path}{the path to the peptides}
+
+\item{mhcnuggets_output_filename}{path to a temporary file to write
+the MHCnuggets results to. This file will be deleted at the end of
+the function if it passes successfully.}
 }
 \description{
 Predict the half maximal inhibitory concentration (aka IC50) (in nM)

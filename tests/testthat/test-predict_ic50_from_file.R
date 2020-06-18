@@ -114,6 +114,20 @@ test_that("vignette example 4", {
   expect_equal(ic50_1$ic50, c(5578.77, 5634.66, 5554.22))
 })
 
+test_that("no temp files left", {
+
+  if (!is_mhcnuggets_installed()) return()
+
+  mhcnuggets_output_filename <- tempfile("predict_ic50_from_file_")
+
+  predict_ic50_from_file(
+    mhcnuggets_options = create_test_mhcnuggets_options(),
+    peptides_path = get_example_filename("test_peptides.peps"),
+    mhcnuggets_output_filename = mhcnuggets_output_filename
+  )
+  expect_true(!file.exists(mhcnuggets_output_filename))
+})
+
 test_that("abuse", {
   if (!is_mhcnuggets_installed()) return()
 
@@ -131,40 +145,7 @@ test_that("abuse", {
     ),
     "Cannot find 'peptides_path'"
   )
-
-  peptides_path <- get_example_filename("test_peptides.peps")
-  expect_true(file.exists(peptides_path))
-
-  mhc_1_haplotype <- get_trained_mhc_1_haplotypes()[1]
-  mhc_2_haplotype <- get_trained_mhc_2_haplotypes()[1]
-
-  mhcnuggets_options <- create_mhcnuggets_options(
-    mhc_class = "II",
-    mhc = mhc_1_haplotype
-  )
-  expect_error(
-    predict_ic50_from_file(
-      mhcnuggets_options = mhcnuggets_options,
-      peptides_path = peptides_path
-    ),
-    "Must use the same 'mhc_class' as the 'mhc' is from"
-  )
-
-  mhcnuggets_options <- create_mhcnuggets_options(
-    mhc_class = "I",
-    mhc = mhc_2_haplotype
-  )
-  expect_error(
-    predict_ic50_from_file(
-      peptides_path = peptides_path,
-      mhcnuggets_options = mhcnuggets_options
-    ),
-    "Must use the same 'mhc_class' as the 'mhc' is from"
-  )
 })
-
-
-
 
 test_that("abuse, too long peptide", {
   if (!is_mhcnuggets_installed()) return()

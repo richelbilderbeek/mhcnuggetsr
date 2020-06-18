@@ -27,6 +27,11 @@ for one or more peptides.
 Each peptide must be 15 amino acids at
 most (use \link{predict_ic50s} to predict the IC50s for longer peptides)
 }
+\note{
+this function uses a temporary file, because MHCnuggets reads its
+input from file. This temporary file is deleted after this function
+passed successfully.
+}
 \examples{
 library(testthat)
 
