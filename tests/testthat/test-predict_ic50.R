@@ -18,6 +18,20 @@ test_that("use", {
   expect_equal("numeric", class(df$ic50))
 })
 
+test_that("no temp files left", {
+
+  if (!is_mhcnuggets_installed()) return()
+
+  peptides_path <- tempfile("test_predict_ic50_")
+
+  predict_ic50(
+    peptides = "AIAACAMLLV",
+    mhcnuggets_options = create_test_mhcnuggets_options(),
+    peptides_path = peptides_path
+  )
+  expect_true(!file.exists(peptides_path))
+})
+
 test_that("peptide lengths must be at most 15", {
 
   expect_error(
