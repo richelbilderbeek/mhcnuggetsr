@@ -6,7 +6,7 @@
 #' @examples
 #' check_mhc_class("I")
 #' check_mhc_class("II")
-#' check_mhc_class(NA))
+#' check_mhc_class(NA)
 #' @export
 check_mhc_class <- function(mhc_class) {
   if (length(mhc_class) != 1 ||

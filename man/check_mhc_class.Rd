@@ -16,7 +16,7 @@ Check the MHC class. Will \link{stop} if it is invalid.
 \examples{
 check_mhc_class("I")
 check_mhc_class("II")
-check_mhc_class(NA))
+check_mhc_class(NA)
 }
 \author{
 Richèl J.C. Bilderbeek
