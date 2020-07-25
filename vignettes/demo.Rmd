@@ -50,7 +50,7 @@ if (is_mhcnuggets_installed()) {
     mhc = mhc_1_haplotype
   )
   df <- predict_ic50_from_file(
-    peptides_path = peptides_path, 
+    peptides_path = peptides_path,
     mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
@@ -67,7 +67,7 @@ if (is_mhcnuggets_installed()) {
     ba_models = TRUE
   )
   df <- predict_ic50_from_file(
-    peptides_path = peptides_path, 
+    peptides_path = peptides_path,
     mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
@@ -92,7 +92,7 @@ if (is_mhcnuggets_installed()) {
     mhc = mhc_2_haplotype
   )
   df <- predict_ic50_from_file(
-    peptides_path = peptides_path, 
+    peptides_path = peptides_path,
     mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
@@ -118,7 +118,7 @@ if (is_mhcnuggets_installed()) {
     mhc = mhc_1_haplotype
   )
   df <- predict_ic50_from_file(
-    peptides_path = peptides_path, 
+    peptides_path = peptides_path,
     mhcnuggets_options = mhcnuggets_options
   )
   kable(df)
