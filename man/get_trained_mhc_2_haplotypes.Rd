@@ -20,11 +20,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Get all the MHC-II haplotypes that have been trained on a model
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  haplotypes <- get_trained_mhc_2_haplotypes()
-  expect_true(length(haplotypes) > 1)
+  get_trained_mhc_2_haplotypes()
 }
 }
 \author{

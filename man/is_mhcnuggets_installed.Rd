@@ -20,13 +20,7 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Check if MHCnuggets is installed
 }
 \examples{
-library(testthat)
-
-if (is_mhcnuggets_installed()) {
-  expect_silent(check_mhcnuggets_installation())
-} else {
-  expect_error(check_mhcnuggets_installation())
-}
+is_mhcnuggets_installed()
 }
 \author{
 Richèl J.C. Bilderbeek

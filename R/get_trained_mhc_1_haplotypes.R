@@ -1,11 +1,8 @@
 #' Get all the MHC-I haplotypes that have been trained on a model
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
 #' if (is_mhcnuggets_installed()) {
-#'   haplotypes <- get_trained_mhc_1_haplotypes()
-#'   expect_true(length(haplotypes) > 1)
+#'   get_trained_mhc_1_haplotypes()
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

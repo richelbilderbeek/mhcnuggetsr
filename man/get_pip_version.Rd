@@ -10,12 +10,7 @@ get_pip_version()
 Get the version of pip
 }
 \examples{
-library(testthat)
-
-version <- get_pip_version()
-
-expect_equal(1, length(version))
-expect_equal("character", class(version))
+get_pip_version()
 }
 \author{
 Richèl J.C. Bilderbeek

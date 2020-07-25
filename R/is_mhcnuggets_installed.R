@@ -2,13 +2,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
-#'
-#' if (is_mhcnuggets_installed()) {
-#'   expect_silent(check_mhcnuggets_installation())
-#' } else {
-#'   expect_error(check_mhcnuggets_installation())
-#' }
+#' is_mhcnuggets_installed()
 #' @export
 is_mhcnuggets_installed <- function(
   folder_name = get_default_mhcnuggets_folder(),

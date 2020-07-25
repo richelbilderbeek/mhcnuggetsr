@@ -2,10 +2,11 @@
 #' that MHCnuggets uses internally
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
+#' # The official name is not the name format used by MHCnuggets
+#' is_mhcnuggets_name("HLA-A*01:01")
 #'
-#' expect_true(!is_mhcnuggets_name("HLA-A*01:01"))
-#' expect_true(is_mhcnuggets_name("HLA-A01:01"))
+#' # MHCnuggets uses names without the asterisk
+#' is_mhcnuggets_name("HLA-A01:01")
 #' @export
 is_mhcnuggets_name <- function(mhc) {
   !is.na(

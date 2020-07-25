@@ -7,8 +7,6 @@
 #' passed successfully.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
 #' if (is_mhcnuggets_installed()) {
 #'
 #'   peptides <- c("AIAACAMLLV", "ALVCYIVMPV", "ALEPRKEIDV")
@@ -18,14 +16,10 @@
 #'     mhc = mhc_1_haplotype
 #'   )
 #'
-#'   df <- predict_ic50(
+#'   predict_ic50(
 #'     peptides = peptides,
 #'     mhcnuggets_options = mhcnuggets_options
 #'   )
-#'   expect_true("peptide" %in% names(df))
-#'   expect_true("ic50" %in% names(df))
-#'   expect_equal("character", class(df$peptide))
-#'   expect_equal("numeric", class(df$ic50))
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

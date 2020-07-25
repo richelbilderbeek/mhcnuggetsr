@@ -1,11 +1,8 @@
 #' Self-test the package
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
 #' if (is_mhcnuggets_installed()) {
-#'
-#'   expect_silent(mhcnuggetsr_self_test())
+#'   mhcnuggetsr_self_test()
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

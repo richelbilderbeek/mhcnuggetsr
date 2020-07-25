@@ -15,10 +15,8 @@ Determine if an HLA haplotype name follow the name format
 that MHCnuggets uses internally
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  expect_true(all(are_mhcnuggets_names(get_mhc_1_haplotypes())))
-  expect_true(all(are_mhcnuggets_names(get_mhc_2_haplotypes())))
+  are_mhcnuggets_names(get_mhc_1_haplotypes())
+  are_mhcnuggets_names(get_mhc_2_haplotypes())
 }
 }

@@ -1,13 +1,8 @@
 #' Check the MHCnuggets options. Will \link{stop} if the options are invalid.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
 #' if (is_mhcnuggets_installed()) {
-#'   expect_silent(check_mhcnuggets_options(create_test_mhcnuggets_options()))
-#'   expect_error(check_mhcnuggets_options("nonsense"))
-#' } else {
-#'   expect_error(check_mhcnuggets_options(create_test_mhcnuggets_options()))
+#'   check_mhcnuggets_options(create_test_mhcnuggets_options())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -62,19 +57,9 @@ check_mhcnuggets_options <- function(
 #' Will \link{stop} if an element is missing.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
 #' if (is_mhcnuggets_installed()) {
-#'   expect_silent(
-#'     check_mhcnuggets_options_names(
-#'       create_test_mhcnuggets_options()
-#'     )
-#'   )
-#'   expect_error(
-#'     check_mhcnuggets_options_names(
-#'       list(something = "nonsense")
-#'     ),
-#'     "'mhcnuggets_options' must have an element named 'mhc_class'"
+#'   check_mhcnuggets_options_names(
+#'     create_test_mhcnuggets_options()
 #'   )
 #' }
 #' @author Richèl J.C. Bilderbeek

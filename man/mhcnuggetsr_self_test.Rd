@@ -14,11 +14,8 @@ as can be created by \link{create_mhcnuggets_options}.}
 Self-test the package
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-
-  expect_silent(mhcnuggetsr_self_test())
+  mhcnuggetsr_self_test()
 }
 }
 \author{

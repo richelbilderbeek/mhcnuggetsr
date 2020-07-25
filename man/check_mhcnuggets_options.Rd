@@ -14,13 +14,8 @@ as can be created by \link{create_mhcnuggets_options}.}
 Check the MHCnuggets options. Will \link{stop} if the options are invalid.
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  expect_silent(check_mhcnuggets_options(create_test_mhcnuggets_options()))
-  expect_error(check_mhcnuggets_options("nonsense"))
-} else {
-  expect_error(check_mhcnuggets_options(create_test_mhcnuggets_options()))
+  check_mhcnuggets_options(create_test_mhcnuggets_options())
 }
 }
 \author{

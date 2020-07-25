@@ -2,10 +2,8 @@
 #' @param filename name of the example file, without the path
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
 #' if (is_mhcnuggets_installed()) {
-#'   expect_true(file.exists(get_example_filename("test_peptides.peps")))
+#'   get_example_filename("test_peptides.peps")
 #' }
 #' @seealso use \link{get_example_filenames} to get all MHCnuggets
 #'   example filenames

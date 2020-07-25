@@ -2,11 +2,8 @@
 #' @inheritParams default_params_doc
 #' @return Nothing
 #' @examples
-#' library(testthat)
-#'
 #' \dontrun{
 #'   install_mhcnuggets()
-#'   expect_true(is_mhcnuggets_installed())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

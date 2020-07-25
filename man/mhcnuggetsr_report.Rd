@@ -20,9 +20,7 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Create a \link{mhcnuggetsr} report, to be used when reporting bugs
 }
 \examples{
-library(testthat)
-
-expect_output(mhcnuggetsr_report())
+mhcnuggetsr_report()
 }
 \author{
 Richèl J.C. Bilderbeek

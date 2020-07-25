@@ -1,9 +1,7 @@
 #' Create a \link{mhcnuggetsr} report, to be used when reporting bugs
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
-#' expect_output(mhcnuggetsr_report())
+#' mhcnuggetsr_report()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mhcnuggetsr_report <- function(

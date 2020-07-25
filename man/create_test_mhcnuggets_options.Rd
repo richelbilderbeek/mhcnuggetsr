@@ -33,13 +33,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Create a set of testing options to run MHCnuggets with
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  options <- create_test_mhcnuggets_options()
-
-  expect_true(is_mhcnuggets_options(options))
-  expect_silent(check_mhcnuggets_options(options))
+  create_test_mhcnuggets_options()
 }
 }
 \author{

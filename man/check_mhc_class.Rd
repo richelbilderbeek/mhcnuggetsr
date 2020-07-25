@@ -14,15 +14,9 @@ or \link{NA}. Use \link{NA} to let the class be deduced automatically}
 Check the MHC class. Will \link{stop} if it is invalid.
 }
 \examples{
-library(testthat)
-
-expect_silent(check_mhc_class("I"))
-expect_silent(check_mhc_class("II"))
-expect_silent(check_mhc_class(NA))
-expect_error(
-  check_mhc_class("nonsense"),
-  "'mhc_class' must be either 'I', 'II' or NA"
-)
+check_mhc_class("I")
+check_mhc_class("II")
+check_mhc_class(NA))
 }
 \author{
 Richèl J.C. Bilderbeek

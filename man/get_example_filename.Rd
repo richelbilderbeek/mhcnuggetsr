@@ -23,10 +23,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Get the full path to an MHCnuggets example file
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  expect_true(file.exists(get_example_filename("test_peptides.peps")))
+  get_example_filename("test_peptides.peps")
 }
 }
 \seealso{

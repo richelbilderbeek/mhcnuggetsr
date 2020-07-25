@@ -15,19 +15,9 @@ Check the names of the elements in an \code{mhcnuggets_options} list.
 Will \link{stop} if an element is missing.
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  expect_silent(
-    check_mhcnuggets_options_names(
-      create_test_mhcnuggets_options()
-    )
-  )
-  expect_error(
-    check_mhcnuggets_options_names(
-      list(something = "nonsense")
-    ),
-    "'mhcnuggets_options' must have an element named 'mhc_class'"
+  check_mhcnuggets_options_names(
+    create_test_mhcnuggets_options()
   )
 }
 }

@@ -15,8 +15,9 @@ Determine if an HLA haplotype name follow the name format
 that MHCnuggets uses internally
 }
 \examples{
-library(testthat)
+# The official name is not the name format used by MHCnuggets
+is_mhcnuggets_name("HLA-A*01:01")
 
-expect_true(!is_mhcnuggets_name("HLA-A*01:01"))
-expect_true(is_mhcnuggets_name("HLA-A01:01"))
+# MHCnuggets uses names without the asterisk
+is_mhcnuggets_name("HLA-A01:01")
 }

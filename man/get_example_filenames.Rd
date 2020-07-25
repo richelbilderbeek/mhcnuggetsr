@@ -23,11 +23,8 @@ a character vector with all MHCnuggets example files
 Get the full path to all MHCnuggets example files
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  filenames <- get_example_filenames()
-  expect_true(all(file.exists(filenames)))
+  get_example_filenames()
 }
 }
 \seealso{

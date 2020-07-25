@@ -23,11 +23,8 @@ Nothing
 Install the \code{MHCnuggets} \code{Python} package.
 }
 \examples{
-library(testthat)
-
 \dontrun{
   install_mhcnuggets()
-  expect_true(is_mhcnuggets_installed())
 }
 }
 \author{

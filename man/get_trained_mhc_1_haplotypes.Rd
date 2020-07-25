@@ -20,11 +20,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Get all the MHC-I haplotypes that have been trained on a model
 }
 \examples{
-library(testthat)
-
 if (is_mhcnuggets_installed()) {
-  haplotypes <- get_trained_mhc_1_haplotypes()
-  expect_true(length(haplotypes) > 1)
+  get_trained_mhc_1_haplotypes()
 }
 }
 \author{
