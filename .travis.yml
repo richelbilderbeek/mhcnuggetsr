@@ -2,9 +2,14 @@ language: r
 dist: bionic
 cache: packages
 
-env:
-  - INSTALL_MHCNUGGETS=true
-  - INSTALL_MHCNUGGETS=false
+matrix:
+  include:
+  - env: INSTALL_MHCNUGGETS=false
+    env: INSTALL_PIP=false
+  - env: INSTALL_MHCNUGGETS=false
+    env: INSTALL_PIP=true
+  - env: INSTALL_MHCNUGGETS=true
+    env: INSTALL_PIP=true
 
 r_github_packages:
   - jimhester/covr
@@ -12,9 +17,8 @@ r_github_packages:
   - MangoTheCat/goodpractice
 
 before_script:
-  - echo "Install nothing :-)"
-  - # sudo apt install python3-pip
-  - # if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - if [[ "$INSTALL_PIP" == true ]]; then sudo apt install python3-pip; fi
+  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
 
 after_success:
   - if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
