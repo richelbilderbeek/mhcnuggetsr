@@ -3,23 +3,19 @@ dist: bionic
 cache: packages
 
 matrix:
-  include:
+  jobs:
   - r: devel
     os: linux
-    env: INSTALL_MHCNUGGETS=false
-    env: INSTALL_PIP=false
+    env: INSTALL_MHCNUGGETS=false INSTALL_PIP=false
   - r: release
     os: linux
-    env: INSTALL_MHCNUGGETS=false
-    env: INSTALL_PIP=true
+    env: INSTALL_MHCNUGGETS=false INSTALL_PIP=true
   - r: devel
     os: linux
-    env: INSTALL_MHCNUGGETS=true
-    env: INSTALL_PIP=true
+    env: INSTALL_MHCNUGGETS=true INSTALL_PIP=true
   #- r: release
   #  os: osx
-  #  env: INSTALL_MHCNUGGETS=true
-  #  env: INSTALL_PIP=true
+  #  env: INSTALL_MHCNUGGETS=true INSTALL_PIP=true
 
 r_github_packages:
   - jimhester/covr
