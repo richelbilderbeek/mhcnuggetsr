@@ -16,6 +16,9 @@ check_mhcnuggets_installation <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
+  if (!reticulate::py_available()) {
+    stop("Python is not available")
+  }
   error_code <- system2(
     reticulate::py_config()$python,
     args = c("-m", "pip", "show", "mhcnuggets"),
