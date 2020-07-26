@@ -1,9 +1,10 @@
 language: r
 dist: bionic
 cache: packages
+os: linux
 
-matrix:
-  jobs:
+jobs:
+  include:
   - r: devel
     os: linux
     env: INSTALL_MHCNUGGETS=false INSTALL_PIP=false
