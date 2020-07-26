@@ -12,8 +12,9 @@ r_github_packages:
   - MangoTheCat/goodpractice
 
 before_script:
-  - sudo apt install python3-pip
-  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - echo "Install nothing :-)"
+  - # sudo apt install python3-pip
+  - # if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
 
 after_success:
   - if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
