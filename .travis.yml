@@ -4,12 +4,22 @@ cache: packages
 
 matrix:
   include:
-  - env: INSTALL_MHCNUGGETS=false
+  - r: devel
+    os: linux
+    env: INSTALL_MHCNUGGETS=false
     env: INSTALL_PIP=false
-  - env: INSTALL_MHCNUGGETS=false
+  - r: release
+    os: linux
+    env: INSTALL_MHCNUGGETS=false
     env: INSTALL_PIP=true
-  - env: INSTALL_MHCNUGGETS=true
+  - r: devel
+    os: linux
+    env: INSTALL_MHCNUGGETS=true
     env: INSTALL_PIP=true
+  #- r: release
+  #  os: osx
+  #  env: INSTALL_MHCNUGGETS=true
+  #  env: INSTALL_PIP=true
 
 r_github_packages:
   - jimhester/covr
