@@ -10,7 +10,9 @@ get_pip_version()
 Get the version of pip
 }
 \examples{
-get_pip_version()
+if (reticulate::py_available()) {
+  get_pip_version()
+}
 }
 \author{
 Richèl J.C. Bilderbeek
