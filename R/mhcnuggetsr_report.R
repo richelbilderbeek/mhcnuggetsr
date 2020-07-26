@@ -16,15 +16,18 @@ mhcnuggetsr_report <- function(
   kat(paste0("Python available: ", reticulate::py_available()))
   kat(paste0("Python location: ", reticulate::py_config()$python))
   print(reticulate::py_config())
-  kat(paste0("pip version: ", mhcnuggetsr::get_pip_version()))
-  knitr::kable(mhcnuggetsr::get_python_package_versions())
-  kat(paste0("Python NumPy available: ", reticulate::py_numpy_available()))
-  kat(
-    paste0(
-      "Python mhcnuggets available: ",
-      reticulate::py_module_available("mhcnuggets")
+  kat(paste0("Is pip installed: ", mhcnuggetsr::is_pip_installed()))
+  if (mhcnuggetsr::is_pip_installed()) {
+    kat(paste0("pip version: ", mhcnuggetsr::get_pip_version()))
+    knitr::kable(mhcnuggetsr::get_python_package_versions())
+    kat(paste0("Python NumPy available: ", reticulate::py_numpy_available()))
+    kat(
+      paste0(
+        "Python mhcnuggets available: ",
+        reticulate::py_module_available("mhcnuggets")
+      )
     )
-  )
+  }
   kat("**************")
   kat("* MHCnuggets *")
   kat("**************")
