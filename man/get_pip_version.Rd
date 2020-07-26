@@ -10,7 +10,7 @@ get_pip_version()
 Get the version of pip
 }
 \examples{
-if (reticulate::py_available()) {
+if (reticulate::py_available() && is_pip_installed()) {
   get_pip_version()
 }
 }

@@ -19,6 +19,9 @@ check_mhcnuggets_installation <- function(
   if (!reticulate::py_available()) {
     stop("Python is not available")
   }
+  if (!is_pip_installed()) {
+    stop("pip is not installed")
+  }
   error_code <- system2(
     reticulate::py_config()$python,
     args = c("-m", "pip", "show", "mhcnuggets"),

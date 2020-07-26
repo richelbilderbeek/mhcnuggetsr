@@ -1,11 +1,12 @@
 #' Get the version of all Python packages
 #' @examples
-#' if (rappdirs::app_dir()$os != "win") {
+#' if (rappdirs::app_dir()$os != "win" && is_pip_installed()) {
 #'   get_python_package_versions()
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_python_package_versions <- function() {
+  testthat::expect_true(mhcnuggetsr::is_pip_installed())
   text <- system2(
     reticulate::py_config()$python,
     args = c("-m", "pip", "freeze"),
