@@ -22,7 +22,8 @@ check_mhcnuggets_options <- function(
     stop(
       "'mhc' must be a valid MHC haplotype name", "\n",
       "Actual value: ", mhcnuggets_options$mhc, "\n",
-      "Tip: see 'get_mhc_1_haplotypes' or 'get_mhc_2_haplotypes'"
+      "Tip: use 'to_mhcnuggets_name' to convert to an MHCnuggets name,",
+      "or see 'get_mhc_1_haplotypes' or 'get_mhc_2_haplotypes' for examples"
     )
   }
   mhcnuggetsr::check_mhcnuggets_installation(
