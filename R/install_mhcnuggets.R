@@ -47,6 +47,7 @@ install_mhcnuggets <- function(
       "-m", "pip", "install", "--upgrade", "pip", "--quiet"
     )
   )
+  testthat::expect_true(is_pip_installed())
 
   # Update pyasn1
   system2(
