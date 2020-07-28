@@ -6,8 +6,7 @@
 \usage{
 check_mhcnuggets_installation(
   folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url(),
-  extra_checks = FALSE
+  mhcnuggets_url = get_mhcnuggets_url()
 )
 }
 \arguments{
@@ -16,9 +15,6 @@ The name of the superfolder is \code{/home/[user_name]/.local/share}
 by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
-
-\item{extra_checks}{check for more circumstances,
-but can give false negatives.}
 }
 \description{
 An MHCnuggets installation has two parts:

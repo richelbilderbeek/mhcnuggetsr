@@ -6,8 +6,6 @@
 #'   2. The download of the Python source code,
 #'      which allows the use of example files
 #' @inheritParams default_params_doc
-#' @param extra_checks check for more circumstances,
-#'   but can give false negatives.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' if (is_mhcnuggets_installed()) {
@@ -16,18 +14,14 @@
 #' @export
 check_mhcnuggets_installation <- function(
   folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url(),
-  extra_checks = FALSE
+  mhcnuggets_url = get_mhcnuggets_url()
 ) {
+  if (!reticulate::py_available()) {
+    stop("Python is not installed")
+  }
 
-  if (isTRUE(extra_checks)) {
-    if (!reticulate::py_available()) {
-      stop("Python is not installed")
-    }
-
-    if (!mhcnuggetsr::is_pip_installed()) {
-      stop("pip is not installed")
-    }
+  if (!mhcnuggetsr::is_pip_installed()) {
+    stop("pip is not installed")
   }
   error_code <- system2(
     reticulate::py_config()$python,
