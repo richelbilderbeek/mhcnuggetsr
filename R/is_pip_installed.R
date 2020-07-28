@@ -5,7 +5,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_pip_installed <- function() {
-  if (!reticulate::py_available()) return(FALSE)
 
   error_code <- system2(
     reticulate::py_config()$python,

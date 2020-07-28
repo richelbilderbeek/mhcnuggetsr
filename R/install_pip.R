@@ -7,6 +7,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_pip <- function() {
+
   system2(
     reticulate::py_config()$python,
     args = c(
