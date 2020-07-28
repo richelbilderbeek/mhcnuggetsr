@@ -41,12 +41,7 @@ install_mhcnuggets <- function(
   testthat::expect_true(dir.exists(mhcnuggets_folder))
 
   # Update pip
-  system2(
-    reticulate::py_config()$python,
-    args = c(
-      "-m", "pip", "install", "--upgrade", "pip", "--quiet"
-    )
-  )
+  mhcnuggetsr::install_pip()
   testthat::expect_true(mhcnuggetsr::is_pip_installed())
 
   # Update pyasn1
