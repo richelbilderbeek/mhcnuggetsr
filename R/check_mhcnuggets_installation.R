@@ -16,9 +16,6 @@ check_mhcnuggets_installation <- function(
   folder_name = get_default_mhcnuggets_folder(),
   mhcnuggets_url = get_mhcnuggets_url()
 ) {
-  if (!reticulate::py_available()) {
-    stop("Python is not available")
-  }
   if (!mhcnuggetsr::is_pip_installed()) {
     stop("pip is not installed")
   }
