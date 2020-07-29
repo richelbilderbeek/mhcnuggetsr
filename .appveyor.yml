@@ -21,21 +21,21 @@ environment:
     WARNINGS_ARE_ERRORS: 0
     USE_RTOOLS: true
   matrix:
-    #- INSTALL_PIP: false
-    #  INSTALL_MHCNUGGETS: false
+    - INSTALL_PIP: false
+      INSTALL_MHCNUGGETS: false
     #- INSTALL_PIP: true
     #  INSTALL_MHCNUGGETS: false
-    - INSTALL_PIP: true
-      INSTALL_MHCNUGGETS: true
+    #- INSTALL_PIP: true
+    #  INSTALL_MHCNUGGETS: true
 
 build_script:
   - travis-tool.sh install_deps
 
 test_script:
-  - # Install pip using mhcnuggetsr code
-  - bs:if [[ "$INSTALL_PIP" == true ]]; then ./scripts/install_pip.sh; fi
-  - # Install MHCnuggets using mhcnuggetsr code
-  - bs:if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  #- # Install pip using mhcnuggetsr code
+  #- bs:if [[ "$INSTALL_PIP" == true ]]; then ./scripts/install_pip.sh; fi
+  #- # Install MHCnuggets using mhcnuggetsr code
+  #- bs:if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   # Incorrect syntax: IF INSTALL_PIP (echo "A")
   # Incorrect syntax: IF $INSTALL_PIP (echo "B")
@@ -53,8 +53,8 @@ test_script:
   #- ps: if ($INSTALL_MHCNUGGETS -eq "true") {echo "YAY! Installing MHCnuggets"}
   #- ps: if ($INSTALL_MHCNUGGETS) {./scripts/install_mhcnuggets.sh}
   #- ps: if ($INSTALL_MHCNUGGETS -eq "true") {./scripts/install_mhcnuggets.sh}
-  #- travis-tool.sh run_tests
-  #- Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
+  - travis-tool.sh run_tests
+  - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
 
 on_failure:
   - 7z a failure.zip *.Rcheck\*
