@@ -32,12 +32,12 @@ build_script:
   - travis-tool.sh install_deps
 
 test_script:
-  #- ps: if ($SETUP != 1) { ./scripts/install_pip.sh }
-  #- ps: if ($SETUP == 3) { ./scripts/install_mhcnuggets.sh; }
-  #- if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh; }
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - ps: if ($INSTALL_PIP) { echo "Installing pip" }
   - ps: if ($INSTALL_PIP) { ./scripts/install_pip.sh }
+  - ps: if ($INSTALL_MHCNUGGETS) { echo "Installing MHCnuggets" }
   - ps: if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh }
+  - sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then echo "INSTALL MHCNUGGETS"; fi
   - travis-tool.sh run_tests
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
 
