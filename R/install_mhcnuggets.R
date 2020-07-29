@@ -43,6 +43,7 @@ install_mhcnuggets <- function(
   # Update pip
   mhcnuggetsr::install_pip()
   testthat::expect_true(mhcnuggetsr::is_pip_installed())
+  mhcnuggetsr::upgrade_pip()
 
   # Update pyasn1
   system2(
