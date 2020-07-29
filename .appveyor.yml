@@ -35,7 +35,9 @@ test_script:
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   # Incorrect syntax: IF INSTALL_PIP (echo "A")
   # Incorrect syntax: IF $INSTALL_PIP (echo "B")
-  - IF INSTALL_PIP true (echo "A")
+  # Incorrect syntax: IF INSTALL_PIP true (echo "A")
+  - IF INSTALL_PIP "true" (echo "A")
+  - IF INSTALL_PIP -eq "true" (echo "AA")
   - IF $INSTALL_PIP true (echo "B")
   - IF INSTALL_PIP false (echo "C")
   - IF $INSTALL_PIP false (echo "D")
