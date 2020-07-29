@@ -7,7 +7,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 upgrade_pip <- function() {
-  testthat::expect_true(is_pip_installed())
+  testthat::expect_true(mhcnuggetsr::is_pip_installed())
   system2(
     reticulate::py_config()$python,
     args = c(
