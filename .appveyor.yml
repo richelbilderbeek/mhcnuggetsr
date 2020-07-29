@@ -32,16 +32,16 @@ build_script:
   - travis-tool.sh install_deps
 
 test_script:
+  - # Install pip using mhcnuggetsr code
+  - bs:if [[ "$INSTALL_PIP" == true ]]; then ./scripts/install_pip.sh; fi
+  - # Install MHCnuggets using mhcnuggetsr code
+  - bs:if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   # Incorrect syntax: IF INSTALL_PIP (echo "A")
   # Incorrect syntax: IF $INSTALL_PIP (echo "B")
   # Incorrect syntax: IF INSTALL_PIP true (echo "A")
   # Incorrect syntax: IF INSTALL_PIP "true" (echo "A")
   # Incorrect syntax: IF INSTALL_PIP -eq "true" (echo "AA")
-  - # Install pip using mhcnuggetsr code
-  - bs: if [[ "$INSTALL_PIP" == true ]]; then ./scripts/install_pip.sh; fi
-  - # Install MHCnuggets using mhcnuggetsr code
-  - bs: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
   #- IF INSTALL_PIP false (echo "A")
   #- IF $INSTALL_PIP true (echo "B")
   #- IF $INSTALL_PIP false (echo "D")
