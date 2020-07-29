@@ -33,6 +33,10 @@ build_script:
 
 test_script:
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - IF INSTALL_PIP (echo "A")
+  - IF $INSTALL_PIP (echo "B")
+  - IF INSTALL_PIP false (echo "C")
+  - IF $INSTALL_PIP false (echo "D")
   - ps: if ($INSTALL_PIP -eq "true") {echo "YAY! Installing pip"}
   - ps: if ($INSTALL_PIP) {echo "Installing pip"}
   - ps: if ($INSTALL_PIP -eq "true") {./scripts/install_pip.sh}
