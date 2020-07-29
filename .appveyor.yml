@@ -22,14 +22,14 @@ environment:
     USE_RTOOLS: true
 for:
   -
-    INSTALL_PIP: false
-    INSTALL_MHCNUGGETS: false
+    - INSTALL_PIP: false
+    - INSTALL_MHCNUGGETS: false
   -
-    INSTALL_PIP: true
-    INSTALL_MHCNUGGETS: false
+    - INSTALL_PIP: true
+    - INSTALL_MHCNUGGETS: false
   -
-    INSTALL_PIP: true
-    INSTALL_MHCNUGGETS: true
+    - INSTALL_PIP: true
+    - INSTALL_MHCNUGGETS: true
 
 build_script:
   - travis-tool.sh install_deps
