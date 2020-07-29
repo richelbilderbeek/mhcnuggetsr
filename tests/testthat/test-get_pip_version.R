@@ -1,5 +1,5 @@
 test_that("use", {
-  if (!reticulate::py_available()) return()
+  if (!is_pip_installed()) return()
 
   version <- get_pip_version()
   expect_equal(1, length(version))
