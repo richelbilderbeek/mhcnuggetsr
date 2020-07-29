@@ -38,8 +38,8 @@ test_script:
   - ps: if ($INSTALL_MHCNUGGETS) { echo "Installing MHCnuggets" }
   - ps: if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh }
   - sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then echo "INSTALL MHCNUGGETS"; fi
-  - travis-tool.sh run_tests
-  - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
+  #- travis-tool.sh run_tests
+  #- Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
 
 on_failure:
   - 7z a failure.zip *.Rcheck\*
