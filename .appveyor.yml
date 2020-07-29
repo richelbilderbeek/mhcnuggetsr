@@ -21,10 +21,10 @@ environment:
     WARNINGS_ARE_ERRORS: 0
     USE_RTOOLS: true
   matrix:
-    - INSTALL_PIP: false
-      INSTALL_MHCNUGGETS: false
-    - INSTALL_PIP: true
-      INSTALL_MHCNUGGETS: false
+    #- INSTALL_PIP: false
+    #  INSTALL_MHCNUGGETS: false
+    #- INSTALL_PIP: true
+    #  INSTALL_MHCNUGGETS: false
     - INSTALL_PIP: true
       INSTALL_MHCNUGGETS: true
 
@@ -33,7 +33,7 @@ build_script:
 
 test_script:
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
-  - IF INSTALL_PIP (echo "A")
+  # Incorrect syntax: IF INSTALL_PIP (echo "A")
   - IF $INSTALL_PIP (echo "B")
   - IF INSTALL_PIP false (echo "C")
   - IF $INSTALL_PIP false (echo "D")
