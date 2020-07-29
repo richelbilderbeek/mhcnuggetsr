@@ -24,7 +24,9 @@ r_github_packages:
   - MangoTheCat/goodpractice
 
 before_script:
-  - if [[ "$INSTALL_PIP" == true ]]; then sudo apt install python3-pip; fi
+  - # Install pip using mhcnuggetsr code
+  - if [[ "$INSTALL_PIP" == true ]]; then ./scripts/install_pip.sh; fi
+  - # Install MHCnuggets using mhcnuggetsr code
   - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
 
 after_success:

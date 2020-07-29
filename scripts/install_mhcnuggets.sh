@@ -11,7 +11,7 @@
 #
 #
 cat R/install_mhcnuggets.R > tempscript.R
-cat R/install_pip.R >> tempscript.R
+cat R/is_pip_installed.R >> tempscript.R
 cat R/get_default_mhcnuggets_folder.R >> tempscript.R
 cat R/get_mhcnuggets_url.R >> tempscript.R
 cat R/is_mhcnuggets_installed.R >> tempscript.R
