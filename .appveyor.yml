@@ -36,7 +36,7 @@ test_script:
   # Incorrect syntax: IF INSTALL_PIP (echo "A")
   # Incorrect syntax: IF $INSTALL_PIP (echo "B")
   # Incorrect syntax: IF INSTALL_PIP true (echo "A")
-  - IF INSTALL_PIP "true" (echo "A")
+  # Incorrect syntax: IF INSTALL_PIP "true" (echo "A")
   - IF INSTALL_PIP -eq "true" (echo "AA")
   - IF $INSTALL_PIP true (echo "B")
   - IF INSTALL_PIP false (echo "C")
