@@ -33,11 +33,14 @@ build_script:
 
 test_script:
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
-  - ps: if ($INSTALL_PIP) { echo "Installing pip" }
-  - ps: if ($INSTALL_PIP) { ./scripts/install_pip.sh }
-  - ps: if ($INSTALL_MHCNUGGETS) { echo "Installing MHCnuggets" }
-  - ps: if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh }
-  - sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then echo "INSTALL MHCNUGGETS"; fi
+  - ps: if ($INSTALL_PIP -eq "true") {echo "YAY! Installing pip"}
+  - ps: if ($INSTALL_PIP) {echo "Installing pip"}
+  - ps: if ($INSTALL_PIP -eq "true") {./scripts/install_pip.sh}
+  - ps: if ($INSTALL_PIP) {./scripts/install_pip.sh}
+  - ps: if ($INSTALL_MHCNUGGETS) {echo "Installing MHCnuggets"}
+  - ps: if ($INSTALL_MHCNUGGETS -eq "true") {echo "YAY! Installing MHCnuggets"}
+  - ps: if ($INSTALL_MHCNUGGETS) {./scripts/install_mhcnuggets.sh}
+  - ps: if ($INSTALL_MHCNUGGETS -eq "true") {./scripts/install_mhcnuggets.sh}
   #- travis-tool.sh run_tests
   #- Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
 
