@@ -25,8 +25,7 @@ r_github_packages:
 
 before_script:
   - if [[ "$INSTALL_PIP" == true ]]; then sudo apt install python3-pip; fi
-  - echo "mhcnuggetsr installs pip itself"
-  - # if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
 
 after_success:
   - if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
