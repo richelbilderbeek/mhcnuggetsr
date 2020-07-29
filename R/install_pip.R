@@ -9,7 +9,7 @@
 install_pip <- function() {
   script_filename <- tempfile()
 
-  download.file(
+  utils::download.file(
     url = "https://bootstrap.pypa.io/get-pip.py",
     destfile = script_filename,
     quiet = TRUE
