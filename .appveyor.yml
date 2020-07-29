@@ -21,8 +21,9 @@ environment:
     WARNINGS_ARE_ERRORS: 0
     USE_RTOOLS: true
   matrix:
-    - INSTALL_MHCNUGGETS: true
-    - INSTALL_MHCNUGGETS: false
+    - INSTALL_PIP: false ; INSTALL_MHCNUGGETS: true
+    - INSTALL_PIP: true  ; INSTALL_MHCNUGGETS: false
+    - INSTALL_PIP: true  ; INSTALL_MHCNUGGETS: true
 
 build_script:
   - travis-tool.sh install_deps
@@ -30,6 +31,7 @@ build_script:
 test_script:
   #- if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh; }
   #- sh: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+  - ps: if ($INSTALL_PIP) { ./scripts/install_pip.sh }
   - ps: if ($INSTALL_MHCNUGGETS) { ./scripts/install_mhcnuggets.sh }
   - travis-tool.sh run_tests
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
