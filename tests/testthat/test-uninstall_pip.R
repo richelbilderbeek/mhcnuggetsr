@@ -3,7 +3,7 @@ test_that("use", {
   if (!is_pip_installed()) return()
 
   uninstall_pip()
-  expect_true(!is_pip_installed())
+  expect_false(is_pip_installed())
   install_pip()
   expect_true(is_pip_installed())
 })
