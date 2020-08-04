@@ -12,6 +12,8 @@
 #' is_mhcnuggets_name("HLA-A01:01")
 #' @export
 is_mhcnuggets_name <- function(mhc) {
+  if (length(mhc) != 1) return(FALSE)
+  if (is.null(mhc)) return(FALSE)
   !is.na(
     stringr::str_match(
       string = mhc,
