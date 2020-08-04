@@ -12,7 +12,7 @@ test_that("use", {
   expect_equal(version, get_pip_version())
 
   # Restore current version
-  set_pip_version(current_version)
+  upgrade_pip()
   expect_equal(current_version, get_pip_version())
 
 })
