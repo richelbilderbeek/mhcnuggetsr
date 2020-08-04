@@ -19,8 +19,9 @@ as can be created by \link{create_mhcnuggets_options}.}
 \item{peptides_path}{the path to the peptides}
 }
 \value{
-a tibble with two columns: (1) \code{peptide}, which holds the peptide
-sequence, and (2) \code{ic50}, which holds the predicted IC50
+a tibble with two columns:
+(1) \code{peptide}, which holds the peptide sequence, and
+(2) \code{ic50}, which holds the predicted IC50
 }
 \description{
 Predict the half maximal inhibitory concentration (aka IC50) (in nM)
