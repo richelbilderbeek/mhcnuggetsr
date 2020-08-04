@@ -2,15 +2,19 @@
 % Please edit documentation in R/to_mhcnuggets_name.R
 \name{to_mhcnuggets_name}
 \alias{to_mhcnuggets_name}
-\title{Convert a standard haplotype name to the MHCnuggets equivalent}
+\title{Convert a standard haplotype name to the MHCnuggets name}
 \usage{
 to_mhcnuggets_name(mhc)
 }
 \arguments{
 \item{mhc}{the MHC haplotype name}
 }
+\value{
+the MHCnuggets name for the haplotype
+}
 \description{
-Convert a standard haplotype name to the MHCnuggets equivalent
+Convert a standard haplotype name to the MHCnuggets name.
+Will \link{stop} if this conversion fails.
 }
 \examples{
 to_mhcnuggets_name("HLA-A*01:01")
