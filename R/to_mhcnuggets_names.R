@@ -16,7 +16,7 @@ to_mhcnuggets_names <- function(mhcs) {
 
   mhcnuggets_names <- rep(NA, length(mhcs))
   for (i in seq_along(mhcnuggets_names)) {
-    mhcnuggets_names[i] <- to_mhcnuggets_name(mhcs[i])
+    mhcnuggets_names[i] <- mhcnuggetsr::to_mhcnuggets_name(mhcs[i])
   }
   mhcnuggets_names
 }
