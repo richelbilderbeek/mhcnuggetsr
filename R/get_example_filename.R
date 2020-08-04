@@ -1,5 +1,6 @@
 #' Get the full path to an MHCnuggets example file
 #' @param filename name of the example file, without the path
+#' @return the full path to an MHCnuggets example file
 #' @inheritParams default_params_doc
 #' @examples
 #' if (is_mhcnuggets_installed()) {

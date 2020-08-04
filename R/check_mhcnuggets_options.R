@@ -1,4 +1,11 @@
-#' Check the MHCnuggets options. Will \link{stop} if the options are invalid.
+#' Check the MHCnuggets options.
+#'
+#' Check the MHCnuggets options.
+#' Will \link{stop} if the options are invalid.
+#'
+#' @note an \code{mhcnuggets_options} created
+#' by \link{create_mhcnuggets_options} is always
+#' checked by \link{check_mhcnuggets_options}
 #' @inheritParams default_params_doc
 #' @examples
 #' if (is_mhcnuggets_installed()) {

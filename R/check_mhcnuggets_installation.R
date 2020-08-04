@@ -1,3 +1,5 @@
+#' Check if MHCnuggets is installed.
+#'
 #' Check if MHCnuggets is installed. Will \link{stop} if not.
 #'
 #' An MHCnuggets installation has two parts:
@@ -6,6 +8,7 @@
 #'   2. The download of the Python source code,
 #'      which allows the use of example files
 #' @inheritParams default_params_doc
+#' @return Nothing.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' if (is_mhcnuggets_installed()) {

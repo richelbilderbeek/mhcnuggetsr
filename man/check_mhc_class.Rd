@@ -10,6 +10,9 @@ check_mhc_class(mhc_class)
 \item{mhc_class}{MHC class. Must be \code{I}, \code{II}
 or \link{NA}. Use \link{NA} to let the class be deduced automatically}
 }
+\value{
+Nothing.
+}
 \description{
 Check the MHC class. Will \link{stop} if it is invalid.
 }

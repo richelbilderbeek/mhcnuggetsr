@@ -1,4 +1,7 @@
-#' Create a set of testing options to run MHCnuggets with
+#' Create testing options for MHCnuggets
+#'
+#' Create a set of testing options to run MHCnuggets with.
+#' The most important setting is the use of a specific haplotype.
 #' @inheritParams default_params_doc
 #' @examples
 #' if (is_mhcnuggets_installed()) {
@@ -7,7 +10,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_mhcnuggets_options <- function(
-  mhc_class = "I",
+  mhc_class = NA,
   mhc = "HLA-A02:01",
   ba_models = FALSE,
   verbose = FALSE,

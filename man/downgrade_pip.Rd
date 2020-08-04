@@ -4,7 +4,7 @@
 \alias{downgrade_pip}
 \title{Downgrade pip.}
 \usage{
-downgrade_pip(version)
+downgrade_pip(version = "9.0.0")
 }
 \arguments{
 \item{version}{pip version}
@@ -13,12 +13,18 @@ downgrade_pip(version)
 Nothing
 }
 \description{
-Downgrade pip.
+Set the version of pip to a specific earlier version.
 }
 \examples{
 \dontrun{
-  install_pip()
+  if (is_pip_installed()) {
+    downgrade_pip()
+  }
 }
+}
+\seealso{
+use \link{upgrade_pip} to set pip to the latest version.
+Use \link{set_pip_version} to install a specific version of pip
 }
 \author{
 Richèl J.C. Bilderbeek

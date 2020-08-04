@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_mhcnuggets_options.R
 \name{is_mhcnuggets_options}
 \alias{is_mhcnuggets_options}
-\title{Determine if the MHCnuggets options is valid}
+\title{Is this a \code{mhcnuggets_options}?}
 \usage{
 is_mhcnuggets_options(mhcnuggets_options)
 }
@@ -10,8 +10,11 @@ is_mhcnuggets_options(mhcnuggets_options)
 \item{mhcnuggets_options}{options to run MHCnuggets with,
 as can be created by \link{create_mhcnuggets_options}.}
 }
+\value{
+TRUE if this a valid set of MHCnuggets options
+}
 \description{
-Determine if the MHCnuggets options is valid
+Determine if the MHCnuggets options is valid.
 }
 \examples{
 if (is_mhcnuggets_installed()) {

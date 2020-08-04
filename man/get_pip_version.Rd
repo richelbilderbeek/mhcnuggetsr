@@ -6,11 +6,14 @@
 \usage{
 get_pip_version()
 }
+\value{
+a string that is a version, for example \code{20.2}
+}
 \description{
 Get the version of pip
 }
 \examples{
-if (reticulate::py_available() && is_pip_installed()) {
+if (is_pip_installed()) {
   get_pip_version()
 }
 }

@@ -1,6 +1,7 @@
 #' Get the version of pip
+#' @return a string that is a version, for example \code{20.2}
 #' @examples
-#' if (reticulate::py_available() && is_pip_installed()) {
+#' if (is_pip_installed()) {
 #'   get_pip_version()
 #' }
 #' @author Richèl J.C. Bilderbeek

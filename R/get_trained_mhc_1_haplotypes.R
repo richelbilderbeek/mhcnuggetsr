@@ -1,5 +1,6 @@
 #' Get all the MHC-I haplotypes that have been trained on a model
 #' @inheritParams default_params_doc
+#' @return a character vector with haplotype names in MHCnuggets format
 #' @examples
 #' if (is_mhcnuggets_installed()) {
 #'   get_trained_mhc_1_haplotypes()

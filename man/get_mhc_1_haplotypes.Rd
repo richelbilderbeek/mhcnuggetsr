@@ -16,8 +16,11 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
+\value{
+a character vector with haplotype names in MHCnuggets format
+}
 \description{
-Get all the MHC-I haplotypes
+Get all the MHC-I haplotypes that MHCnuggets has been trained upon.
 }
 \examples{
 if (is_mhcnuggets_installed()) {

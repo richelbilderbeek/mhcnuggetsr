@@ -16,6 +16,9 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
+\value{
+TRUE if MHCnuggets is installed
+}
 \description{
 Check if MHCnuggets is installed
 }

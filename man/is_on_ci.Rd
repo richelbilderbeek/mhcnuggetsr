@@ -13,9 +13,7 @@ TRUE if run on AppVeyor or Travis CI, FALSE otherwise
 Determines if the environment is a continuous integration service
 }
 \examples{
-  if (is_on_ci()) {
-    print("Running on a continuous integration service")
-  }
+is_on_ci()
 }
 \author{
 Richèl J.C. Bilderbeek

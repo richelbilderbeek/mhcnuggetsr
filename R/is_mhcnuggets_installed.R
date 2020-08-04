@@ -1,5 +1,6 @@
 #' Check if MHCnuggets is installed
 #' @inheritParams default_params_doc
+#' @return TRUE if MHCnuggets is installed
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' is_mhcnuggets_installed()

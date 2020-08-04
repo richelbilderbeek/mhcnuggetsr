@@ -2,13 +2,16 @@
 % Please edit documentation in R/are_mhcnuggets_names.R
 \name{are_mhcnuggets_names}
 \alias{are_mhcnuggets_names}
-\title{Determine if an HLA haplotype name follow the name format
-that MHCnuggets uses internally}
+\title{Are these MHCnuggets names?}
 \usage{
 are_mhcnuggets_names(mhcs)
 }
 \arguments{
 \item{mhcs}{the MHC haplotype names}
+}
+\value{
+a vector of booleans, TRUE for HLA haplotypes that follow
+the MHCnuggets naming convention
 }
 \description{
 Determine if an HLA haplotype name follow the name format

@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_mhcnuggets_options.R
 \name{create_mhcnuggets_options}
 \alias{create_mhcnuggets_options}
-\title{Create a set of options to run MHCnuggets with.}
+\title{Create a set of MHCnuggets options.}
 \usage{
 create_mhcnuggets_options(
   mhc_class = NA,
@@ -29,9 +29,19 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
+\value{
+an \code{mhcnuggets_options}
+}
 \description{
-Create a set of options to run MHCnuggets with. This function
-will give an error message if the arguments are invalid.
+Create a set of options to run MHCnuggets with.
+}
+\details{
+This function will give an error message if the arguments are invalid.
+}
+\note{
+an \code{mhcnuggets_options} created
+by \link{create_mhcnuggets_options} is always
+checked by \link{check_mhcnuggets_options}
 }
 \examples{
 if (is_mhcnuggets_installed()) {

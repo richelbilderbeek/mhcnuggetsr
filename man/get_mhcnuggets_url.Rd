@@ -6,6 +6,9 @@
 \usage{
 get_mhcnuggets_url()
 }
+\value{
+a string that is a URL
+}
 \description{
 Get the URL of the MHCnuggets source code
 }

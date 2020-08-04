@@ -1,3 +1,5 @@
+#' Predict the IC50 for peptides.
+#'
 #' Predict the half maximal inhibitory concentration (aka IC50) (in nM)
 #' for one or more peptides.
 #' Each peptide must be 15 amino acids at
@@ -5,6 +7,8 @@
 #' @note this function uses a temporary file, because MHCnuggets reads its
 #' input from file. This temporary file is deleted after this function
 #' passed successfully.
+#' @return a tibble with two columns: (1) \code{peptide}, which holds the peptide
+#' sequence, and (2) \code{ic50}, which holds the predicted IC50
 #' @inheritParams default_params_doc
 #' @examples
 #' if (is_mhcnuggets_installed()) {

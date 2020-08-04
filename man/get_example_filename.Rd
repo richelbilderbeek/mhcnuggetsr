@@ -19,6 +19,9 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
+\value{
+the full path to an MHCnuggets example file
+}
 \description{
 Get the full path to an MHCnuggets example file
 }

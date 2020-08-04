@@ -1,6 +1,9 @@
+#' Is this an MHCnuggets name?
+#'
 #' Determine if an HLA haplotype name follow the name format
 #' that MHCnuggets uses internally
 #' @inheritParams default_params_doc
+#' @return TRUE if the name follows the MHCnuggets naming convention
 #' @examples
 #' # The official name is not the name format used by MHCnuggets
 #' is_mhcnuggets_name("HLA-A*01:01")

@@ -1,14 +1,19 @@
+#' Create a set of MHCnuggets options.
+#'
 #' Create a set of options to run MHCnuggets with.
 #'
-#' Create a set of options to run MHCnuggets with. This function
-#' will give an error message if the arguments are invalid.
+#' This function will give an error message if the arguments are invalid.
 #' @inheritParams default_params_doc
+#' @return an \code{mhcnuggets_options}
 #' @examples
 #' if (is_mhcnuggets_installed()) {
 #'   create_mhcnuggets_options(
 #'     mhc = "HLA-A02:01"
 #'   )
 #' }
+#' @note an \code{mhcnuggets_options} created
+#' by \link{create_mhcnuggets_options} is always
+#' checked by \link{check_mhcnuggets_options}
 #' @seealso use \link{create_test_mhcnuggets_options} to create an
 #'   MHCnuggets object for testing
 #' @author Richèl J.C. Bilderbeek

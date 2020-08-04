@@ -12,6 +12,9 @@ create_temp_peptides_path(fileext = ".fasta")
 \description{
 Create a path to a non-existing temporary file
 }
+\examples{
+create_temp_peptides_path()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

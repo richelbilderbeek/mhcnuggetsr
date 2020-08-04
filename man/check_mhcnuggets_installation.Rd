@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_mhcnuggets_installation.R
 \name{check_mhcnuggets_installation}
 \alias{check_mhcnuggets_installation}
-\title{Check if MHCnuggets is installed. Will \link{stop} if not.}
+\title{Check if MHCnuggets is installed.}
 \usage{
 check_mhcnuggets_installation(
   folder_name = get_default_mhcnuggets_folder(),
@@ -16,7 +16,13 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
+\value{
+Nothing.
+}
 \description{
+Check if MHCnuggets is installed. Will \link{stop} if not.
+}
+\details{
 An MHCnuggets installation has two parts:
 \enumerate{
 \item The installation of the Python package,

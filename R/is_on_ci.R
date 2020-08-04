@@ -2,9 +2,7 @@
 #' @return TRUE if run on AppVeyor, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   if (is_on_appveyor()) {
-#'     print("Running on AppVeyor")
-#'   }
+#' is_on_appveyor()
 #' @export
 is_on_appveyor <- function() {
   Sys.getenv("APPVEYOR") != "" # nolint internal function
@@ -14,9 +12,7 @@ is_on_appveyor <- function() {
 #' @return TRUE if run on Travis CI, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   if (is_on_travis()) {
-#'     print("Running on Travis CI")
-#'   }
+#' is_on_travis()
 #' @export
 is_on_travis <- function() {
   Sys.getenv("TRAVIS") != "" # nolint internal function
@@ -26,10 +22,8 @@ is_on_travis <- function() {
 #' @return TRUE if run on AppVeyor or Travis CI, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   if (is_on_ci()) {
-#'     print("Running on a continuous integration service")
-#'   }
+#' is_on_ci()
 #' @export
 is_on_ci <- function() {
-  is_on_appveyor() || is_on_travis() # nolint internal function
+  mhcnuggetsr::is_on_appveyor() || mhcnuggetsr::is_on_travis()
 }

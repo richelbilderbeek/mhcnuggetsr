@@ -2,10 +2,10 @@
 % Please edit documentation in R/create_test_mhcnuggets_options.R
 \name{create_test_mhcnuggets_options}
 \alias{create_test_mhcnuggets_options}
-\title{Create a set of testing options to run MHCnuggets with}
+\title{Create testing options for MHCnuggets}
 \usage{
 create_test_mhcnuggets_options(
-  mhc_class = "I",
+  mhc_class = NA,
   mhc = "HLA-A02:01",
   ba_models = FALSE,
   verbose = FALSE,
@@ -30,7 +30,8 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
 \description{
-Create a set of testing options to run MHCnuggets with
+Create a set of testing options to run MHCnuggets with.
+The most important setting is the use of a specific haplotype.
 }
 \examples{
 if (is_mhcnuggets_installed()) {

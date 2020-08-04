@@ -2,6 +2,7 @@
 #'
 #' Check the MHC class. Will \link{stop} if it is invalid.
 #' @inheritParams default_params_doc
+#' @return Nothing.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_mhc_class("I")

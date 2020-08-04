@@ -2,10 +2,7 @@
 % Please edit documentation in R/predict_ic50.R
 \name{predict_ic50}
 \alias{predict_ic50}
-\title{Predict the half maximal inhibitory concentration (aka IC50) (in nM)
-for one or more peptides.
-Each peptide must be 15 amino acids at
-most (use \link{predict_ic50s} to predict the IC50s for longer peptides)}
+\title{Predict the IC50 for peptides.}
 \usage{
 predict_ic50(
   mhcnuggets_options,
@@ -20,6 +17,10 @@ as can be created by \link{create_mhcnuggets_options}.}
 \item{peptides}{one of more peptide sequences}
 
 \item{peptides_path}{the path to the peptides}
+}
+\value{
+a tibble with two columns: (1) \code{peptide}, which holds the peptide
+sequence, and (2) \code{ic50}, which holds the predicted IC50
 }
 \description{
 Predict the half maximal inhibitory concentration (aka IC50) (in nM)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_mhcnuggets_options.R
 \name{check_mhcnuggets_options}
 \alias{check_mhcnuggets_options}
-\title{Check the MHCnuggets options. Will \link{stop} if the options are invalid.}
+\title{Check the MHCnuggets options.}
 \usage{
 check_mhcnuggets_options(mhcnuggets_options)
 }
@@ -11,7 +11,13 @@ check_mhcnuggets_options(mhcnuggets_options)
 as can be created by \link{create_mhcnuggets_options}.}
 }
 \description{
-Check the MHCnuggets options. Will \link{stop} if the options are invalid.
+Check the MHCnuggets options.
+Will \link{stop} if the options are invalid.
+}
+\note{
+an \code{mhcnuggets_options} created
+by \link{create_mhcnuggets_options} is always
+checked by \link{check_mhcnuggets_options}
 }
 \examples{
 if (is_mhcnuggets_installed()) {

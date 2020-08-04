@@ -17,6 +17,10 @@ Uograde pip.
   install_pip()
 }
 }
+\seealso{
+use \link{downgrade_pip} to set pip to an earlier version.
+Use \link{set_pip_version} to install a specific version of pip
+}
 \author{
 Richèl J.C. Bilderbeek
 }

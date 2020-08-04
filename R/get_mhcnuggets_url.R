@@ -1,4 +1,5 @@
 #' Get the URL of the MHCnuggets source code
+#' @return a string that is a URL
 #' @examples
 #' get_mhcnuggets_url()
 #' @author Richèl J.C. Bilderbeek

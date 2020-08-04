@@ -4,10 +4,26 @@
 \alias{get_mhcnuggets_version}
 \title{Get the MHCnuggets version}
 \usage{
-get_mhcnuggets_version()
+get_mhcnuggets_version(
+  folder_name = get_default_mhcnuggets_folder(),
+  mhcnuggets_url = get_mhcnuggets_url()
+)
+}
+\arguments{
+\item{folder_name}{superfolder of MHCnuggets.
+The name of the superfolder is \code{/home/[user_name]/.local/share}
+by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
+
+\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+}
+\value{
+a string that is a version, for example \code{2.3.2}
 }
 \description{
 Get the MHCnuggets version
+}
+\examples{
+get_mhcnuggets_version()
 }
 \author{
 Richèl J.C. Bilderbeek

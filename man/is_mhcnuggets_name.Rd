@@ -2,13 +2,15 @@
 % Please edit documentation in R/is_mhcnuggets_name.R
 \name{is_mhcnuggets_name}
 \alias{is_mhcnuggets_name}
-\title{Determine if an HLA haplotype name follow the name format
-that MHCnuggets uses internally}
+\title{Is this an MHCnuggets name?}
 \usage{
 is_mhcnuggets_name(mhc)
 }
 \arguments{
 \item{mhc}{the MHC haplotype name}
+}
+\value{
+TRUE if the name follows the MHCnuggets naming convention
 }
 \description{
 Determine if an HLA haplotype name follow the name format
