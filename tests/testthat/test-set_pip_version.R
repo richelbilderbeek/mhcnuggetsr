@@ -11,7 +11,7 @@ test_that("use", {
   expect_equal(version, get_pip_version())
 
   # Pick second version
-  version <- "10.0.0"
+  version <- "9.0.1"
   set_pip_version(version)
   expect_equal(version, get_pip_version())
 

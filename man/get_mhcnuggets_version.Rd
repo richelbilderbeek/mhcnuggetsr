@@ -23,7 +23,9 @@ a string that is a version, for example \code{2.3.2}
 Get the MHCnuggets version
 }
 \examples{
-get_mhcnuggets_version()
+if (is_mhcnuggets_installed()) {
+  get_mhcnuggets_version()
+}
 }
 \author{
 Richèl J.C. Bilderbeek
