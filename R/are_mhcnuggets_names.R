@@ -12,5 +12,9 @@
 #' }
 #' @export
 are_mhcnuggets_names <- function(mhcs) {
-  mhcnuggetsr::is_mhcnuggets_name(mhcs)
+  results <- rep(NA, length(mhcs))
+  for (i in seq_along(results)) {
+    results[i] <- mhcnuggetsr::is_mhcnuggets_name(mhcs[i])
+  }
+  results
 }

@@ -13,8 +13,7 @@ to_mhcnuggets_name(mhc)
 Convert a standard haplotype name to the MHCnuggets equivalent
 }
 \examples{
-haplotype <- "HLA-A*01:01"
-to_mhcnuggets_name(haplotype)
+to_mhcnuggets_name("HLA-A*01:01")
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -22,3 +22,19 @@ test_that("complex haplotype", {
   mhcnuggets_name <- to_mhcnuggets_name(haplotype_name)
   expect_equal(expected_name, mhcnuggets_name)
 })
+
+test_that("abuse", {
+  expect_error(
+    to_mhcnuggets_name("nonsense"),
+    "'to_mhcnuggets_name' did not result in an MHCnuggets name"
+  )
+  expect_error(to_mhcnuggets_name(NULL), "'mhc' must be one value")
+  expect_error(to_mhcnuggets_name(c()), "'mhc' must be one value")
+  expect_error(to_mhcnuggets_name(character(0)), "'mhc' must be one value")
+  expect_error(to_mhcnuggets_name(c("", "")), "'mhc' must be one value")
+
+  expect_error(to_mhcnuggets_name(NA), "'mhc' must be of type character")
+  expect_error(to_mhcnuggets_name(3.14), "'mhc' must be of type character")
+  expect_error(to_mhcnuggets_name(Inf), "'mhc' must be of type character")
+
+})
