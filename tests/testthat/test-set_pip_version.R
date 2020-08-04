@@ -5,13 +5,9 @@ test_that("use", {
   # Store the current version
   current_version <- get_pip_version()
 
-  # Pick first version
-  version <- "19.0"
-  set_pip_version(version)
-  expect_equal(version, get_pip_version())
-
-  # Pick second version
+  # Pick version
   version <- "9.0.1"
+  expect_true(version != current_version)
   set_pip_version(version)
   expect_equal(version, get_pip_version())
 
