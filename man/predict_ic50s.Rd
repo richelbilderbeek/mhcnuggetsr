@@ -6,21 +6,24 @@
 of all possible n-mers within a peptide}
 \usage{
 predict_ic50s(
-  peptide,
-  n_aas,
+  protein_sequence,
+  peptide_length,
   mhcnuggets_options,
   peptides_path = create_temp_peptides_path()
 )
 }
 \arguments{
-\item{peptide}{one peptide sequence}
-
-\item{n_aas}{number of amino acids}
-
 \item{mhcnuggets_options}{options to run MHCnuggets with,
 as can be created by \link{create_mhcnuggets_options}.}
 
 \item{peptides_path}{the path to the peptides}
+}
+\value{
+a tibble with columns:\cr
+\itemize{
+\item peptide the peptide fragment, each of length \code{peptide_length}
+\item ic50 the predicted IC50 (in nM)
+}
 }
 \description{
 Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
@@ -28,15 +31,14 @@ of all possible n-mers within a peptide
 }
 \examples{
 if (is_mhcnuggets_installed()) {
-  peptide <- "AIAACAMLLVCCCCCC"
 
   mhcnuggets_options <- create_mhcnuggets_options(
     mhc = "HLA-A02:01"
   )
 
   predict_ic50s(
-    peptide = peptide,
-    n_aas = 15,
+    protein_sequence = "AIAACAMLLVCCCCCC",
+    peptide_length = 13,
     mhcnuggets_options = mhcnuggets_options
   )
 }

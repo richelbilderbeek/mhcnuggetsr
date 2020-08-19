@@ -1,40 +1,45 @@
 #' Predict the half maximal inhibitory concentrations (aka IC50s) (in nM)
 #' of all possible n-mers within a peptide
 #' @inheritParams default_params_doc
+#' @return a tibble with columns:\cr
+#' \itemize{
+#'   \item peptide the peptide fragment, each of length \code{peptide_length}
+#'   \item ic50 the predicted IC50 (in nM)
+#' }
 #' @examples
 #' if (is_mhcnuggets_installed()) {
-#'   peptide <- "AIAACAMLLVCCCCCC"
 #'
 #'   mhcnuggets_options <- create_mhcnuggets_options(
 #'     mhc = "HLA-A02:01"
 #'   )
 #'
 #'   predict_ic50s(
-#'     peptide = peptide,
-#'     n_aas = 15,
+#'     protein_sequence = "AIAACAMLLVCCCCCC",
+#'     peptide_length = 13,
 #'     mhcnuggets_options = mhcnuggets_options
 #'   )
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 predict_ic50s <- function(
-  peptide,
-  n_aas,
+  protein_sequence,
+  peptide_length,
   mhcnuggets_options,
   peptides_path = create_temp_peptides_path()
 ) {
-  if (n_aas > 15) {
+  if (peptide_length > 15) {
     stop(
-      "'n_aas' must be 15 at most. \n",
-      "Actual value: ", n_aas
+      "'peptide_length' must be 15 at most. \n",
+      "Actual value: ", peptide_length
     )
   }
-  n <- nchar(peptide) - n_aas + 1
+  # Split protein in peptides
+  n <- nchar(protein_sequence) - peptide_length + 1
   peptides <- rep(NA, n)
   for (i in seq_len(n)) {
-    peptides[i] <- substr(peptide, i, i + n_aas - 1)
+    peptides[i] <- substr(protein_sequence, i, i + peptide_length - 1)
   }
-  testthat::expect_true(all(nchar(peptides) == n_aas))
+  testthat::expect_true(all(nchar(peptides) == peptide_length))
   mhcnuggetsr::predict_ic50(
     peptides = peptides,
     mhcnuggets_options = mhcnuggets_options
