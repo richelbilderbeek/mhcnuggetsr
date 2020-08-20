@@ -16,7 +16,9 @@ default_params_doc(
   n_aas,
   peptide,
   peptides,
+  peptide_length,
   peptides_path,
+  protein_sequence,
   verbose
 )
 }
@@ -45,7 +47,12 @@ as can be created by \link{create_mhcnuggets_options}.}
 
 \item{peptides}{one of more peptide sequences}
 
+\item{peptide_length}{length of a peptide, in number of amino acids}
+
 \item{peptides_path}{the path to the peptides}
+
+\item{protein_sequence}{protein sequence, in uppercase,
+for example \code{FAMILYVW}}
 
 \item{verbose}{set to \link{TRUE} for more debug information}
 }

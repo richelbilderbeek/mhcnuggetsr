@@ -13,6 +13,11 @@ predict_ic50s(
 )
 }
 \arguments{
+\item{protein_sequence}{protein sequence, in uppercase,
+for example \code{FAMILYVW}}
+
+\item{peptide_length}{length of a peptide, in number of amino acids}
+
 \item{mhcnuggets_options}{options to run MHCnuggets with,
 as can be created by \link{create_mhcnuggets_options}.}
 

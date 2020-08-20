@@ -12,9 +12,12 @@
 #'   as can be created by \link{create_mhcnuggets_options}.
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository
 #' @param n_aas number of amino acids
+#' @param peptide_length length of a peptide, in number of amino acids
 #' @param peptide one peptide sequence
 #' @param peptides one of more peptide sequences
 #' @param peptides_path the path to the peptides
+#' @param protein_sequence protein sequence, in uppercase,
+#'   for example \code{FAMILYVW}
 #' @param verbose set to \link{TRUE} for more debug information
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
@@ -29,7 +32,9 @@ default_params_doc <- function(
   mhcnuggets_url,
   n_aas,
   peptide, peptides,
+  peptide_length,
   peptides_path,
+  protein_sequence,
   verbose
 ) {
   # Nothing
