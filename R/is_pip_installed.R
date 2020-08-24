@@ -6,8 +6,12 @@
 #' @export
 is_pip_installed <- function() {
 
+  python_path <- reticulate::py_config()$python
+
+  if (!file.exist(python_path)) return(FALSE)
+
   error_code <- system2(
-    reticulate::py_config()$python,
+    python_path,
     args = c("-m", "pip", "--version"),
     stderr = NULL,
     stdout = NULL
