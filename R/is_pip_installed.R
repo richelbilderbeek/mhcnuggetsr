@@ -8,7 +8,7 @@ is_pip_installed <- function() {
 
   python_path <- reticulate::py_config()$python
 
-  if (!file.exist(python_path)) return(FALSE)
+  if (!file.exists(python_path)) return(FALSE)
 
   error_code <- system2(
     python_path,
