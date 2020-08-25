@@ -13,8 +13,8 @@ test_that("peptide lengths must be at most 15", {
   )
 
   df <- predict_ic50s(
-    peptide = peptide,
-    n_aas = 15,
+    protein_sequence = peptide,
+    peptide_length = 15,
     mhcnuggets_options = mhcnuggets_options
   )
 
@@ -34,9 +34,9 @@ test_that("peptide lengths must be at most 15", {
   expect_error(
     predict_ic50s(
       mhcnuggets_options = create_test_mhcnuggets_options(),
-      peptide = "AIAACAMLLVCCCCCC",
-      n_aas = 16
+      protein_sequence = "AIAACAMLLVCCCCCC",
+      peptide_length = 16
     ),
-    "'n_aas' must be 15 at most"
+    "'peptide_length' must be 15 at most"
   )
 })

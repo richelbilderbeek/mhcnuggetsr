@@ -13,7 +13,12 @@ mhcnuggetsr_report <- function(
   kat("* mhcnuggetsr *")
   kat("***************")
   kat(paste0("OS: ", rappdirs::app_dir()$os))
-  kat(paste0("Python location: ", reticulate::py_config()$python))
+  tryCatch({
+      kat(paste0("Python location: ", reticulate::py_config()$python))
+    }, error = function(e) {
+      kat("Python location: none, no Miniconda Python environment yet")
+    }
+  )
   kat(paste0("Is pip installed: ", mhcnuggetsr::is_pip_installed()))
   if (mhcnuggetsr::is_pip_installed()) {
     kat(paste0("pip version: ", mhcnuggetsr::get_pip_version()))
