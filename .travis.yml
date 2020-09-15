@@ -38,11 +38,14 @@ after_success:
   - Rscript -e 'install.packages(".", repos = NULL, type = "source")'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_self_test()'
+  # Download thesis
+  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
 
 after_failure:
   - ls
   - Rscript -e 'install.packages(".", repos = NULL, type = "source")'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_report()'
   - Rscript -e 'mhcnuggetsr::mhcnuggetsr_self_test()'
-
+  # Download thesis
+  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
 
