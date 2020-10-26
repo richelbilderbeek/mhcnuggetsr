@@ -31,8 +31,8 @@ before_script:
 
 after_success:
   - if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
-  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'covr::codecov()'; fi
-  - if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'goodpractice::gp()'; fi
+  - if [[ "$INSTALL_MHCNUGGETS" == true && "$INSTALL_PIP" == true ]]; then Rscript -e 'covr::codecov()'; fi
+  - if [[ "$INSTALL_MHCNUGGETS" == true && "$INSTALL_PIP" == true ]]; then Rscript -e 'goodpractice::gp()'; fi
   - # No local files created
   - # if [[ $(egrep -R "\"~" --include={*.R,*.Rmd} | egrep -v README.Rmd) ]]; then echo "Local file created"; exit 1; fi;
   - Rscript -e 'install.packages(".", repos = NULL, type = "source")'
