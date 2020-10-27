@@ -20,7 +20,7 @@ by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 Create a \link{mhcnuggetsr} report, to be used when reporting bugs
 }
 \examples{
-if (rappdirs::app_dir()$os != "win") { # Takes too long on Windows
+\dontrun{
   mhcnuggetsr_report()
 }
 }
