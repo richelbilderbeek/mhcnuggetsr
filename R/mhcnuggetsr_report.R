@@ -1,7 +1,9 @@
 #' Create a \link{mhcnuggetsr} report, to be used when reporting bugs
 #' @inheritParams default_params_doc
 #' @examples
-#' mhcnuggetsr_report()
+#' if (rappdirs::app_dir()$os != "win") { # Takes too long on Windows
+#'   mhcnuggetsr_report()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mhcnuggetsr_report <- function(
