@@ -6,9 +6,11 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mhcnuggetsr)](https://CRAN.R-project.org/package=mhcnuggetsr)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/mhcnuggetsr)](https://CRAN.R-project.org/package=mhcnuggetsr)
+[![](http://cranlogs.r-pkg.org/badges/mhcnuggetsr)](https://CRAN.R-project.org/package=mhcnuggetsr)
 
 | Branch    | [![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)                                                                         | [![AppVeyor logo](man/figures/AppVeyor.png)](https://www.appveyor.com)                                                                                                               | [![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)                                                                                                         |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
