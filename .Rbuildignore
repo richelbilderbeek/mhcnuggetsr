@@ -6,6 +6,9 @@
 ^\.github$
 ^\.travis\.yml$
 ^LICENSE$
+^NEWS\.md$
+^CONTRIBUTING\.md$
+^CODE_OF_CONDUCT\.md$
 ^\.github$
 ^scripts$
 ^\.appveyor.yml$
