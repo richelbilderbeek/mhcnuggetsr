@@ -23,11 +23,11 @@ r_github_packages:
   - jimhester/lintr
   - MangoTheCat/goodpractice
 
-
-
-before_script:
+before_install:
   - # Install libgit2-dev
   - sudo apt install libgit2-dev
+
+before_script:
   - # Install pip using mhcnuggetsr code
   - if [[ "$INSTALL_PIP" == true ]]; then ./scripts/install_pip.sh; fi
   - # Install MHCnuggets using mhcnuggetsr code
