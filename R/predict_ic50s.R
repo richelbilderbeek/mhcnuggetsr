@@ -42,6 +42,7 @@ predict_ic50s <- function(
   testthat::expect_true(all(nchar(peptides) == peptide_length))
   mhcnuggetsr::predict_ic50(
     peptides = peptides,
-    mhcnuggets_options = mhcnuggets_options
+    mhcnuggets_options = mhcnuggets_options,
+    peptides_path = peptides_path
   )
 }
