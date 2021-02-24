@@ -18,7 +18,6 @@ is_pip_installed <- function() {
   error_code <- system2(
     python_path,
     args = c("-m", "pip", "--version"),
-    stderr = NULL,
     stdout = NULL
   )
   error_code == 0
