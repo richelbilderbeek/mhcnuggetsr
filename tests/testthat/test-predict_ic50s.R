@@ -40,3 +40,17 @@ test_that("peptide lengths must be at most 15", {
     "'peptide_length' must be 15 at most"
   )
 })
+
+test_that("peptide lengths must be long enough", {
+
+  if (!is_mhcnuggets_installed()) return()
+
+  expect_error(
+    predict_ic50s(
+      mhcnuggets_options = create_test_mhcnuggets_options(),
+      protein_sequence = "FAMILYVW",
+      peptide_length = 9
+    ),
+    "'protein_sequence' must have more characters than 'peptide_length'"
+  )
+})

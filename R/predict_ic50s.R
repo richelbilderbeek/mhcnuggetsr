@@ -33,6 +33,14 @@ predict_ic50s <- function(
       "Actual value: ", peptide_length
     )
   }
+  if (nchar(protein_sequence) < peptide_length) {
+    stop(
+      "'protein_sequence' must have more characters than 'peptide_length'. \n",
+      "protein_sequence: ", protein_sequence,
+        " (", nchar(protein_sequence), " characters). \n",
+      "peptide_length: ", peptide_length
+    )
+  }
   # Split protein in peptides
   n <- nchar(protein_sequence) - peptide_length + 1
   peptides <- rep(NA, n)
