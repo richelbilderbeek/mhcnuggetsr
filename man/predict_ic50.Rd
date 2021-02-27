@@ -7,7 +7,9 @@
 predict_ic50(
   mhcnuggets_options,
   peptides,
-  peptides_path = create_temp_peptides_path()
+  peptides_path = create_temp_peptides_path(),
+  mhcnuggets_output_filename = mhcnuggetsr::create_temp_peptides_path(fileext = ".csv"),
+  verbose = FALSE
 )
 }
 \arguments{
@@ -17,6 +19,8 @@ as can be created by \link{create_mhcnuggets_options}.}
 \item{peptides}{one of more peptide sequences}
 
 \item{peptides_path}{the path to the peptides}
+
+\item{verbose}{set to \link{TRUE} for more debug information}
 }
 \value{
 a tibble with two columns:

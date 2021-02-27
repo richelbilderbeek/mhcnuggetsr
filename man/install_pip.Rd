@@ -4,7 +4,14 @@
 \alias{install_pip}
 \title{Install pip.}
 \usage{
-install_pip()
+install_pip(
+  python_script_filename = file.path(tmpdir = rappdirs::user_cache_dir(),
+    "temp_install_pip.py")
+)
+}
+\arguments{
+\item{python_script_filename}{name of a temporary Python
+script file. Will be deleted at the end of the function}
 }
 \value{
 Nothing

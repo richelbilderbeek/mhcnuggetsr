@@ -4,11 +4,20 @@
 \alias{mhcnuggetsr_self_test}
 \title{Self-test the package}
 \usage{
-mhcnuggetsr_self_test(mhcnuggets_options = create_test_mhcnuggets_options())
+mhcnuggetsr_self_test(
+  mhcnuggets_options = create_test_mhcnuggets_options(),
+  peptides_path = create_temp_peptides_path(),
+  mhcnuggets_output_filename = mhcnuggetsr::create_temp_peptides_path(fileext = ".csv"),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{mhcnuggets_options}{options to run MHCnuggets with,
 as can be created by \link{create_mhcnuggets_options}.}
+
+\item{peptides_path}{the path to the peptides}
+
+\item{verbose}{set to \link{TRUE} for more debug information}
 }
 \description{
 Self-test the package

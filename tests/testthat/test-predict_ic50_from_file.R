@@ -161,3 +161,17 @@ test_that("abuse, too long peptide", {
     "'peptides' must have lengths of at most 15"
   )
 })
+
+test_that("abuse, too long peptide", {
+  peptides_path <- tempfile()
+  writeLines(text = "CCCCCCCCCCCCCCC", con = peptides_path)
+  expect_error(
+    predict_ic50_from_file(
+      peptides_path = peptides_path,
+      mhcnuggets_options = create_test_mhcnuggets_options(),
+      mhcnuggets_output_filename = peptides_path
+    ),
+    "'peptides_path' and 'mhcnuggets_output_filename' must be different"
+  )
+  file.remove(peptides_path)
+})
