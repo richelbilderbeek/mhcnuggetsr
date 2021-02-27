@@ -66,6 +66,11 @@ if (is_mhcnuggets_installed()) {
 }
 ```
 
+## How can I suppress the output when making a prediction?
+
+One cannot until MHCnuggets allows to do so. Issue is posted
+[here](https://github.com/KarchinLab/mhcnuggets/issues/17).
+
 ## There is a feature I miss
 
 See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting use cases`
