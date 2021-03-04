@@ -10,6 +10,8 @@
 #'   or \link{NA}. Use \link{NA} to let the class be deduced automatically
 #' @param mhcnuggets_options options to run MHCnuggets with,
 #'   as can be created by \link{create_mhcnuggets_options}.
+#' @param mhcnuggets_output_filename name of a temporary file where
+#'   MHCnuggets writes its output to
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository
 #' @param n_aas number of amino acids
 #' @param peptide_length length of a peptide, in number of amino acids
@@ -29,6 +31,7 @@ default_params_doc <- function(
   mhc, mhcs,
   mhc_class,
   mhcnuggets_options,
+  mhcnuggets_output_filename,
   mhcnuggets_url,
   n_aas,
   peptide, peptides,

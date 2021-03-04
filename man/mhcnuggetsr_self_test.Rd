@@ -17,6 +17,9 @@ as can be created by \link{create_mhcnuggets_options}.}
 
 \item{peptides_path}{the path to the peptides}
 
+\item{mhcnuggets_output_filename}{name of a temporary file where
+MHCnuggets writes its output to}
+
 \item{verbose}{set to \link{TRUE} for more debug information}
 }
 \description{

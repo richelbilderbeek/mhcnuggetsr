@@ -27,6 +27,7 @@ check_mhcnuggets_installation <- function(
   error_code <- system2(
     reticulate::py_config()$python,
     args = c("-m", "pip", "show", "mhcnuggets"),
+    stderr = NULL,
     stdout = NULL
   )
   if (error_code != 0) {

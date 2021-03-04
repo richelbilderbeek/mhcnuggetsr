@@ -39,7 +39,6 @@ predict_ic50_from_file <- function(
   if (any(nchar(readLines(peptides_path, warn = FALSE)) > 15)) {
     stop("'peptides' must have lengths of at most 15")
   }
-  mhcnuggetsr::check_mhcnuggets_options(mhcnuggets_options)
   if (peptides_path == mhcnuggets_output_filename) {
     stop(
       "'peptides_path' and 'mhcnuggets_output_filename' must be different, \n",
@@ -48,6 +47,7 @@ predict_ic50_from_file <- function(
       "peptides_path: ", peptides_path
     )
   }
+  mhcnuggetsr::check_mhcnuggets_options(mhcnuggets_options)
 
   if (is.na(mhcnuggets_options$mhc_class)) {
     if (mhcnuggets_options$mhc %in% mhcnuggetsr::get_mhc_1_haplotypes()) {

@@ -10,7 +10,7 @@ test_that("verbosity", {
   if (is_mhcnuggets_installed()) {
     expect_message(mhcnuggetsr_self_test(verbose = TRUE))
   } else {
-    expect_message(mhcnuggetsr_self_test(verbose = TRUE))
+    expect_error(mhcnuggetsr_self_test(verbose = TRUE))
   }
 })
 

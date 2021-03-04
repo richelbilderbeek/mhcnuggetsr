@@ -12,6 +12,7 @@ default_params_doc(
   mhcs,
   mhc_class,
   mhcnuggets_options,
+  mhcnuggets_output_filename,
   mhcnuggets_url,
   n_aas,
   peptide,
@@ -38,6 +39,9 @@ or \link{NA}. Use \link{NA} to let the class be deduced automatically}
 
 \item{mhcnuggets_options}{options to run MHCnuggets with,
 as can be created by \link{create_mhcnuggets_options}.}
+
+\item{mhcnuggets_output_filename}{name of a temporary file where
+MHCnuggets writes its output to}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 
