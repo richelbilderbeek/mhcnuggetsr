@@ -18,6 +18,7 @@ Imports:
     tibble
 Suggests: 
     knitr,
+    markdown,
     testthat,
     rmarkdown
 Encoding: UTF-8

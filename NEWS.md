@@ -19,7 +19,9 @@ Newest versions at top.
 ### DEPRECATED AND DEFUNCT
 
   * `downgrade_pip`, `install_mhcnuggets`, 
-    `install_pip`, `uninstall_mhcnuggets` `uninstall_pip`,
+    `install_pip`, `set_is_mhcnuggets_installed`, 
+    `set_pip_version`, 
+    `uninstall_mhcnuggets` `uninstall_pip`,
     `upgrade_pip` are deprecated,
     as these violated CRAN policy.
     The deprecation message will point users to the non-official
