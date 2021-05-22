@@ -14,6 +14,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 downgrade_pip <- function(version = "9.0.0") {
-  mhcnuggetsr::set_pip_version(version)
-
+  stop(
+    "'mhcnuggetsr::downgrade_pip' is deprecated, \n",
+    "as it violated CRAN policy. \n",
+    " \n",
+    "To downgrade pip from R, do: \n",
+    " \n",
+    "remotes::install_github(\"richelbilderbeek/mhcnuggetsrinstall\") \n",
+    "mhcnuggetsrinstall::downgrade_pip() \n"
+  )
 }

@@ -18,7 +18,13 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
-  * None
+  * `downgrade_pip`, `install_mhcnuggets`, 
+    `install_pip`, `uninstall_mhcnuggets` `uninstall_pip`,
+    `upgrade_pip` are deprecated,
+    as these violated CRAN policy.
+    The deprecation message will point users to the non-official
+    `mhcnuggetsrinstall` package 
+    at `https://github.com/richelbilderbeek/mhcnuggetsrinstall`
 
 ## mhcnuggetsr 1.1 (2020-11-06)
 

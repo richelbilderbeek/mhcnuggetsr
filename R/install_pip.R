@@ -14,24 +14,13 @@ install_pip <- function(
     "temp_install_pip.py"
   )
 ) {
-  dir.create(
-    dirname(python_script_filename),
-    showWarnings = FALSE,
-    recursive = TRUE
+  stop(
+    "'mhcnuggetsr::install_pip' is deprecated, \n",
+    "as it violated CRAN policy. \n",
+    " \n",
+    "To install pip from R, do: \n",
+    " \n",
+    "remotes::install_github(\"richelbilderbeek/mhcnuggetsrinstall\") \n",
+    "mhcnuggetsrinstall::install_pip() \n"
   )
-
-  utils::download.file(
-    url = "https://bootstrap.pypa.io/get-pip.py",
-    destfile = python_script_filename,
-    quiet = TRUE
-  )
-  error_code <- system2(
-    reticulate::py_config()$python,
-    args = c(python_script_filename, "--user"),
-    stdout = FALSE
-  )
-
-  file.remove(python_script_filename)
-
-  error_code
 }

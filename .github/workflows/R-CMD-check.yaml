@@ -40,33 +40,15 @@ jobs:
           remotes::install_github("MangoTheCat/goodpractice")
         shell: Rscript {0}
 
-      - name: Show MHCnuggets
+      - name: Install mhcnuggetsrinstall
         env:
           INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: echo "$INSTALL_MHCNUGGETS"
-
-      - name: If statement on MHCnuggets is true
-        env:
-          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then echo "Yay!"; fi
-
-      - name: Show location
-        run: pwd
-
-      - name: If statement on MHCnuggets is false
-        env:
-          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == false ]]; then echo "Nay!"; fi
-
-      - name: Show MHCnuggets install script
-        env:
-          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then cat scripts/install_mhcnuggets.sh; fi
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")'; fi
 
       - name: Install MHCnuggets
         env:
           INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then ./scripts/install_mhcnuggets.sh; fi
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggetsr()'; fi
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
