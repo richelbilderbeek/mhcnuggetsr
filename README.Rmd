@@ -39,16 +39,18 @@ It does by calling [MHCnuggets](https://github.com/KarchinLab/mhcnuggets).
 You can install the released version of mhcnuggetsr from [GitHub](https://github.com/) with:
 
 ```
-devtools::install_github("richelbilderbeek/mhcnuggetsr")
+remotes::install_github("richelbilderbeek/mhcnuggetsr")
 ```
 
-Install MHCnuggets:
+Install MHCnuggets using the non-CRAN extension
+[mhcnuggetsrinstall](https://github.com/richelbilderbeek/mhcnuggetsrinstall):
 
 ```{r install}
 library(mhcnuggetsr)
 
 if (!is_mhcnuggets_installed()) {
-  install_mhcnuggets()
+  remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")
+  mhcnuggetsrinstall::install_mhcnuggets()
   mhcnuggetsr_self_test()
 }
 ```
