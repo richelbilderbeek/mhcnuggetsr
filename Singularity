@@ -19,6 +19,9 @@ From: r-base
     Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsr")'
     Rscript -e 'mhcnuggetsr::install_mhcnuggets(folder_name = "/opt/mhcnuggetsr")'
 
+%environment
+    export PATH=/miniconda/bin:$PATH
+
 %runscript
 exec R --vanilla --silent --no-echo "$@"
 
