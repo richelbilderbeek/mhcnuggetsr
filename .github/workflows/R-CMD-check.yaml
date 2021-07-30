@@ -11,12 +11,13 @@ name: R-CMD-check
 jobs:
   R-CMD-check:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - install_mhcnuggets: "true" 
           - install_mhcnuggets: "false"
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -26,9 +27,6 @@ jobs:
 
       - name: Install libcurl4-openssl-dev
         run: sudo apt install -qq libcurl4-openssl-dev
-
-      - name: Install libgit2-dev
-        run: sudo apt install -qq libgit2-dev
 
       - name: Install dependencies
         run: |
@@ -48,7 +46,7 @@ jobs:
       - name: Install MHCnuggets
         env:
           INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggetsr()'; fi
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets()'; fi
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
