@@ -35,7 +35,7 @@ if (is_mhcnuggets_installed()) {
 
 Pick an MHC-I haplotype:
 
-```{r}
+```{r pick_mhc_1_haplotype}
 if (is_mhcnuggets_installed()) {
   mhc_1_haplotype <- "HLA-A02:01"
   expect_true(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
@@ -44,7 +44,7 @@ if (is_mhcnuggets_installed()) {
 
 Predict:
 
-```{r}
+```{r mhc1_predict_ic50_from_file_no_ba_models}
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
     mhc = mhc_1_haplotype
@@ -60,7 +60,7 @@ if (is_mhcnuggets_installed()) {
 Predict:
 
 
-```{r}
+```{r mhc1_predict_ic50_from_file_ba_models}
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
     mhc = mhc_1_haplotype,
@@ -76,7 +76,7 @@ if (is_mhcnuggets_installed()) {
 
 Use MCH-II haplotype:
 
-```{r}
+```{r pick_mhc_2_haplotype}
 if (is_mhcnuggets_installed()) {
   mhc_2_haplotype <- "HLA-DRB101:01"
   expect_true(mhc_2_haplotype %in% get_trained_mhc_2_haplotypes())
@@ -86,7 +86,7 @@ if (is_mhcnuggets_installed()) {
 Predict:
 
 
-```{r}
+```{r mhc2_predict_ic50_from_file_no_ba_models}
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
     mhc = mhc_2_haplotype
@@ -102,7 +102,7 @@ if (is_mhcnuggets_installed()) {
 Use another MHC-I haplotype. In this case, MHCnuggets has not been
 trained upon it, but it is a valid supertype:
 
-```{r}
+```{r pick_mhc_1_haplotype_supertype}
 if (is_mhcnuggets_installed()) {
   mhc_1_haplotype <- "HLA-A02:60"
   expect_false(mhc_1_haplotype %in% get_trained_mhc_1_haplotypes())
@@ -111,7 +111,7 @@ if (is_mhcnuggets_installed()) {
 
 Predict:
 
-```{r}
+```{r predict_mhc_1_haplotype_supertype}
 if (is_mhcnuggets_installed()) {
   mhcnuggets_options <- create_mhcnuggets_options(
     mhc_class = "I",
