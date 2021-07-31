@@ -12,12 +12,17 @@ status](https://www.r-pkg.org/badges/version/mhcnuggetsr)](https://CRAN.R-projec
 [![](http://cranlogs.r-pkg.org/badges/grand-total/mhcnuggetsr)](https://CRAN.R-project.org/package=mhcnuggetsr)
 [![](http://cranlogs.r-pkg.org/badges/mhcnuggetsr)](https://CRAN.R-project.org/package=mhcnuggetsr)
 
-| Branch    | [GitHub Actions](https://github.com/richelbilderbeek/mhcnuggetsr/actions)                                      | [![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.com)                                                                         | [![AppVeyor logo](man/figures/AppVeyor.png)](https://www.appveyor.com)                                                                                                               | [![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)                                                                                                         |
+| Branch    | [GitHub Actions](https://github.com/richelbilderbeek/mhcnuggetsr/actions)                                      | [![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)                                                                         | [![AppVeyor logo](man/figures/AppVeyor.png)](https://www.appveyor.com)                                                                                                               | [![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)                                                                                                         |
 | --------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `master`  | ![R-CMD-check](https://github.com/richelbilderbeek/mhcnuggetsr/workflows/R-CMD-check/badge.svg?branch=master)  | [![Build Status](https://travis-ci.com/richelbilderbeek/mhcnuggetsr.svg?branch=master)](https://travis-ci.com/richelbilderbeek/mhcnuggetsr)  | [![Build status](https://ci.appveyor.com/api/projects/status/r7apdqey2ev9s4q7/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mhcnuggetsr/branch/master)   | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/master)   |
-| `develop` | ![R-CMD-check](https://github.com/richelbilderbeek/mhcnuggetsr/workflows/R-CMD-check/badge.svg?branch=develop) | [![Build Status](https://travis-ci.com/richelbilderbeek/mhcnuggetsr.svg?branch=develop)](https://travis-ci.com/richelbilderbeek/mhcnuggetsr) | [![Build status](https://ci.appveyor.com/api/projects/status/r7apdqey2ev9s4q7/branch/develop?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mhcnuggetsr/branch/develop) | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/develop) |
+| `master`  | ![R-CMD-check](https://github.com/richelbilderbeek/mhcnuggetsr/workflows/R-CMD-check/badge.svg?branch=master)  | [![Build Status](https://travis-ci.org/richelbilderbeek/mhcnuggetsr.svg?branch=master)](https://travis-ci.org/richelbilderbeek/mhcnuggetsr)  | [![Build status](https://ci.appveyor.com/api/projects/status/r7apdqey2ev9s4q7/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mhcnuggetsr/branch/master)   | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/master)   |
+| `develop` | ![R-CMD-check](https://github.com/richelbilderbeek/mhcnuggetsr/workflows/R-CMD-check/badge.svg?branch=develop) | [![Build Status](https://travis-ci.org/richelbilderbeek/mhcnuggetsr.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/mhcnuggetsr) | [![Build status](https://ci.appveyor.com/api/projects/status/r7apdqey2ev9s4q7/branch/develop?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/mhcnuggetsr/branch/develop) | [![codecov.io](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/mhcnuggetsr/branch/develop) |
 
 <!-- badges: end -->
+
+> mhcnuggetsr is broken, see
+> [here](https://github.com/richelbilderbeek/mhcnuggetsr/issues/13), as
+> the import of the `MHCnuggets` Python package by \`reticulate\`\`
+> fails. If you know how to fix this, please contact me
 
 R package to work with
 [MHCnuggets](https://github.com/KarchinLab/mhcnuggets).
@@ -31,40 +36,40 @@ concentration of peptides for an MHC haplotype. It does by calling
 You can install the released version of mhcnuggetsr from
 [GitHub](https://github.com/) with:
 
-    devtools::install_github("richelbilderbeek/mhcnuggetsr")
+    remotes::install_github("richelbilderbeek/mhcnuggetsr")
 
-Install MHCnuggets:
+Install MHCnuggets using the non-CRAN extension
+[mhcnuggetsrinstall](https://github.com/richelbilderbeek/mhcnuggetsrinstall):
 
-``` r
-library(mhcnuggetsr)
-
-if (!is_mhcnuggets_installed()) {
-  install_mhcnuggets()
-  mhcnuggetsr_self_test()
-}
-```
+    # {r install}
+    library(mhcnuggetsr)
+    
+    if (!is_mhcnuggets_installed()) {
+      remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")
+      mhcnuggetsrinstall::install_mhcnuggets()
+      mhcnuggetsr_self_test()
+    }
 
 ## Example
 
 Here is how to get the IC50 values (in nM) for the peptides in an
 example file:
 
-``` r
-library(testthat)
-library(mhcnuggetsr)
-
-if (is_mhcnuggets_installed()) {
-  mhcnuggets_options <- create_mhcnuggets_options(
-    mhc = "HLA-A02:01"
-  )
-  
-  df <- predict_ic50(
-    peptides = "AIAACAMLLV",
-    mhcnuggets_options = mhcnuggets_options
-  )
-  expect_equal(df$ic50, 5578.77)
-}
-```
+    # {r example}
+    library(testthat)
+    library(mhcnuggetsr)
+    
+    if (is_mhcnuggets_installed()) {
+      mhcnuggets_options <- create_mhcnuggets_options(
+        mhc = "HLA-A02:01"
+      )
+      
+      df <- predict_ic50(
+        peptides = "AIAACAMLLV",
+        mhcnuggets_options = mhcnuggets_options
+      )
+      expect_equal(df$ic50, 5578.77)
+    }
 
 ## How can I suppress the output when making a prediction?
 

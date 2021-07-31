@@ -28,6 +28,10 @@ Branch   |[GitHub Actions](https://github.com/richelbilderbeek/mhcnuggetsr/actio
 
 <!-- badges: end -->
 
+> mhcnuggetsr is broken, see [here](https://github.com/richelbilderbeek/mhcnuggetsr/issues/13), 
+> as the import of the `MHCnuggets` Python package by `reticulate``
+> fails. If you know how to fix this, please contact me
+
 R package to work with [MHCnuggets](https://github.com/KarchinLab/mhcnuggets).
 
 The goal of `mhcnuggetsr` is to predict the half maximal inhibitory concentration
@@ -45,7 +49,8 @@ remotes::install_github("richelbilderbeek/mhcnuggetsr")
 Install MHCnuggets using the non-CRAN extension
 [mhcnuggetsrinstall](https://github.com/richelbilderbeek/mhcnuggetsrinstall):
 
-```{r install}
+```
+# {r install}
 library(mhcnuggetsr)
 
 if (!is_mhcnuggets_installed()) {
@@ -60,7 +65,8 @@ if (!is_mhcnuggets_installed()) {
 Here is how to get the IC50 values (in nM) for the peptides in
 an example file:
 
-```{r example}
+```
+# {r example}
 library(testthat)
 library(mhcnuggetsr)
 

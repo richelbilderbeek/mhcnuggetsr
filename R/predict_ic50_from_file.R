@@ -86,8 +86,26 @@ predict_ic50_from_file <- function(
       "output: ", mhcnuggets_output_filename,"\n"
     )
   }
+  testthat::expect_true(reticulate::py_module_available("mhcnuggets"))
+  module <- reticulate::import(
+    module = "mhcnuggets"
+  )
+  module <- reticulate::import_from_path(
+    module = "mhcnuggets"
+  )
+  module <- reticulate::import_from_path(
+    module = "mhcnuggets",
+    path = normalizePath(file.path(get_default_mhcnuggets_folder()))
+  )
+  module <- reticulate::import_from_path(
+    module = "mhcnuggets",
+    path = normalizePath(file.path(get_default_mhcnuggets_folder(), "mhcnuggets"))
+  )
+  module <- reticulate::import_from_path(
+    module = "mhcnuggets",
+    path = normalizePath(file.path(get_default_mhcnuggets_folder(), "mhcnuggets", "mhcnuggets"))
+  )
 
-  module <- reticulate::import_from_path(module = "mhcnuggets")
   if (verbose) {
     module$src$predict$predict(
       class_ = mhcnuggets_options$mhc_class,
