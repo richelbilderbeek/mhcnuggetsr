@@ -19,7 +19,7 @@ jobs:
   #  env: INSTALL_MHCNUGGETS=true INSTALL_PIP=true
 
 r_github_packages:
-  - jimhester/covr
+  - r-lib/covr
   - jimhester/lintr
   - MangoTheCat/goodpractice
 
