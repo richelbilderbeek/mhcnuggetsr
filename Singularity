@@ -16,6 +16,7 @@ From: r-base
     conda update conda
 
     Rscript -e 'install.packages(c("remotes", "devtools"))'
+    Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsr")'
     Rscript -e 'mhcnuggetsr::install_mhcnuggets(folder_name = "/opt/mhcnuggetsr")'
 

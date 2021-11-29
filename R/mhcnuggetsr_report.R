@@ -66,6 +66,11 @@ mhcnuggetsr_report <- function(
 
 
   }
+  kat("*************")
+  kat("* ormr info *")
+  kat("*************")
+  ormr::ormr_report(ormr_folder_name = folder_name)
+
   kat("****************")
   kat("* session info *")
   kat("****************")
