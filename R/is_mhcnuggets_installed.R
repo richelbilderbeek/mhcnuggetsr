@@ -6,14 +6,12 @@
 #' is_mhcnuggets_installed()
 #' @export
 is_mhcnuggets_installed <- function(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
 ) {
   is_installed <- FALSE
   tryCatch({
       mhcnuggetsr::check_mhcnuggets_installation(
-        folder_name = folder_name,
-        mhcnuggets_url = mhcnuggets_url
+        mhcnuggetsr_folder = mhcnuggetsr_folder
       )
       is_installed <- TRUE
     },

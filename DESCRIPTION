@@ -24,7 +24,7 @@ Suggests:
     rmarkdown
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 URL: https://github.com/richelbilderbeek/mhcnuggetsr/
 BugReports: https://github.com/richelbilderbeek/mhcnuggetsr
 Language: en-US

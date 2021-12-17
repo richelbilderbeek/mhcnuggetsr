@@ -16,27 +16,21 @@
 #' }
 #' @export
 check_mhcnuggets_installation <- function(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
 ) {
-  # if (!reticulate::py_available()) stop("Python is not installed") # nolint not now
-
-  if (!mhcnuggetsr::is_pip_installed()) {
-    stop("pip is not installed")
-  }
-  error_code <- system2(
-    reticulate::py_config()$python,
-    args = c("-m", "pip", "show", "mhcnuggets"),
-    stderr = NULL,
-    stdout = NULL
-  )
-  if (error_code != 0) {
+  if (!ormr::is_python_package_installed(
+      package_name = "mhcnuggets",
+      ormr_folder_name = mhcnuggetsr_folder,
+    )
+  ) {
     stop(
       "'mhcnuggets not installed'. ",
       "Tip: use 'mhcnuggetsr_report()' for more information"
     )
   }
-  mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
+  mhcnuggets_folder <- get_default_mhcnuggets_folder(
+    mhcnuggetsr_folder = mhcnuggetsr_folder
+  )
   if (!dir.exists(mhcnuggets_folder)) {
     stop("MHCnuggets GitHub repo not found at '", mhcnuggets_folder, "'")
   }

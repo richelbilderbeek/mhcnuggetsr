@@ -4,17 +4,7 @@
 \alias{mhcnuggetsr_report}
 \title{Create a \link{mhcnuggetsr} report, to be used when reporting bugs}
 \usage{
-mhcnuggetsr_report(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
-)
-}
-\arguments{
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
-
-\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+mhcnuggetsr_report(mhcnuggetsr_folder = get_default_mhcnuggetsr_folder())
 }
 \description{
 Create a \link{mhcnuggetsr} report, to be used when reporting bugs

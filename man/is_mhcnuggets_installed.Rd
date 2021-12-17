@@ -4,17 +4,7 @@
 \alias{is_mhcnuggets_installed}
 \title{Check if MHCnuggets is installed}
 \usage{
-is_mhcnuggets_installed(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
-)
-}
-\arguments{
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
-
-\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+is_mhcnuggets_installed(mhcnuggetsr_folder = get_default_mhcnuggetsr_folder())
 }
 \value{
 TRUE if MHCnuggets is installed
