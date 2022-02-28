@@ -1,12 +1,10 @@
 # The mhcnuggetsr R package, with MHCnuggets installed
-
 Bootstrap: docker
-From: r-base
+From: rocker/tidyverse
 
 %post
-    sed -i 's/$/ universe/' /etc/apt/sources.list
     apt-get update
-    apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev r-cran-stringi libicu-dev git
+    apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev git
     apt-get clean
 
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
