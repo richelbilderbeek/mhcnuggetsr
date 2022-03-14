@@ -3,7 +3,14 @@ Bootstrap: docker
 From: rocker/tidyverse
 
 %post
+    # Install python3
     apt-get update
+    apt-get install -y git wget python3-pip
+
+    # python3 -m pip install --upgrade pip
+    # Tip from Pavlin Mitev
+    python3 -m pip install --no-cache-dir --upgrade pip
+
     apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev git
     apt-get clean
 
