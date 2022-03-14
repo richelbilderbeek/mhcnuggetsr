@@ -14,25 +14,17 @@ From: rocker/tidyverse
     apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev git
     apt-get clean
 
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash Miniconda3-latest-Linux-x86_64.sh -b -p miniconda
-    export PATH=/miniconda/bin:$PATH
-    rm Miniconda3-latest-Linux-x86_64.sh
-    conda update conda
-
     Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsr")'
-    Rscript -e 'mhcnuggetsr::install_mhcnuggets(folder_name = "/opt/mhcnuggetsr")'
-
-%environment
-    export PATH=/miniconda/bin:$PATH
+    Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")'
+    Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets(folder_name = "/opt/mhcnuggetsr", ormr_folder_name = "python3")'
 
 %runscript
 exec R --vanilla --silent --no-echo "$@"
 
 %test
-    Rscript -e 'mhcnuggetsr::mhcnuggetsr_report(folder_name = "/opt/mhcnuggetsr")'
+    Rscript -e 'mhcnuggetsr::mhcnuggetsr_report(folder_name = "/opt/mhcnuggetsr", ormr_folder_name = "python3")'
 
 %help
 
