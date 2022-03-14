@@ -5,7 +5,8 @@
 \title{Check if MHCnuggets is installed.}
 \usage{
 check_mhcnuggets_installation(
-  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
+  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder(),
+  ormr_folder_name = get_default_orm_folder_name()
 )
 }
 \value{

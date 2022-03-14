@@ -4,7 +4,10 @@
 \alias{mhcnuggetsr_report}
 \title{Create a \link{mhcnuggetsr} report, to be used when reporting bugs}
 \usage{
-mhcnuggetsr_report(mhcnuggetsr_folder = get_default_mhcnuggetsr_folder())
+mhcnuggetsr_report(
+  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder(),
+  ormr_folder_name = get_default_orm_folder_name()
+)
 }
 \description{
 Create a \link{mhcnuggetsr} report, to be used when reporting bugs

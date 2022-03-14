@@ -7,7 +7,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mhcnuggetsr_report <- function(
-  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
+  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder(),
+  ormr_folder_name = get_default_orm_folder_name()
 ) {
   kat <- function(x) cat(x, sep = "\n")
   kat("***************")
@@ -37,7 +38,7 @@ mhcnuggetsr_report <- function(
   kat("*************")
   kat("* ormr info *")
   kat("*************")
-  ormr::ormr_report(ormr_folder_name = mhcnuggetsr_folder)
+  ormr::ormr_report(ormr_folder_name = ormr_folder_name)
 
   kat("****************")
   kat("* session info *")
