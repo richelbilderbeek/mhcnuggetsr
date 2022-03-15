@@ -40,7 +40,7 @@ Within the script, set `folder_name` to `/opt/mhcnuggetsr`, for example:
 
 ```
 library(mhcnuggetsr)
-mhcnuggetsr_report(folder_name = "/opt/mhcnuggetsr")
+mhcnuggetsr_report(folder_name = "/opt/mhcnuggetsr", ormr_folder_name = "python3")
 ```
 
 %labels
