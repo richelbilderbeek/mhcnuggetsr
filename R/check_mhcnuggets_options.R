@@ -34,8 +34,8 @@ check_mhcnuggets_options <- function(
     )
   }
   mhcnuggetsr::check_mhcnuggets_installation(
-    folder_name = mhcnuggets_options$folder_name,
-    mhcnuggets_url = mhcnuggets_options$mhcnuggets_url
+    mhcnuggetsr_folder = mhcnuggets_options$folder_name,
+    ormr_folder_name = get_default_orm_folder_name()
   )
   if (!is.na(mhcnuggets_options$mhc_class) &&
       mhcnuggets_options$mhc_class == "I" &&

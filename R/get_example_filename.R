@@ -12,11 +12,16 @@
 #' @export
 get_example_filename <- function(
   filename = "test_peptides.peps",
-  mhcnuggets_folder = get_default_mhcnuggets_folder()
+  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
 ) {
+  testthat::expect_true(dir.exists(mhcnuggetsr_folder))
+  mhcnuggets_folder <- file.path(
+    mhcnuggetsr_folder,
+    basename(get_mhcnuggets_url())
+  )
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   mhcnuggets_examples_folder <- file.path(
-    mhcnuggets_folder, "mhcnuggets", "data"
+    mhcnuggets_folder, "mhcnuggets", "mhcnuggets", "data"
   )
   testthat::expect_true(dir.exists(mhcnuggets_examples_folder))
   all_files <- list.files(

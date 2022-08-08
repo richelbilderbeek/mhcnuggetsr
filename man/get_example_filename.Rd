@@ -6,7 +6,7 @@
 \usage{
 get_example_filename(
   filename = "test_peptides.peps",
-  mhcnuggets_folder = get_default_mhcnuggets_folder()
+  mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
 )
 }
 \arguments{

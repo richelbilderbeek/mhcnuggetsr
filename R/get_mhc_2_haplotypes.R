@@ -10,8 +10,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_mhc_2_haplotypes <- function(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  mhcnuggetsr_folder = get_default_mhcnuggets_folder(),
+  ormr_folder_name = get_default_orm_folder_name()
 ) {
-  mhcnuggetsr::get_trained_mhc_2_haplotypes()
+  mhcnuggetsr::get_trained_mhc_2_haplotypes(
+    mhcnuggetsr_folder = mhcnuggetsr_folder,
+    ormr_folder_name = ormr_folder_name
+
+  )
 }

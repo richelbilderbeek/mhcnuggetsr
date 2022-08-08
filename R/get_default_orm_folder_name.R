@@ -7,6 +7,7 @@
 #' @examples
 #' get_default_orm_folder_name()
 #' @author Richèl J.C. Bilderbeek
+#' @export
 get_default_orm_folder_name <- function() {
   "python3"
 }

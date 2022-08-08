@@ -5,16 +5,9 @@
 \title{Get all the MHC-I haplotypes}
 \usage{
 get_mhc_1_haplotypes(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  mhcnuggetsr_folder = get_default_mhcnuggets_folder(),
+  ormr_folder_name = get_default_orm_folder_name()
 )
-}
-\arguments{
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
-
-\item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }
 \value{
 a character vector with haplotype names in MHCnuggets format
