@@ -30,7 +30,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck"))
+          install.packages(c("remotes", "rcmdcheck", "devtools"))
           remotes::install_github("richelbilderbeek/plinkr")
           install.packages("semver")
           remotes::install_github("richelbilderbeek/ormr")
