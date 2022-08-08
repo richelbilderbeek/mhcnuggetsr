@@ -8,16 +8,15 @@
 #' }
 #' @export
 get_mhcnuggets_version <- function(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+    mhcnuggetsr_folder = get_default_mhcnuggetsr_folder(),
+    ormr_folder_name = get_default_orm_folder_name()
 ) {
   mhcnuggetsr::check_mhcnuggets_installation(
-    folder_name = folder_name,
-    mhcnuggets_url = mhcnuggets_url
+    mhcnuggetsr_folder = mhcnuggetsr_folder,
+    ormr_folder_name = ormr_folder_name
   )
-
   output <- system2(
-    reticulate::py_config()$python,
+    "python3",
     args = c("-m", "pip", "show", "mhcnuggets"),
     stdout = TRUE
   )

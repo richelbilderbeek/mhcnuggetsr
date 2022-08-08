@@ -10,17 +10,20 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_example_filenames <- function(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+    mhcnuggetsr_folder = get_default_mhcnuggetsr_folder(),
+    ormr_folder_name = get_default_orm_folder_name()
 ) {
   mhcnuggetsr::check_mhcnuggets_installation(
-    folder_name = folder_name,
-    mhcnuggets_url = mhcnuggets_url
+    mhcnuggetsr_folder = mhcnuggetsr_folder,
+    ormr_folder_name = ormr_folder_name
   )
-  mhcnuggets_folder <- file.path(folder_name, basename(mhcnuggets_url))
+  mhcnuggets_folder <- file.path(
+    mhcnuggetsr_folder,
+    basename(get_mhcnuggets_url())
+  )
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   mhcnuggets_examples_folder <- file.path(
-    mhcnuggets_folder, "mhcnuggets", "data"
+    mhcnuggets_folder, "mhcnuggets", "mhcnuggets", "data"
   )
   testthat::expect_true(dir.exists(mhcnuggets_examples_folder))
   all_files <- list.files(
