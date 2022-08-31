@@ -11,14 +11,14 @@ From: rocker/tidyverse
     # Tip from Pavlin Mitev
     python3 -m pip install --no-cache-dir --upgrade pip
 
-    apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev git
+    apt-get -y install -qq libssl-dev libcurl4-openssl-dev libxml2-dev git libharfbuzz-dev libfribidi-dev
     apt-get clean
 
     Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsr")'
     Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")'
-    Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets(folder_name = "/opt/mhcnuggetsr", ormr_folder_name = "python3")'
+    Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets(folder_name = "/opt/mhcnuggetsr")'
 
 %runscript
 exec R --vanilla --silent --no-echo "$@"
