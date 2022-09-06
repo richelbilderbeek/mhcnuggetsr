@@ -1,5 +1,6 @@
 #' Get the path to the folder where this package installs
 #' `MHCnuggets` by default
+#' @inheritParams default_params_doc
 #' @return the path to the folder where this package installs
 #'   `MHCnuggets`` by default
 #' @examples

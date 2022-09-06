@@ -9,6 +9,11 @@ get_default_mhcnuggets_folder(
   mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
 )
 }
+\arguments{
+\item{mhcnuggetsr_folder}{folder where \code{mhcnuggetsr} stores its
+temporary files. Use \link{get_default_mhcnuggetsr_folder}
+for its default value.}
+}
 \value{
 the path to the folder where this package installs
 `MHCnuggets`` by default

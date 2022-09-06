@@ -3,13 +3,13 @@ test_that("use", {
     check_mhcnuggets_installation(
       mhcnuggetsr_folder = tempfile()
     ),
-    "not found"
+    "(not found|mhcnuggets not installed)"
   )
   expect_error(
     check_mhcnuggets_installation(
       mhcnuggetsr_folder = tempfile(),
       ormr_folder_name = "python3"
     ),
-    "not found"
+    "(not found|mhcnuggets not installed)"
   )
 })

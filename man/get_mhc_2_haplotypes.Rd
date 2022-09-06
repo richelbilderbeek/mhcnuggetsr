@@ -13,6 +13,11 @@ get_mhc_2_haplotypes(
 \item{mhcnuggetsr_folder}{folder where \code{mhcnuggetsr} stores its
 temporary files. Use \link{get_default_mhcnuggetsr_folder}
 for its default value.}
+
+\item{ormr_folder_name}{folder used by the \code{ormr} package
+to install Python packages to.
+Use \code{python3} to install Python packages via \code{pip}.
+Default value is \code{python3}}
 }
 \value{
 a character vector with haplotype names in MHCnuggets format

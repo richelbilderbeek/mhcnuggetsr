@@ -17,6 +17,10 @@
 #' temporary files. Use \link{get_default_mhcnuggetsr_folder}
 #' for its default value.
 #' @param n_aas number of amino acids
+#' @param ormr_folder_name folder used by the `ormr` package
+#' to install Python packages to.
+#' Use `python3` to install Python packages via `pip`.
+#' Default value is `python3`
 #' @param peptide_length length of a peptide, in number of amino acids
 #' @param peptide one peptide sequence
 #' @param peptides one of more peptide sequences
