@@ -29,10 +29,11 @@ check_mhcnuggets_installation <- function(
       "Tip: use 'mhcnuggetsr_report()' for more information"
     )
   }
-  mhcnuggets_folder <- get_default_mhcnuggets_folder(
+  mhcnuggets_folder <- mhcnuggetsr::get_default_mhcnuggets_folder(
     mhcnuggetsr_folder = mhcnuggetsr_folder
   )
   if (!dir.exists(mhcnuggets_folder)) {
     stop("MHCnuggets GitHub repo not found at '", mhcnuggets_folder, "'")
   }
+  invisible(mhcnuggetsr_folder)
 }
