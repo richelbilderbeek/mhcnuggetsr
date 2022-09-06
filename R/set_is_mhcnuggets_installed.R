@@ -17,7 +17,8 @@ set_is_mhcnuggets_installed <- function(
     " \n",
     "To set if MHCnuggets is installed from R, do: \n",
     " \n",
-    "remotes::install_github(\"richelbilderbeek/set_is_mhcnuggets_installed\") \n",
+    "remotes::install_github(",
+      "\"richelbilderbeek/set_is_mhcnuggets_installed\") \n",
     "mhcnuggetsrinstall::set_pip_version([your version]) \n"
   )
 }

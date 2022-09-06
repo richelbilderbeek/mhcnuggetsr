@@ -38,7 +38,12 @@ mhcnuggetsr_report <- function(
   kat("*************")
   kat("* ormr info *")
   kat("*************")
-  ormr::ormr_report(ormr_folder_name = ormr_folder_name)
+  tryCatch(
+    ormr::ormr_report(ormr_folder_name = ormr_folder_name),
+    error = function(e) {
+      kat(e$message)
+    }
+  )
 
   kat("****************")
   kat("* session info *")

@@ -79,11 +79,11 @@ predict_ic50_from_file <- function(
   if (verbose) {
     message(
       "Calling MHCnuggets, with:\n",
-      "class: ", mhcnuggets_options$mhc_class,"\n",
-      "peptides_path: ", peptides_path,"\n",
-      "mhc: ", mhcnuggets_options$mhc,"\n",
-      "ba_models: ", mhcnuggets_options$ba_models,"\n",
-      "output: ", mhcnuggets_output_filename,"\n"
+      "class: ", mhcnuggets_options$mhc_class, "\n",
+      "peptides_path: ", peptides_path, "\n",
+      "mhc: ", mhcnuggets_options$mhc, "\n",
+      "ba_models: ", mhcnuggets_options$ba_models, "\n",
+      "output: ", mhcnuggets_output_filename, "\n"
     )
   }
   testthat::expect_true(reticulate::py_module_available("mhcnuggets"))
@@ -99,11 +99,15 @@ predict_ic50_from_file <- function(
   )
   module <- reticulate::import_from_path(
     module = "mhcnuggets",
-    path = normalizePath(file.path(get_default_mhcnuggets_folder(), "mhcnuggets"))
+    path = normalizePath(
+      file.path(get_default_mhcnuggets_folder(), "mhcnuggets")
+    )
   )
   module <- reticulate::import_from_path(
     module = "mhcnuggets",
-    path = normalizePath(file.path(get_default_mhcnuggets_folder(), "mhcnuggets", "mhcnuggets"))
+    path = normalizePath(
+      file.path(get_default_mhcnuggets_folder(), "mhcnuggets", "mhcnuggets")
+    )
   )
 
   if (verbose) {

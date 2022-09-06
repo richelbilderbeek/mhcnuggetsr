@@ -14,6 +14,7 @@ default_params_doc(
   mhcnuggets_options,
   mhcnuggets_output_filename,
   mhcnuggets_url,
+  mhcnuggetsr_folder,
   n_aas,
   peptide,
   peptides,
@@ -44,6 +45,10 @@ as can be created by \link{create_mhcnuggets_options}.}
 MHCnuggets writes its output to}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+
+\item{mhcnuggetsr_folder}{folder where \code{mhcnuggetsr} stores its
+temporary files. Use \link{get_default_mhcnuggetsr_folder}
+for its default value.}
 
 \item{n_aas}{number of amino acids}
 

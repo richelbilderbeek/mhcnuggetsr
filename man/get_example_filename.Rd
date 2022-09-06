@@ -11,6 +11,10 @@ get_example_filename(
 }
 \arguments{
 \item{filename}{name of the example file, without the path}
+
+\item{mhcnuggetsr_folder}{folder where \code{mhcnuggetsr} stores its
+temporary files. Use \link{get_default_mhcnuggetsr_folder}
+for its default value.}
 }
 \value{
 the full path to an MHCnuggets example file

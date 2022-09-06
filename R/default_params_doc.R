@@ -13,6 +13,9 @@
 #' @param mhcnuggets_output_filename name of a temporary file where
 #'   MHCnuggets writes its output to
 #' @param mhcnuggets_url URL to the MHCnuggets GitHub repository
+#' @param mhcnuggetsr_folder folder where `mhcnuggetsr` stores its
+#' temporary files. Use \link{get_default_mhcnuggetsr_folder}
+#' for its default value.
 #' @param n_aas number of amino acids
 #' @param peptide_length length of a peptide, in number of amino acids
 #' @param peptide one peptide sequence
@@ -33,6 +36,7 @@ default_params_doc <- function(
   mhcnuggets_options,
   mhcnuggets_output_filename,
   mhcnuggets_url,
+  mhcnuggetsr_folder,
   n_aas,
   peptide, peptides,
   peptide_length,

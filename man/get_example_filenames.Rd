@@ -9,6 +9,11 @@ get_example_filenames(
   ormr_folder_name = get_default_orm_folder_name()
 )
 }
+\arguments{
+\item{mhcnuggetsr_folder}{folder where \code{mhcnuggetsr} stores its
+temporary files. Use \link{get_default_mhcnuggetsr_folder}
+for its default value.}
+}
 \value{
 a character vector with all MHCnuggets example files
 }

@@ -19,7 +19,7 @@ test_that("detailed use", {
 
   mhcnuggets_options <- create_test_mhcnuggets_options()
   peptides_path <- create_temp_peptides_path()
-  mhcnuggets_output_filename = mhcnuggetsr::create_temp_peptides_path(
+  mhcnuggets_output_filename <- mhcnuggetsr::create_temp_peptides_path(
     fileext = ".csv"
   )
   expect_silent(
