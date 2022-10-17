@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## mhcnuggetsr 1.2 (unreleased)
+## mhcnuggetsr 1.2.1 (unreleased)
 
 ### NEW FEATURES
 
