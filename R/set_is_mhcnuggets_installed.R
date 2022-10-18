@@ -2,14 +2,15 @@
 #' @param is_installed the desired installation state. Must
 #'   be \link{TRUE} or \link{FALSE}
 #' @inheritParams default_params_doc
+#' @param folder_name deprecated name for 'mhcnuggetsr_folder'
 #' @return Nothing
 #' @author Richèl J.C. Bilderbeek
 #' @export
 set_is_mhcnuggets_installed <- function(
   is_installed,
-  verbose = FALSE,
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  verbose = "deprecated",
+  folder_name = "deprecated",
+  mhcnuggets_url = "deprecated"
 ) {
   stop(
     "'mhcnuggetsr::set_is_mhcnuggets_installed' is deprecated, \n",

@@ -81,7 +81,7 @@ check_mhcnuggets_options_names <- function(
     "mhc",
     "ba_models",
     "verbose",
-    "folder_name",
+    "mhcnuggetsr_folder",
     "mhcnuggets_url"
   )
   for (name in expected_names) {

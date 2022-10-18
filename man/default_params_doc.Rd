@@ -7,7 +7,6 @@ of the parameters from.}
 \usage{
 default_params_doc(
   ba_models,
-  folder_name,
   mhc,
   mhcs,
   mhc_class,
@@ -26,10 +25,6 @@ default_params_doc(
 }
 \arguments{
 \item{ba_models}{Set to TRUE to use a pure BA model}
-
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
 
 \item{mhc}{the MHC haplotype name}
 

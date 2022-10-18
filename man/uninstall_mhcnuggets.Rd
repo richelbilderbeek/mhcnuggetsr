@@ -4,15 +4,10 @@
 \alias{uninstall_mhcnuggets}
 \title{Uninstall the MHCnuggets Python package.}
 \usage{
-uninstall_mhcnuggets(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
-)
+uninstall_mhcnuggets(folder_name = "deprecated", mhcnuggets_url = "deprecated")
 }
 \arguments{
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
+\item{folder_name}{deprecated name for 'mhcnuggetsr_folder'}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
 }

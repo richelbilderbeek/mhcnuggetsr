@@ -9,8 +9,9 @@ create_test_mhcnuggets_options(
   mhc = "HLA-A02:01",
   ba_models = FALSE,
   verbose = FALSE,
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  mhcnuggetsr_folder = get_default_mhcnuggets_folder(),
+  mhcnuggets_url = get_mhcnuggets_url(),
+  folder_name = "deprecated"
 )
 }
 \arguments{
@@ -23,11 +24,13 @@ or \link{NA}. Use \link{NA} to let the class be deduced automatically}
 
 \item{verbose}{set to \link{TRUE} for more debug information}
 
-\item{folder_name}{superfolder of MHCnuggets.
-The name of the superfolder is \code{/home/[user_name]/.local/share}
-by default, as can be obtained by\link{get_default_mhcnuggets_folder}}
+\item{mhcnuggetsr_folder}{folder where \code{mhcnuggetsr} stores its
+temporary files. Use \link{get_default_mhcnuggetsr_folder}
+for its default value.}
 
 \item{mhcnuggets_url}{URL to the MHCnuggets GitHub repository}
+
+\item{folder_name}{deprecated name for 'mhcnuggetsr_folder'}
 }
 \description{
 Create a set of testing options to run MHCnuggets with.

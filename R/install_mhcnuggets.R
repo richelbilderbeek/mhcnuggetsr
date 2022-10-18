@@ -1,5 +1,6 @@
 #' Install the \code{MHCnuggets} \code{Python} package.
 #' @inheritParams default_params_doc
+#' @param folder_name deprecated name for 'mhcnuggetsr_folder'
 #' @return Nothing
 #' @examples
 #' \dontrun{
@@ -8,8 +9,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_mhcnuggets <- function(
-  folder_name = get_default_mhcnuggets_folder(),
-  mhcnuggets_url = get_mhcnuggets_url()
+  folder_name = "deprecated",
+  mhcnuggets_url = "deprecated"
 ) {
   stop(
     "'mhcnuggetsr::install_mhcnuggets' is deprecated, \n",

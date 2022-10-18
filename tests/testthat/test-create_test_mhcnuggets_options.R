@@ -8,4 +8,8 @@ test_that("use", {
       )
     )
   )
+  expect_error(
+    create_test_mhcnuggets_options(folder_name = "something"),
+    "deprecated"
+  )
 })
