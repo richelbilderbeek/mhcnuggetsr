@@ -53,8 +53,3 @@ jobs:
 
       - name: Lint
         run: if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
-
-      - name: Report
-        run: mhcnuggetsr::mhcnuggetsr_report()
-        shell: Rscript {0}
-
