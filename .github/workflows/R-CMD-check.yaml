@@ -49,6 +49,16 @@ jobs:
           INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
         run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")'; fi
 
+      - name: Show 'mhcnuggetsr::is_mhcnuggets_installed'
+        env:
+          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsr::is_mhcnuggets_installed'; fi
+
+      - name: Show 'mhcnuggetsrinstall::install_mhcnuggets'
+        env:
+          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
+        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets'; fi
+
       - name: Install MHCnuggets
         env:
           INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
