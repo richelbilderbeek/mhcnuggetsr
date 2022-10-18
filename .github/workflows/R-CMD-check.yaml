@@ -44,26 +44,6 @@ jobs:
           remotes::install_github("MangoTheCat/goodpractice")
         shell: Rscript {0}
 
-      - name: Install mhcnuggetsrinstall
-        env:
-          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'remotes::install_github("richelbilderbeek/mhcnuggetsrinstall")'; fi
-
-      - name: Show 'mhcnuggetsr::is_mhcnuggets_installed'
-        env:
-          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsr::is_mhcnuggets_installed'; fi
-
-      - name: Show 'mhcnuggetsrinstall::install_mhcnuggets'
-        env:
-          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets'; fi
-
-      - name: Install MHCnuggets
-        env:
-          INSTALL_MHCNUGGETS: ${{ matrix.install_mhcnuggets }}
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'mhcnuggetsrinstall::install_mhcnuggets()'; fi
-
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
@@ -73,10 +53,6 @@ jobs:
 
       - name: Lint
         run: if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
-
-      - name: Install mhcnuggetsr
-        run: remotes::install_github("richelbilderbeek/mhcnuggetsr")
-        shell: Rscript {0}
 
       - name: Report
         run: mhcnuggetsr::mhcnuggetsr_report()
