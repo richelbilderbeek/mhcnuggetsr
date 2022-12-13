@@ -93,21 +93,23 @@ predict_ic50_from_file <- function(
   module <- reticulate::import_from_path(
     module = "mhcnuggets"
   )
-  module <- reticulate::import_from_path(
-    module = "mhcnuggets",
-    path = normalizePath(file.path(get_default_mhcnuggets_folder()))
-  )
-  module <- reticulate::import_from_path(
-    module = "mhcnuggets",
-    path = normalizePath(
-      file.path(get_default_mhcnuggets_folder(), "mhcnuggets")
+  mhcnuggets_path <- normalizePath(
+    file.path(
+      get_default_mhcnuggets_folder(
+        mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder)
     )
   )
   module <- reticulate::import_from_path(
     module = "mhcnuggets",
-    path = normalizePath(
-      file.path(get_default_mhcnuggets_folder(), "mhcnuggets")
-    )
+    path = mhcnuggets_path
+  )
+  module <- reticulate::import_from_path(
+    module = "mhcnuggets",
+    path = normalizePath(file.path(mhcnuggets_path, "mhcnuggets"))
+  )
+  module <- reticulate::import_from_path(
+    module = "mhcnuggets",
+    path = normalizePath(file.path(mhcnuggets_path, "mhcnuggets", "mhcnuggets"))
   )
 
   if (verbose) {
