@@ -12,6 +12,7 @@ Description:
 License: GPL-3
 Imports:
     devtools,
+    dplyr,
     ormr,
     rappdirs,
     reticulate,
