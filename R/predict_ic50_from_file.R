@@ -51,15 +51,13 @@ predict_ic50_from_file <- function(
 
   if (is.na(mhcnuggets_options$mhc_class)) {
     mhc_1_haplotypes <- mhcnuggetsr::get_mhc_1_haplotypes(
-      mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder,
-      ormr_folder_name = mhcnuggets_options$ormr_folder_name
+      mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder
     )
     if (mhcnuggets_options$mhc %in% mhc_1_haplotypes) {
       mhcnuggets_options$mhc_class <- "I"
     } else {
       mhc_2_haplotypes <- mhcnuggetsr::get_mhc_2_haplotypes(
-        mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder,
-        ormr_folder_name = mhcnuggets_options$ormr_folder_name
+        mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder
       )
       testthat::expect_true(
         mhcnuggets_options$mhc %in% mhc_2_haplotypes
