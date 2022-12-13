@@ -35,8 +35,8 @@ jobs:
         run: singularity run-help mhcnuggetsr.sif
 
       - name: Show script
-        run: cat scripts/demo_container.R
+        run: cat scripts/demo_mhcnuggetsr.R
 
       - name: Run container
-        run: cat scripts/demo_container.R | ./mhcnuggetsr.sif
+        run: cat scripts/demo_mhcnuggetsr.R | ./mhcnuggetsr.sif
 
