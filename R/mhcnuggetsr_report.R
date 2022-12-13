@@ -31,7 +31,10 @@ mhcnuggetsr_report <- function(
     kat(
       paste0(
         "MHCnuggets version: ",
-        mhcnuggetsr::get_mhcnuggets_version()
+        mhcnuggetsr::get_mhcnuggets_version(
+          mhcnuggetsr_folder = mhcnuggetsr_folder,
+          ormr_folder_name = ormr_folder_name
+        )
       )
     )
   }
