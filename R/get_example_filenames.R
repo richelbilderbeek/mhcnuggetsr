@@ -23,7 +23,7 @@ get_example_filenames <- function(
   )
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   mhcnuggets_examples_folder <- file.path(
-    mhcnuggets_folder, "mhcnuggets", "mhcnuggets", "data"
+    mhcnuggets_folder, "mhcnuggets", "data"
   )
   testthat::expect_true(dir.exists(mhcnuggets_examples_folder))
   all_files <- list.files(

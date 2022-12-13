@@ -1,5 +1,15 @@
 library(mhcnuggetsr)
 mhcnuggetsr_folder <- "/opt/mhcnuggetsr"
+
+if (!is_mhcnuggets_installed(mhcnuggetsr_folder = mhcnuggetsr_folder)) {
+  stop(
+    "MHCnuggets not found. \n",
+    "mhcnuggetsr_folder: ", mhcnuggetsr_folder, " \n",
+    " \n",
+    "Tip: run 'mhcnuggetsrinstall::install_mhcnuggets'"
+  )
+}
+
 if (is_mhcnuggets_installed(mhcnuggetsr_folder = mhcnuggetsr_folder)) {
 
   peptides_path <- get_example_filename(
