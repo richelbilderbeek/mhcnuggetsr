@@ -6,8 +6,13 @@ Newest versions at top.
 
 ### NEW FEATURES
 
-  * None
-  
+  * Add 'check_ba_models'
+  * Add 'check_mhc'
+  * Add 'check_mhc_class'
+  * Add 'check_mhcnuggets_url'
+  * Add 'check_mhcnuggetsr_folder'
+  * Add 'check_verbose'
+
 ### MINOR IMPROVEMENTS
 
   * None
