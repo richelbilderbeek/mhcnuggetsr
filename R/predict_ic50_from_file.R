@@ -58,6 +58,12 @@ predict_ic50_from_file <- function(
       )
       mhcnuggets_options$mhc_class <- "II"
     }
+    if (verbose) {
+      message(
+        "mhcnuggets_options$mhc_class was assigned: ",
+        mhcnuggets_options$mhc_class
+      )
+    }
   }
   testthat::expect_true(mhcnuggets_options$mhc_class %in% c("I", "II"))
 
@@ -66,6 +72,14 @@ predict_ic50_from_file <- function(
     showWarnings = FALSE,
     recursive = TRUE
   )
+  testthat::expect_true(dir.exists(dirname(mhcnuggets_output_filename)))
+  if (verbose) {
+    message(
+      "Created folder ",
+      dirname(mhcnuggets_output_filename),
+      " to store temporary output"
+    )
+  }
 
   # Up to full path
   peptides_path <- normalizePath(peptides_path)

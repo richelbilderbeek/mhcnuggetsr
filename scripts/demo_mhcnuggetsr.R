@@ -30,5 +30,6 @@ message("peptides_path: ", peptides_path)
 
 predict_ic50_from_file(
   peptides_path = peptides_path,
-  mhcnuggets_options = mhcnuggets_options
+  mhcnuggets_options = mhcnuggets_options,
+  verbose = TRUE
 )
