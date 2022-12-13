@@ -17,7 +17,9 @@ Nothing.
 Convert a \code{mhcnuggets_options} to text
 }
 \examples{
-mhcnuggets_options_to_text(create_test_mhcnuggets_options())
+if (is_mhcnuggets_installed()) {
+  mhcnuggets_options_to_text(create_test_mhcnuggets_options())
+}
 }
 \author{
 Richèl J.C. Bilderbeek

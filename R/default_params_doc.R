@@ -38,6 +38,7 @@ default_params_doc <- function(
   mhcnuggets_url,
   mhcnuggetsr_folder,
   n_aas,
+  ormr_folder_name,
   peptide, peptides,
   peptide_length,
   peptides_path,
