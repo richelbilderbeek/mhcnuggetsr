@@ -18,4 +18,5 @@ check_mhc_class <- function(mhc_class) {
       "Actual value: ", mhc_class
     )
   }
+  invisible(mhc_class)
 }

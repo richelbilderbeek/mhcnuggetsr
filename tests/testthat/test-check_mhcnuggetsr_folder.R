@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_silent(check_mhcnuggetsr_folder("/home/username"))
+  expect_error(check_mhcnuggetsr_folder(TRUE))
+  expect_error(check_mhcnuggetsr_folder(NA))
+  expect_error(check_mhcnuggetsr_folder(NULL))
+  expect_error(check_mhcnuggetsr_folder(c()))
+  expect_error(check_mhcnuggetsr_folder(""))
+  expect_error(check_mhcnuggetsr_folder(c("HLA-A01:01", "HLA-A01:01")))
+  expect_error(check_mhcnuggetsr_folder(42))
+})

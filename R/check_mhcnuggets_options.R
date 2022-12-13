@@ -25,16 +25,14 @@ check_mhcnuggets_options <- function(
   }
   mhcnuggetsr::check_mhcnuggets_options_names(mhcnuggets_options)
   mhcnuggetsr::check_mhc_class(mhcnuggets_options$mhc_class)
-  if (!is_mhcnuggets_name(mhcnuggets_options$mhc)) {
-    stop(
-      "'mhc' must be a valid MHC haplotype name", "\n",
-      "Actual value: ", mhcnuggets_options$mhc, "\n",
-      "Tip: use 'to_mhcnuggets_name' to convert to an MHCnuggets name,",
-      "or see 'get_mhc_1_haplotypes' or 'get_mhc_2_haplotypes' for examples"
-    )
-  }
+  mhcnuggetsr::check_ba_models(mhcnuggets_options$ba_models)
+  mhcnuggetsr::check_verbose(mhcnuggets_options$verbose)
+  mhcnuggetsr::check_mhcnuggetsr_folder(mhcnuggets_options$mhcnuggetsr_folder)
+  mhcnuggetsr::check_mhcnuggets_url(mhcnuggets_options$mhcnuggets_url)
+  mhcnuggetsr::check_mhc(mhcnuggets_options$mhc)
+
   mhcnuggetsr::check_mhcnuggets_installation(
-    mhcnuggetsr_folder = mhcnuggets_options$folder_name,
+    mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder,
     ormr_folder_name = get_default_orm_folder_name()
   )
   if (!is.na(mhcnuggets_options$mhc_class) &&
@@ -57,6 +55,7 @@ check_mhcnuggets_options <- function(
       "'mhcnuggets_options$mhc': ", mhcnuggets_options$mhc
     )
   }
+  invisible(mhcnuggets_options)
 }
 
 #' Check the names of the elements in an \code{mhcnuggets_options} list.

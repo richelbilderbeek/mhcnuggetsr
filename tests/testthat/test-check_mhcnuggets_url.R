@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_silent(check_mhcnuggets_url("/home/username"))
+  expect_error(check_mhcnuggets_url(TRUE))
+  expect_error(check_mhcnuggets_url(NA))
+  expect_error(check_mhcnuggets_url(NULL))
+  expect_error(check_mhcnuggets_url(c()))
+  expect_error(check_mhcnuggets_url(""))
+  expect_error(check_mhcnuggets_url(c("HLA-A01:01", "HLA-A01:01")))
+  expect_error(check_mhcnuggets_url(42))
+})
