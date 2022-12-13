@@ -12,6 +12,7 @@ Newest versions at top.
   * Add 'check_mhcnuggets_url'
   * Add 'check_mhcnuggetsr_folder'
   * Add 'check_verbose'
+  * Add 'mhcnuggets_options_to_text' 
 
 ### MINOR IMPROVEMENTS
 

@@ -14,6 +14,12 @@ get_example_filename <- function(
   filename = "test_peptides.peps",
   mhcnuggetsr_folder = get_default_mhcnuggetsr_folder()
 ) {
+  if (!dir.exists(mhcnuggetsr_folder)) {
+    stop(
+      "Cannot find 'mhcnuggetsr_folder'. \n",
+      "mhcnuggetsr_folder: ", mhcnuggetsr_folder
+    )
+  }
   testthat::expect_true(dir.exists(mhcnuggetsr_folder))
   mhcnuggets_folder <- file.path(
     mhcnuggetsr_folder,

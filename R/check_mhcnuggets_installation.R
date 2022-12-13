@@ -21,7 +21,7 @@ check_mhcnuggets_installation <- function(
 ) {
   if (!ormr::is_python_package_installed(
       package_name = "mhcnuggets",
-      ormr_folder_name = ormr_folder_name,
+      ormr_folder_name = ormr_folder_name
     )
   ) {
     stop(
