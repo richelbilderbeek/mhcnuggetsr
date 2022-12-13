@@ -46,7 +46,7 @@ test_that("use", {
         mhc = "nonsense"
       )
     ),
-    "'mhc' must be a valid MHC haplotype name"
+    "'mhc' must be one valid MHC haplotype name"
   )
 
   expect_error(
