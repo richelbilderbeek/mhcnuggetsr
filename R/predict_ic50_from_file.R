@@ -106,7 +106,7 @@ predict_ic50_from_file <- function(
   module <- reticulate::import_from_path(
     module = "mhcnuggets",
     path = normalizePath(
-      file.path(get_default_mhcnuggets_folder(), "mhcnuggets", "mhcnuggets")
+      file.path(get_default_mhcnuggets_folder(), "mhcnuggets")
     )
   )
 
