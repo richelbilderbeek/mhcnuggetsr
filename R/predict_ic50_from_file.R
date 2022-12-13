@@ -47,6 +47,13 @@ predict_ic50_from_file <- function(
       "peptides_path: ", peptides_path
     )
   }
+  if (verbose) {
+    message("Checking mhcnuggets_options.")
+    message(
+      "mhcnuggets_options: ",
+      mhcnuggetsr::mhcnuggets_options_to_text(mhcnuggets_options)
+    )
+  }
   mhcnuggetsr::check_mhcnuggets_options(mhcnuggets_options)
 
   if (is.na(mhcnuggets_options$mhc_class)) {

@@ -15,6 +15,7 @@ default_params_doc(
   mhcnuggets_url,
   mhcnuggetsr_folder,
   n_aas,
+  ormr_folder_name,
   peptide,
   peptides,
   peptide_length,
@@ -47,6 +48,11 @@ for its default value.}
 
 \item{n_aas}{number of amino acids}
 
+\item{ormr_folder_name}{folder used by the \code{ormr} package
+to install Python packages to.
+Use \code{python3} to install Python packages via \code{pip}.
+Default value is \code{python3}}
+
 \item{peptide}{one peptide sequence}
 
 \item{peptides}{one of more peptide sequences}
@@ -59,11 +65,6 @@ for its default value.}
 for example \code{FAMILYVW}}
 
 \item{verbose}{set to \link{TRUE} for more debug information}
-
-\item{ormr_folder_name}{folder used by the \code{ormr} package
-to install Python packages to.
-Use \code{python3} to install Python packages via \code{pip}.
-Default value is \code{python3}}
 }
 \description{
 This function does nothing. It is intended to inherit the documentation
