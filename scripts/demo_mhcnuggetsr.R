@@ -1,16 +1,16 @@
 library(mhcnuggetsr)
-folder_name <- "/opt/mhcnuggetsr"
-if (is_mhcnuggets_installed(folder_name = folder_name)) {
+mhcnuggetsr_folder <- "/opt/mhcnuggetsr"
+if (is_mhcnuggets_installed(mhcnuggetsr_folder = mhcnuggetsr_folder)) {
 
   peptides_path <- get_example_filename(
     filename = "test_peptides.peps",
-    folder_name = folder_name
+    mhcnuggetsr_folder = mhcnuggetsr_folder
   )
   mhc_1_haplotype <- "HLA-A02:01"
 
   mhcnuggets_options <- create_mhcnuggets_options(
     mhc = mhc_1_haplotype,
-    folder_name = folder_name
+    mhcnuggetsr_folder = mhcnuggetsr_folder
   )
 
   predict_ic50_from_file(
