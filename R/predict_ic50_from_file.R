@@ -47,21 +47,22 @@ predict_ic50_from_file <- function(
       "peptides_path: ", peptides_path
     )
   }
-  if (verbose) {
-    message("Checking mhcnuggets_options.")
-    message(
-      "mhcnuggets_options: ",
-      mhcnuggetsr::mhcnuggets_options_to_text(mhcnuggets_options)
-    )
-  }
   mhcnuggetsr::check_mhcnuggets_options(mhcnuggets_options)
 
   if (is.na(mhcnuggets_options$mhc_class)) {
-    if (mhcnuggets_options$mhc %in% mhcnuggetsr::get_mhc_1_haplotypes()) {
+    mhc_1_haplotypes <- mhcnuggetsr::get_mhc_1_haplotypes(
+      mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder,
+      ormr_folder_name = mhcnuggets_options$ormr_folder_name
+    )
+    if (mhcnuggets_options$mhc %in% mhc_1_haplotypes) {
       mhcnuggets_options$mhc_class <- "I"
     } else {
+      mhc_2_haplotypes <- mhcnuggetsr::get_mhc_2_haplotypes(
+        mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder,
+        ormr_folder_name = mhcnuggets_options$ormr_folder_name
+      )
       testthat::expect_true(
-        mhcnuggets_options$mhc %in% mhcnuggetsr::get_mhc_2_haplotypes()
+        mhcnuggets_options$mhc %in% mhc_2_haplotypes
       )
       mhcnuggets_options$mhc_class <- "II"
     }
