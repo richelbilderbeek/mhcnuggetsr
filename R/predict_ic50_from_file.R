@@ -123,9 +123,12 @@ predict_ic50_from_file <- function(
     module = "mhcnuggets",
     path = mhcnuggets_path
   )
-  module <- reticulate::import_from_path(
-    module = "mhcnuggets",
-    path = normalizePath(file.path(mhcnuggets_path, "mhcnuggets"))
+  # Really need this one
+  suppressWarnings(
+    module <- reticulate::import_from_path(
+      module = "mhcnuggets",
+      path = normalizePath(file.path(mhcnuggets_path, "mhcnuggets"))
+    )
   )
 
   if (verbose) {

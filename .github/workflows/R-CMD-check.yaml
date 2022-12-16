@@ -8,13 +8,6 @@ name: R-CMD-check
 
 jobs:
   R-CMD-check:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - install_mhcnuggets: "true" 
-          - install_mhcnuggets: "false"
-
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -52,7 +45,9 @@ jobs:
         shell: Rscript {0}
 
       - name: Test coverage
-        run: if [[ "$INSTALL_MHCNUGGETS" == true ]]; then Rscript -e 'covr::codecov()'; fi
+        run: covr::codecov()
+        shell: Rscript {0}
 
       - name: Lint
-        run: if [[ "$INSTALL_MHCNUGGETS" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
+        run: lintr::lint_package()
+        shell: Rscript {0}
