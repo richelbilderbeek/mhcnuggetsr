@@ -81,7 +81,9 @@ predict_ic50_from_file <- function(
     showWarnings = FALSE,
     recursive = TRUE
   )
-  testthat::expect_true(dir.exists(dirname(normalized_mhcnuggets_output_filename)))
+  testthat::expect_true(
+    dir.exists(dirname(normalized_mhcnuggets_output_filename))
+  )
   if (verbose) {
     message(
       "Created folder ",
@@ -116,7 +118,7 @@ predict_ic50_from_file <- function(
   mhcnuggets_path <- normalizePath(
     file.path(
       normalizePath(
-        get_default_mhcnuggets_folder(
+        mhcnuggetsr::get_default_mhcnuggets_folder(
           mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder
         )
       )
@@ -137,7 +139,9 @@ predict_ic50_from_file <- function(
   suppressWarnings(
     module <- reticulate::import_from_path(
       module = "mhcnuggets",
-      path = normalizePath(file.path(mhcnuggets_path, "mhcnuggets", "mhcnuggets"))
+      path = normalizePath(
+        file.path(mhcnuggets_path, "mhcnuggets", "mhcnuggets")
+      )
     )
   )
 
@@ -164,7 +168,11 @@ predict_ic50_from_file <- function(
   }
   mhcnuggetsr::check_file_exists(normalized_peptides_path)
 
-  df <- tibble::as_tibble(utils::read.csv(normalized_mhcnuggets_output_filename))
+  df <- tibble::as_tibble(
+    utils::read.csv(
+      normalized_mhcnuggets_output_filename
+    )
+  )
   df$peptide <- as.character(df$peptide)
 
   file.remove(normalized_mhcnuggets_output_filename)

@@ -17,7 +17,7 @@ get_trained_mhc_1_haplotypes <- function(
   )
   mhcnuggets_folder <- file.path(
     mhcnuggetsr_folder,
-    basename(get_mhcnuggets_url())
+    basename(mhcnuggetsr::get_mhcnuggets_url())
   )
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   alleles_filename_1 <- normalizePath(

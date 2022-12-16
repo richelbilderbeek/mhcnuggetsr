@@ -33,11 +33,11 @@ check_mhcnuggets_options <- function(
 
   mhcnuggetsr::check_mhcnuggets_installation(
     mhcnuggetsr_folder = mhcnuggets_options$mhcnuggetsr_folder,
-    ormr_folder_name = get_default_orm_folder_name()
+    ormr_folder_name = mhcnuggetsr::get_default_orm_folder_name()
   )
   if (!is.na(mhcnuggets_options$mhc_class) &&
       mhcnuggets_options$mhc_class == "I" &&
-      mhcnuggets_options$mhc %in% get_trained_mhc_2_haplotypes()
+      mhcnuggets_options$mhc %in% mhcnuggetsr::get_trained_mhc_2_haplotypes()
   ) {
     stop(
       "Must use the same 'mhc_class' as the 'mhc' is from. \n",
@@ -47,7 +47,7 @@ check_mhcnuggets_options <- function(
   }
   if (!is.na(mhcnuggets_options$mhc_class) &&
       mhcnuggets_options$mhc_class == "II" &&
-      mhcnuggets_options$mhc %in% get_trained_mhc_1_haplotypes()
+      mhcnuggets_options$mhc %in% mhcnuggetsr::get_trained_mhc_1_haplotypes()
   ) {
     stop(
       "Must use the same 'mhc_class' as the 'mhc' is from. \n",

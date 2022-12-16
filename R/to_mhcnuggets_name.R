@@ -34,7 +34,7 @@ to_mhcnuggets_name <- function(mhc) {
     pattern = "([[:digit:]]{3})([[:digit:]]{2})",
     replacement = "\\1:\\2"
   )
-  if (!is_mhcnuggets_name(mhcnuggets_name)) {
+  if (!mhcnuggetsr::is_mhcnuggets_name(mhcnuggets_name)) {
     stop(
       "'to_mhcnuggets_name' did not result in an MHCnuggets name. \n",
       "'mhc': '", mhc, "'\n",
