@@ -1,0 +1,10 @@
+test_that("use", {
+  filename <- tempfile()
+  file.create(filename)
+  expect_true(file.exists(filename))
+  expect_silent(get_example_filename())
+  file.remove(filename)
+  expect_false(file.exists(filename))
+  expect_error(check_file_exists(filename))
+  expect_error(check_file_exists(filename), filename)
+})

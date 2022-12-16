@@ -7,6 +7,7 @@ of the parameters from.}
 \usage{
 default_params_doc(
   ba_models,
+  filename,
   mhc,
   mhcs,
   mhc_class,
@@ -26,6 +27,8 @@ default_params_doc(
 }
 \arguments{
 \item{ba_models}{Set to TRUE to use a pure BA model}
+
+\item{filename}{name of a file}
 
 \item{mhc}{the MHC haplotype name}
 

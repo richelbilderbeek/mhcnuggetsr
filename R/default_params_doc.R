@@ -1,6 +1,7 @@
 #' This function does nothing. It is intended to inherit the documentation
 #' of the parameters from.
 #' @param ba_models Set to TRUE to use a pure BA model
+#' @param filename name of a file
 #' @param mhc the MHC haplotype name
 #' @param mhcs the MHC haplotype names
 #' @param mhc_class MHC class. Must be \code{I}, \code{II}
@@ -31,6 +32,7 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   ba_models,
+  filename,
   mhc, mhcs,
   mhc_class,
   mhcnuggets_options,

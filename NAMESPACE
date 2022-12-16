@@ -2,6 +2,7 @@
 
 export(are_mhcnuggets_names)
 export(check_ba_models)
+export(check_file_exists)
 export(check_mhc)
 export(check_mhc_class)
 export(check_mhcnuggets_installation)
