@@ -22,6 +22,7 @@ get_trained_mhc_1_haplotypes <- function(
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   alleles_filename <- file.path(
     mhcnuggets_folder,
+    "mhcnuggets",
     "data", "production", "mhcI", "alleles_with_trained_models.txt"
   )
   testthat::expect_true(file.exists(alleles_filename))

@@ -4,7 +4,7 @@ mhcnuggetsr_folder <- "/opt/mhcnuggetsr"
 message("mhcnuggetsr_folder: ", mhcnuggetsr_folder)
 
 if (1 == 2) {
-  mhcnuggetsr_folder <- "/home/richel/test_again/mhcnuggetr"
+  mhcnuggetsr_folder <- "/home/richel/test/and/test/again/mhcnuggetr"
   mhcnuggetsrinstall::install_mhcnuggets(mhcnuggetsr_folder)
 
 }
@@ -35,6 +35,15 @@ peptides_path <- get_example_filename(
 )
 message("peptides_path: ", peptides_path)
 testthat::expect_true(file.exists(peptides_path))
+
+message(
+  "trained MHC-I haplotypes: ",
+  paste0(get_trained_mhc_1_haplotypes(mhcnuggetsr_folder), collapse = ", ")
+)
+message(
+  "trained MHC-II haplotypes: ",
+  paste0(get_trained_mhc_2_haplotypes(mhcnuggetsr_folder), collapse = ", ")
+)
 
 predict_ic50_from_file(
   peptides_path = peptides_path,
