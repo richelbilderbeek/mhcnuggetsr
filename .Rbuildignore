@@ -11,4 +11,5 @@
 ^CODE_OF_CONDUCT\.md$
 ^\.github$
 ^scripts$
+^Singularity$
 ^\.appveyor.yml$
