@@ -2,29 +2,30 @@
 
 Newest versions at top.
 
-## mhcnuggetsr 1.2.1 (unreleased)
+## mhcnuggetsr 1.2.1 (2022-12-16)
 
 ### NEW FEATURES
 
-  * Add 'check_ba_models'
-  * Add 'check_mhc'
-  * Add 'check_mhc_class'
-  * Add 'check_mhcnuggets_url'
-  * Add 'check_mhcnuggetsr_folder'
-  * Add 'check_verbose'
-  * Add 'mhcnuggets_options_to_text' 
+ * Add 'check_ba_models'
+ * Add 'check_mhc'
+ * Add 'check_mhc_class'
+ * Add 'check_mhcnuggets_url'
+ * Add 'check_mhcnuggetsr_folder'
+ * Add 'check_verbose'
+ * Add 'mhcnuggets_options_to_text' 
+ * Follow new MHCnuggets file structure
 
 ### MINOR IMPROVEMENTS
 
-  * None
+ * None
 
 ### BUG FIXES
 
-  * None
+ * None
 
 ### DEPRECATED AND DEFUNCT
 
-  * `downgrade_pip`, `install_mhcnuggets`, 
+ * `downgrade_pip`, `install_mhcnuggets`, 
     `install_pip`, `set_is_mhcnuggets_installed`, 
     `set_pip_version`, 
     `uninstall_mhcnuggets` `uninstall_pip`,
@@ -38,18 +39,18 @@ Newest versions at top.
 
 ### NEW FEATURES
 
-  * First version on CRAN
+ * First version on CRAN
   
 ### MINOR IMPROVEMENTS
 
-  * None
+ * None
 
 ### BUG FIXES
 
-  * None
+ * None
 
 ### DEPRECATED AND DEFUNCT
 
-  * None
+ * None
 
 
