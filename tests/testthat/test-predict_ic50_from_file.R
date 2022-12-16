@@ -143,7 +143,7 @@ test_that("abuse", {
       mhcnuggets_options = create_test_mhcnuggets_options(),
       peptides_path = "abs.ent"
     ),
-    "Cannot find 'peptides_path'"
+    "abs.ent"
   )
 })
 
