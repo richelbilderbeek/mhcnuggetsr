@@ -1,6 +1,13 @@
 library(mhcnuggetsr)
+
 mhcnuggetsr_folder <- "/opt/mhcnuggetsr"
 message("mhcnuggetsr_folder: ", mhcnuggetsr_folder)
+
+if (1 == 2) {
+  mhcnuggetsr_folder <- "/home/richel/test_again/mhcnuggetr"
+  mhcnuggetsrinstall::install_mhcnuggets(mhcnuggetsr_folder)
+
+}
 
 if (!is_mhcnuggets_installed(mhcnuggetsr_folder = mhcnuggetsr_folder)) {
   stop(
@@ -27,6 +34,7 @@ peptides_path <- get_example_filename(
   mhcnuggetsr_folder = mhcnuggetsr_folder
 )
 message("peptides_path: ", peptides_path)
+testthat::expect_true(file.exists(peptides_path))
 
 predict_ic50_from_file(
   peptides_path = peptides_path,
