@@ -33,7 +33,7 @@ predict_ic50_from_file <- function(
   normalized_peptides_path <- normalizePath(
     peptides_path, mustWork = FALSE
   )
-  normalized_mhcnuggets_output_filename <- normalizePath(
+  normalized_output_filename <- normalizePath(
     mhcnuggets_output_filename, mustWork = FALSE
   )
   mhcnuggetsr::check_file_exists(normalized_peptides_path)
@@ -41,7 +41,7 @@ predict_ic50_from_file <- function(
   if (any(nchar(readLines(normalized_peptides_path, warn = FALSE)) > 15)) {
     stop("'peptides' must have lengths of at most 15")
   }
-  if (normalized_peptides_path == normalized_mhcnuggets_output_filename) {
+  if (normalized_peptides_path == normalized_output_filename) {
     stop(
       "'peptides_path' and 'mhcnuggets_output_filename' must be different, \n",
       "because 'mhcnuggets_output_filename' is a temporary file that will \n",
@@ -77,17 +77,17 @@ predict_ic50_from_file <- function(
   testthat::expect_true(mhcnuggets_options$mhc_class %in% c("I", "II"))
 
   dir.create(
-    path = dirname(normalized_mhcnuggets_output_filename),
+    path = dirname(normalized_output_filename),
     showWarnings = FALSE,
     recursive = TRUE
   )
   testthat::expect_true(
-    dir.exists(dirname(normalized_mhcnuggets_output_filename))
+    dir.exists(dirname(normalized_output_filename))
   )
   if (verbose) {
     message(
       "Created folder ",
-      dirname(normalized_mhcnuggets_output_filename),
+      dirname(normalized_output_filename),
       " to store temporary output"
     )
   }
@@ -95,7 +95,7 @@ predict_ic50_from_file <- function(
   # Up to full path
   mhcnuggetsr::check_file_exists(normalized_peptides_path)
   testthat::expect_true(
-    normalized_peptides_path != normalized_mhcnuggets_output_filename
+    normalized_peptides_path != normalized_output_filename
   )
 
   if (verbose) {
@@ -151,7 +151,7 @@ predict_ic50_from_file <- function(
       peptides_path = normalized_peptides_path,
       mhc = mhcnuggets_options$mhc,
       ba_models = mhcnuggets_options$ba_models,
-      output = normalized_mhcnuggets_output_filename
+      output = normalized_output_filename
     )
   } else {
     suppressWarnings(
@@ -161,7 +161,7 @@ predict_ic50_from_file <- function(
           peptides_path = normalized_peptides_path,
           mhc = mhcnuggets_options$mhc,
           ba_models = mhcnuggets_options$ba_models,
-          output = normalized_mhcnuggets_output_filename
+          output = normalized_output_filename
         )
       )
     )
@@ -170,12 +170,12 @@ predict_ic50_from_file <- function(
 
   df <- tibble::as_tibble(
     utils::read.csv(
-      normalized_mhcnuggets_output_filename
+      normalized_output_filename
     )
   )
   df$peptide <- as.character(df$peptide)
 
-  file.remove(normalized_mhcnuggets_output_filename)
+  file.remove(normalized_output_filename)
 
   mhcnuggetsr::check_file_exists(normalized_peptides_path)
 

@@ -23,7 +23,7 @@ get_example_filename <- function(
   testthat::expect_true(dir.exists(mhcnuggetsr_folder))
   mhcnuggets_folder <- file.path(
     mhcnuggetsr_folder,
-    basename(get_mhcnuggets_url())
+    basename(mhcnuggetsr::get_mhcnuggets_url())
   )
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   mhcnuggets_examples_folder <- file.path(
