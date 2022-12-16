@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## mhcnuggetsr 1.2.2 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * Normalize paths, so that it can be built on CRAN
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## mhcnuggetsr 1.2.1 (2022-12-16)
 
 ### NEW FEATURES
