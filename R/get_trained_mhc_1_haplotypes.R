@@ -8,8 +8,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_trained_mhc_1_haplotypes <- function(
-    mhcnuggetsr_folder = get_default_mhcnuggets_folder(),
-    ormr_folder_name = get_default_orm_folder_name()
+  mhcnuggetsr_folder = get_default_mhcnuggets_folder(),
+  ormr_folder_name = get_default_orm_folder_name()
 ) {
   mhcnuggetsr::check_mhcnuggets_installation(
     mhcnuggetsr_folder = mhcnuggetsr_folder,
@@ -22,7 +22,6 @@ get_trained_mhc_1_haplotypes <- function(
   testthat::expect_true(dir.exists(mhcnuggets_folder))
   alleles_filename <- file.path(
     mhcnuggets_folder,
-    "mhcnuggets",
     "data", "production", "mhcI", "alleles_with_trained_models.txt"
   )
   testthat::expect_true(file.exists(alleles_filename))
