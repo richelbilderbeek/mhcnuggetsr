@@ -23,6 +23,9 @@
 #'   )
 #' }
 #' @author Richèl J.C. Bilderbeek
-#' @docType package
-#' @name mhcnuggetsr
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL
