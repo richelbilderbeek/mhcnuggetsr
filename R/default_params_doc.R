@@ -23,6 +23,7 @@
 #' @param peptide one peptide sequence
 #' @param peptides one of more peptide sequences
 #' @param peptides_path the path to the peptides
+#' @param python_version the Python version as a string
 #' @param protein_sequence protein sequence, in uppercase,
 #'   for example \code{FAMILYVW}
 #' @param verbose set to \link{TRUE} for more debug information
@@ -45,6 +46,7 @@ default_params_doc <- function(
   peptide_length,
   peptides_path,
   protein_sequence,
+  python_version,
   verbose
 ) {
   # Nothing

@@ -19,6 +19,8 @@ to install Python packages to.
 Use \code{python3} to install Python packages via \code{pip}.
 Default value is \code{python3}}
 
+\item{python_version}{the Python version as a string}
+
 \item{verbose}{set to \link{TRUE} for more debug information}
 }
 \value{

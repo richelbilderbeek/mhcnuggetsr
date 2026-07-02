@@ -18,6 +18,7 @@ is_python_package_installed <- function(
   python_version = mhcnuggetsr::get_default_python_version(),
   verbose = FALSE
 ) {
+  stop("DO NOT USE")
   # 'get_installed_python_packages' will check for 'python3'
   package_name %in% mhcnuggetsr::get_installed_python_packages(
     ormr_folder_name = ormr_folder_name,

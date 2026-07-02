@@ -22,6 +22,7 @@ default_params_doc(
   peptide_length,
   peptides_path,
   protein_sequence,
+  python_version,
   verbose
 )
 }
@@ -66,6 +67,8 @@ Default value is \code{python3}}
 
 \item{protein_sequence}{protein sequence, in uppercase,
 for example \code{FAMILYVW}}
+
+\item{python_version}{the Python version as a string}
 
 \item{verbose}{set to \link{TRUE} for more debug information}
 }

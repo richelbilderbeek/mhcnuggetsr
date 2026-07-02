@@ -16,6 +16,8 @@ to install Python packages to.
 Use \code{python3} to install Python packages via \code{pip}.
 Default value is \code{python3}}
 
+\item{python_version}{the Python version as a string}
+
 \item{verbose}{set to \link{TRUE} for more debug information}
 }
 \value{
@@ -31,12 +33,14 @@ a \link[tibble]{tibble} with two rows:
 Get the installed  Python packages and their versions
 }
 \examples{
-# Local python3
-get_installed_python_packages(ormr_folder_name = "python3")
+if (1 == 2) {
+  # Local python3
+  get_installed_python_packages(ormr_folder_name = "python3")
 
-# Conda environment
-if (is_conda_installed()) {
-  get_installed_python_packages()
+  # Conda environment
+  if (is_conda_installed()) {
+    get_installed_python_packages()
+  }
 }
 }
 \author{

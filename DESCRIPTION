@@ -13,12 +13,12 @@ License: GPL-3
 Imports:
     devtools,
     dplyr,
-    ormr,
     rappdirs,
     reticulate,
     stringr,
     tibble
 Suggests: 
+    beautier,
     knitr,
     markdown,
     testthat,

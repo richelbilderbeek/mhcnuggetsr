@@ -25,14 +25,13 @@ jobs:
         run: sudo apt install -qq libharfbuzz-dev libfribidi-dev
 
       - name: Fix 'use_2to3 is invalid', from https://stackoverflow.com/a/73971964
-        run: pip install --upgrade pip setuptools==57.5.0 
+        run: pip install --upgrade pip setuptools==57.5.0
 
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck", "devtools"))
           remotes::install_github("richelbilderbeek/plinkr")
           install.packages("semver")
-          remotes::install_github("richelbilderbeek/ormr")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")

@@ -6,12 +6,14 @@
 #'  * `requirement`: the packages requirements
 #'  * `channel`: the package's channel
 #' @examples
-#' # Local python3
-#' get_installed_python_packages(ormr_folder_name = "python3")
+#' if (1 == 2) {
+#'   # Local python3
+#'   get_installed_python_packages(ormr_folder_name = "python3")
 #'
-#' # Conda environment
-#' if (is_conda_installed()) {
-#'   get_installed_python_packages()
+#'   # Conda environment
+#'   if (is_conda_installed()) {
+#'     get_installed_python_packages()
+#'   }
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -21,6 +23,7 @@ get_installed_python_packages <- function(
   verbose = FALSE
 ) {
   testthat::expect_equal(ormr_folder_name, "python3")
+  stop("DO NOT USE")
   text <- system2(
     command = "python3",
     args = c("-m", "pip", "list"),
@@ -31,6 +34,10 @@ get_installed_python_packages <- function(
   while (stringr::str_detect(text[1], "WARNING:")) {
     testthat::expect_true(stringr::str_detect(text[1], "WARNING:"))
     text <- text[-1]
+  }
+  if (!stringr::str_detect(text[1], "Package.*Version")) {
+    message(text[1])
+
   }
   testthat::expect_true(stringr::str_detect(text[1], "Package.*Version"))
   text <- text[-1]
