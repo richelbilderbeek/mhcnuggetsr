@@ -2,11 +2,11 @@
 
 Newest versions at top.
 
-## mhcnuggetsr 1.2.2 (unreleased)
+## mhcnuggetsr 1.2.2 (2026-07-02)
 
 ### NEW FEATURES
 
- * None
+ * Remove all dependencies on non-CRAN packages
 
 ### MINOR IMPROVEMENTS
 
