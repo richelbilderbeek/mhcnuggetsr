@@ -9,7 +9,7 @@
 ^NEWS\.md$
 ^CONTRIBUTING\.md$
 ^CODE_OF_CONDUCT\.md$
-^\.github$
 ^scripts$
 ^Singularity$
 ^\.appveyor.yml$
+^CITATION\.cff$
