@@ -19,19 +19,6 @@ check_mhcnuggets_installation <- function(
   mhcnuggetsr_folder = get_default_mhcnuggetsr_folder(),
   ormr_folder_name = get_default_orm_folder_name()
 ) {
-  if (1 == 2) {
-    # Assume the Python install has taken place
-    if (!mhcnuggetsr::is_python_package_installed(
-      package_name = "mhcnuggets",
-      ormr_folder_name = ormr_folder_name
-    )
-    ) {
-      stop(
-        "'mhcnuggets not installed'. ",
-        "Tip: use 'mhcnuggetsr_report()' for more information"
-      )
-    }
-  }
   mhcnuggets_folder <- mhcnuggetsr::get_default_mhcnuggets_folder(
     mhcnuggetsr_folder = mhcnuggetsr_folder
   )
