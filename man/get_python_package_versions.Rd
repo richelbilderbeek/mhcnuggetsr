@@ -15,8 +15,10 @@ of that package, for example \code{0.9.0}
 Get the version of all Python packages
 }
 \examples{
-if (rappdirs::app_dir()$os != "win" && is_pip_installed()) {
-  get_python_package_versions()
+if (beautier::is_on_ci()) {
+  if (rappdirs::app_dir()$os != "win" && is_pip_installed()) {
+    get_python_package_versions()
+  }
 }
 }
 \author{

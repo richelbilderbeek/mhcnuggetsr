@@ -3,8 +3,10 @@
 #' package, for example \code{absl-py}, (2) \code{version}, the version
 #' of that package, for example \code{0.9.0}
 #' @examples
-#' if (rappdirs::app_dir()$os != "win" && is_pip_installed()) {
-#'   get_python_package_versions()
+#' if (beautier::is_on_ci()) {
+#'   if (rappdirs::app_dir()$os != "win" && is_pip_installed()) {
+#'     get_python_package_versions()
+#'   }
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
