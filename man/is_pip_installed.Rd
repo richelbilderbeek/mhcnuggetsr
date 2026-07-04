@@ -13,7 +13,9 @@ TRUE if pip is installed, FALSE otherwise
 Determine if pip is installed
 }
 \examples{
-is_pip_installed()
+if (beautier::in_on_ci()) {
+  is_pip_installed()
+}
 }
 \author{
 Richèl J.C. Bilderbeek

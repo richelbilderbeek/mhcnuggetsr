@@ -1,7 +1,9 @@
 #' Determine if pip is installed
 #' @return TRUE if pip is installed, FALSE otherwise
 #' @examples
-#' is_pip_installed()
+#' if (beautier::in_on_ci()) {
+#'   is_pip_installed()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_pip_installed <- function() {
