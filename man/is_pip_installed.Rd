@@ -13,7 +13,7 @@ TRUE if pip is installed, FALSE otherwise
 Determine if pip is installed
 }
 \examples{
-if (beautier::in_on_ci()) {
+if (beautier::is_on_ci()) {
   is_pip_installed()
 }
 }

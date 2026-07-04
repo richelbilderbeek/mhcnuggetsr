@@ -1,7 +1,7 @@
 #' Determine if pip is installed
 #' @return TRUE if pip is installed, FALSE otherwise
 #' @examples
-#' if (beautier::in_on_ci()) {
+#' if (beautier::is_on_ci()) {
 #'   is_pip_installed()
 #' }
 #' @author Richèl J.C. Bilderbeek
