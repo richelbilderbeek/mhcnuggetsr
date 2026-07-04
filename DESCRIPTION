@@ -26,7 +26,7 @@ Suggests:
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/richelbilderbeek/mhcnuggetsr/
-BugReports: https://github.com/richelbilderbeek/mhcnuggetsr
+BugReports: https://github.com/richelbilderbeek/mhcnuggetsr/issues
 Language: en-US
 VignetteBuilder: knitr
 Config/roxygen2/version: 8.0.0
