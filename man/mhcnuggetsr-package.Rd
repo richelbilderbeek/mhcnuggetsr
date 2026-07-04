@@ -33,7 +33,7 @@ if (is_mhcnuggets_installed()) {
 Useful links:
 \itemize{
   \item \url{https://github.com/richelbilderbeek/mhcnuggetsr/}
-  \item Report bugs at \url{https://github.com/richelbilderbeek/mhcnuggetsr}
+  \item Report bugs at \url{https://github.com/richelbilderbeek/mhcnuggetsr/issues}
 }
 
 }

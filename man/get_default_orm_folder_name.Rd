@@ -2,16 +2,16 @@
 % Please edit documentation in R/get_default_orm_folder_name.R
 \name{get_default_orm_folder_name}
 \alias{get_default_orm_folder_name}
-\title{Get the default folder for \link[ormr]{ormr}.}
+\title{Get the default folder for ormr.}
 \usage{
 get_default_orm_folder_name()
 }
 \value{
-the default \link[ormr]{ormr} folder
+the default 'ormr' folder
 }
 \description{
 This is either \code{python3} (such as in this case, when the user uses \code{pip}
-to install Python packages) or a folder where \link[ormr]{ormr} installs
+to install Python packages) or a folder where 'ormr' installs
 Python packages using \link[reticulate]{reticulate}.
 }
 \examples{
